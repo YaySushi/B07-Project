@@ -1,3 +1,17 @@
 <resources>
     <string name="app_name">CS2EX1ST</string>
+    <string name="welcome_message">Welcome!</string>
+    <string name="signup">Sign Up</string>
+    <string name="login">Log In</string>
+    <string name="whoami">I am a:</string>
+    <string name="doctor">Doctor</string>
+    <string name="patient">Patient</string>
+    <string name="submit">Submit</string>
+    <string name="email">Enter your email address:</string>
+    <string name="password">Enter your password:</string>
+    <string name="loginacc">Log In To Your Account</string>
+    <string name="signupacc">Create Your Account</string>
+    <string name="name">Enter your name:</string>
+    <string name="dob">Enter your date of birth:</string>
+    <string name="dobformat">DD/MM/YYYY</string>
 </resources>
