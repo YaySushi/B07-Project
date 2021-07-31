@@ -11,7 +11,8 @@
     <string name="password">Enter your password:</string>
     <string name="loginacc">Log-In To Your Account</string>
     <string name="signupacc">Create Your Account</string>
-    <string name="name">Enter your name:</string>
+    <string name="firstname">Enter your first name:</string>
+    <string name="lastname">Enter your last name:</string>
     <string name="dob">Enter your date of birth (DD/MM/YYYY):</string>
     <string name="dobformat">DD/MM/YYYY</string>
     <string name="specialization">Enter your specialization(s):</string>
