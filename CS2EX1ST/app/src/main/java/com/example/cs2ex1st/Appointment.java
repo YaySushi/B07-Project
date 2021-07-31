@@ -3,10 +3,18 @@ package com.example.cs2ex1st;
 public class Appointment {
     private int startTime;
     private boolean isBooked;
-
+    private Doctor doctor;
     public Appointment(int startTime, boolean isBooked) {
         this.startTime = startTime;
         this.isBooked = isBooked;
+    }
+
+    public Doctor getDoctor() {
+        return doctor;
+    }
+
+    public void setDoctor(Doctor doctor) {
+        this.doctor = doctor;
     }
 
     public int getStartTime() {
