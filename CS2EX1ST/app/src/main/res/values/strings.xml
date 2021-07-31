@@ -9,9 +9,18 @@
     <string name="submit">Submit</string>
     <string name="email">Enter your email address:</string>
     <string name="password">Enter your password:</string>
-    <string name="loginacc">Log In To Your Account</string>
+    <string name="loginacc">Log-In To Your Account</string>
     <string name="signupacc">Create Your Account</string>
     <string name="name">Enter your name:</string>
-    <string name="dob">Enter your date of birth:</string>
+    <string name="dob">Enter your date of birth (DD/MM/YYYY):</string>
     <string name="dobformat">DD/MM/YYYY</string>
+    <string name="specialization">Enter your specialization(s):</string>
+    <string name="setpassword">Set Password:</string>
+    <string name="confirmpassword">Confirm Password:</string>
+    <string name="success">Hooray!</string>
+    <string name="createdacc">Your account has been created.</string>
+    <string name="failure">Oops...</string>
+    <string name="loginfail">Email address or password is incorrect.</string>
+    <string name="tryagain">Try Again</string>
+
 </resources>
