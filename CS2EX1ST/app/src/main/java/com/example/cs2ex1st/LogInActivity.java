@@ -15,8 +15,9 @@ public class LogInActivity extends AppCompatActivity {
     }
 
     public void sendLogInInfo(View view) {
-        //need 2 intents for 2 cases: failure and success
-        //Intent intent = new Intent(this, ProfileDisplay.class);
-        //startActivity(intent);
+        // need 2 intents for 2 cases: failure and success
+        // ***INCOMPLETE***
+        Intent intent = new Intent(this, LoginFailure.class);
+        startActivity(intent);
     }
 }
