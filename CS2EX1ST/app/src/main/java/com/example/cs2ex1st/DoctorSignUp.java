@@ -46,7 +46,7 @@ public class DoctorSignUp extends AppCompatActivity {
         String password = editText.getText().toString();
 
         try {
-            //User d = new Doctor(firstName, lastName, email, spinner1.getSelectedItem().toString(), spinner2.getSelectedItem().toString(), password);
+            User d = new Doctor(firstName, lastName, email, spinner1.getSelectedItem().toString(), spinner2.getSelectedItem().toString(), password);
             //check order of arguments later: first, last, email, gender, specialization, password
         } catch (Exception ex) {
 //            Intent intent = new Intent(this, SignUpFailure.class);

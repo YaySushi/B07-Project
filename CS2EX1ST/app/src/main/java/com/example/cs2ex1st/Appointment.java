@@ -1,9 +1,9 @@
 package com.example.cs2ex1st;
 
 public class Appointment {
-    private int startTime;
-    private boolean isBooked;
-    private Doctor doctor;
+    int startTime;
+    boolean isBooked;
+    Doctor doctor;
     public Appointment(int startTime, boolean isBooked) {
         this.startTime = startTime;
         this.isBooked = isBooked;

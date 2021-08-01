@@ -40,7 +40,7 @@ public class PatientSignUp extends AppCompatActivity {
         String password = editText.getText().toString();
 
         try {
-            //User p = new Patient(firstName, lastName, email, dob, spinner.getSelectedItem(), password);
+            User p = new Patient(firstName, lastName, email, spinner.getSelectedItem().toString(), password);
             //check order of arguments later: first, last, email, dob, gender, password
         } catch (Exception ex) {
 
