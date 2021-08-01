@@ -10,8 +10,8 @@ public class Doctor extends DummyUser {
     String specialization;
 
     public Doctor() {}
-    public Doctor(String first, String last, String gender, String email, String specialization) {
-          super(first, last, gender, email);
+    public Doctor(String first, String last, String email, String gender, String specialization, String password) {
+          super(first, last, email, gender, password);
           this.specialization = specialization;
     }
 

@@ -8,9 +8,10 @@ public abstract class DummyUser {
     String firstName;
     String lastName;
     String gender;
+    String password;
 
     public DummyUser() {}
-    public DummyUser(String first, String last, String email, String gender) {
+    public DummyUser(String first, String last, String email, String gender, String password) {
         if (first == "" || last == "" || first == null || last == null) {
             throw new InputMismatchException("Invalid name.");
         }
@@ -23,5 +24,6 @@ public abstract class DummyUser {
         firstName = first;
         lastName = last;
         this.gender = gender;
+        this.password = password;
     }
 }
