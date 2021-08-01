@@ -15,9 +15,12 @@ public class LogInActivity extends AppCompatActivity {
     }
 
     public void sendLogInInfo(View view) {
-        // need 2 intents for 2 cases: failure and success
-        // ***INCOMPLETE***
-        Intent intent = new Intent(this, LoginFailure.class);
+        Intent intent;
+        // search database and indicate failure if email does not exist or if email exists and password does not match
+        intent = new Intent(this, LoginFailure.class);
         startActivity(intent);
+
+        // else if patient, move to patient profile
+        // if doctor, move to doctor profile
     }
 }
