@@ -9,31 +9,30 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 
-public class PatientSignUp extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
+public class PatientSignUp extends AppCompatActivity {
 
-    private Patient p;
-    private Spinner spinner1;
+    private Spinner spinner;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_patient_sign_up);
 
-        spinner1 = (Spinner) findViewById(R.id.doctorGenderSpinner);
+        spinner = (Spinner) findViewById(R.id.patientGenderSpinner);
         ArrayAdapter<CharSequence> genderAdapter = new ArrayAdapter<CharSequence>(this, android.R.layout.simple_spinner_item,
                 getResources().getStringArray(R.array.gender));
         genderAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinner1.setAdapter(genderAdapter);
+        spinner.setAdapter(genderAdapter);
     }
 
     public void submitPatientData(View view) {
-        User p = new Patient(spinner1.getSelectedItem());
+       // User p = new Patient(spinner1.getSelectedItem());
         // add try-catch blocks
 
-        // then search database
+        // then search database in case email already exists
         // need 2 cases: failure and success
         // ***INCOMPLETE***
-        Intent intent = new Intent(this, SignUpSuccess.class);
+        Intent intent = new Intent(this, SignUpFailure.class);
         startActivity(intent);
     }
 
