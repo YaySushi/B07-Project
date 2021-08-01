@@ -11,7 +11,7 @@ import android.widget.Spinner;
 
 public class DoctorSignUp extends AppCompatActivity {
 
-    private Doctor d;
+    private User d;
     private Spinner spinner1;
     private Spinner spinner2;
 
