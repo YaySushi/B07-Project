@@ -5,12 +5,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.Spinner;
 
 public class PatientSignUp extends AppCompatActivity {
-
     private Spinner spinner;
 
     @Override
@@ -26,13 +25,31 @@ public class PatientSignUp extends AppCompatActivity {
     }
 
     public void submitPatientData(View view) {
-       // User p = new Patient(spinner1.getSelectedItem());
-        // add try-catch blocks
+        EditText editText = (EditText) findViewById(R.id.patientfirstname);
+        String firstName = editText.getText().toString();
+        editText = (EditText) findViewById(R.id.patientlastname);
+        String lastName = editText.getText().toString();
+        editText = (EditText) findViewById(R.id.patientemail);
+        String email = editText.getText().toString();
+        editText = (EditText) findViewById(R.id.patientdob);
+        String dob = editText.getText().toString();
+        editText = (EditText) findViewById(R.id.patientPassword);
+        String password = editText.getText().toString();
 
-        // then search database in case email already exists
-        // need 2 cases: failure and success
-        // ***INCOMPLETE***
-        Intent intent = new Intent(this, SignUpFailure.class);
+        try {
+            User p = new Patient(firstName, lastName, email, dob, spinner.getSelectedItem(), password);
+            //check order of arguments later: first, last, email, dob, gender, password
+        } catch (Exception ex) {
+            Intent intent = new Intent(this, SignUpFailure.class);
+            intent.putExtra("ERROR_MESSAGE", ex.getMessage());
+            startActivity(intent);
+        }
+
+        // search database and indicate failure if email already exists
+        // else add to database
+
+        // finally
+        Intent intent = new Intent(this, SignUpSuccess.class);
         startActivity(intent);
     }
 
