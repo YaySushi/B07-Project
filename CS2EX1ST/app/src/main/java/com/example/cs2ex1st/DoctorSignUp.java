@@ -5,12 +5,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.Spinner;
 
 public class DoctorSignUp extends AppCompatActivity {
-
     private Spinner spinner1;
     private Spinner spinner2;
 
@@ -33,12 +32,28 @@ public class DoctorSignUp extends AppCompatActivity {
     }
 
     public void submitDoctorData(View view) {
-       // User d = new Doctor(spinner1.getSelectedItem().toString(), spinner2.getSelectedItem().toString());
-        // add try-catch blocks
+        EditText editText = (EditText) findViewById(R.id.doctorfirstname);
+        String firstName = editText.getText().toString();
+        editText = (EditText) findViewById(R.id.doctorlastname);
+        String lastName = editText.getText().toString();
+        editText = (EditText) findViewById(R.id.doctoremail);
+        String email = editText.getText().toString();
+        editText = (EditText) findViewById(R.id.doctorpassword);
+        String password = editText.getText().toString();
 
-        // then search database in case email already exists
-        // need 2 cases: failure and success
-        // ***INCOMPLETE***
+        try {
+            User d = new Doctor(firstName, lastName, email, spinner1.getSelectedItem().toString(), spinner2.getSelectedItem().toString(), password);
+            //check order of arguments later: first, last, email, gender, specialization, password
+        } catch (Exception ex) {
+            Intent intent = new Intent(this, SignUpFailure.class);
+            intent.putExtra("ERROR_MESSAGE", ex.getMessage());
+            startActivity(intent);
+        }
+
+        // search database and indicate failure if email already exists
+        // else add to database
+
+        // finally
         Intent intent = new Intent(this, SignUpSuccess.class);
         startActivity(intent);
     }
