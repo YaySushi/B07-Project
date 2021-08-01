@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="NONE" />
+  </component>
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="cbd9ed54-63b3-4bc6-aadc-b10cbcc5c2d7" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CS2EX1ST/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/CS2EX1ST/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CS2EX1ST/.idea/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/CS2EX1ST/.idea/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CS2EX1ST/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/CS2EX1ST/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CS2EX1ST/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/CS2EX1ST/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CS2EX1ST/.idea/jarRepositories.xml" beforeDir="false" afterPath="$PROJECT_DIR$/CS2EX1ST/.idea/jarRepositories.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CS2EX1ST/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/CS2EX1ST/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CS2EX1ST/.idea/runConfigurations.xml" beforeDir="false" afterPath="$PROJECT_DIR$/CS2EX1ST/.idea/runConfigurations.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CS2EX1ST/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/CS2EX1ST/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CS2EX1ST/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/CS2EX1ST/app/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CS2EX1ST/app/proguard-rules.pro" beforeDir="false" afterPath="$PROJECT_DIR$/CS2EX1ST/app/proguard-rules.pro" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CS2EX1ST/app/src/androidTest/java/com/example/cs2ex1st/ExampleInstrumentedTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/CS2EX1ST/app/src/androidTest/java/com/example/cs2ex1st/ExampleInstrumentedTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CS2EX1ST/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/CS2EX1ST/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CS2EX1ST/app/src/main/java/com/example/cs2ex1st/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/CS2EX1ST/app/src/main/java/com/example/cs2ex1st/MainActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CS2EX1ST/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" beforeDir="false" afterPath="$PROJECT_DIR$/CS2EX1ST/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CS2EX1ST/app/src/main/res/drawable/ic_launcher_background.xml" beforeDir="false" afterPath="$PROJECT_DIR$/CS2EX1ST/app/src/main/res/drawable/ic_launcher_background.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CS2EX1ST/app/src/main/res/layout/activity_main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/CS2EX1ST/app/src/main/res/layout/activity_main.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CS2EX1ST/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" beforeDir="false" afterPath="$PROJECT_DIR$/CS2EX1ST/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CS2EX1ST/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" beforeDir="false" afterPath="$PROJECT_DIR$/CS2EX1ST/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CS2EX1ST/app/src/main/res/values-night/themes.xml" beforeDir="false" afterPath="$PROJECT_DIR$/CS2EX1ST/app/src/main/res/values-night/themes.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CS2EX1ST/app/src/main/res/values/colors.xml" beforeDir="false" afterPath="$PROJECT_DIR$/CS2EX1ST/app/src/main/res/values/colors.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CS2EX1ST/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/CS2EX1ST/app/src/main/res/values/strings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CS2EX1ST/app/src/main/res/values/themes.xml" beforeDir="false" afterPath="$PROJECT_DIR$/CS2EX1ST/app/src/main/res/values/themes.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CS2EX1ST/app/src/test/java/com/example/cs2ex1st/ExampleUnitTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/CS2EX1ST/app/src/test/java/com/example/cs2ex1st/ExampleUnitTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CS2EX1ST/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/CS2EX1ST/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CS2EX1ST/gradle.properties" beforeDir="false" afterPath="$PROJECT_DIR$/CS2EX1ST/gradle.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CS2EX1ST/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/CS2EX1ST/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CS2EX1ST/gradlew" beforeDir="false" afterPath="$PROJECT_DIR$/CS2EX1ST/gradlew" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CS2EX1ST/gradlew.bat" beforeDir="false" afterPath="$PROJECT_DIR$/CS2EX1ST/gradlew.bat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CS2EX1ST/settings.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/CS2EX1ST/settings.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1vxba6hJ1Jlrqm0f1PHZi2WBiuU" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/CS2EX1ST" />
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="cbd9ed54-63b3-4bc6-aadc-b10cbcc5c2d7" name="Default Changelist" comment="" />
+      <created>1627506747767</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1627506747767</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="223" y="67" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1627506983044">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="223" y="67" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824@0.0.1536.824" timestamp="1627506983044" />
+    <state x="599" y="134" key="FileChooserDialogImpl" timestamp="1627507256243">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="599" y="134" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1627507256243" />
+    <state x="586" y="326" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1627506957418">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="586" y="326" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.824@0.0.1536.824" timestamp="1627506957418" />
+  </component>
+</project>
