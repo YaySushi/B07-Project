@@ -71,4 +71,5 @@
         <item>Rheumatology</item>
         <item>Urology</item>
     </string-array>
+    <string name="signupfail">Unable to create account.</string>
 </resources>
