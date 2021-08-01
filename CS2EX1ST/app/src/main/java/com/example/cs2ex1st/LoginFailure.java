@@ -14,7 +14,7 @@ public class LoginFailure extends AppCompatActivity {
         setContentView(R.layout.activity_login_failure);
     }
 
-    public void tryAgain(View view) {
+    public void tryLogInAgain(View view) {
         Intent intent = new Intent(this, LogInActivity.class);
         startActivity(intent);
     }
