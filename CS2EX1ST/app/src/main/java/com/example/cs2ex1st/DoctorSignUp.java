@@ -11,7 +11,6 @@ import android.widget.Spinner;
 
 public class DoctorSignUp extends AppCompatActivity {
 
-    private User d;
     private Spinner spinner1;
     private Spinner spinner2;
 
@@ -34,7 +33,10 @@ public class DoctorSignUp extends AppCompatActivity {
     }
 
     public void submitDoctorData(View view) {
-        User d = new Doctor(spinner1.getSelectedItem(), spinner2.getSelectedItem());
+       // User d = new Doctor(spinner1.getSelectedItem().toString(), spinner2.getSelectedItem().toString());
+        // add try-catch blocks
+
+        // then search database in case email already exists
         // need 2 cases: failure and success
         // ***INCOMPLETE***
         Intent intent = new Intent(this, SignUpSuccess.class);
