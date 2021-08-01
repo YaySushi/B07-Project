@@ -6,22 +6,21 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
-public class MainActivity extends AppCompatActivity {
+public class SignUpActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_sign_up);
     }
 
-    public void sendSignUpMessage(View view) {
-        Intent intent = new Intent(this, SignUpActivity.class);
+    public void doctorSignUp(View view) {
+        Intent intent = new Intent(this, DoctorSignUp.class);
         startActivity(intent);
     }
 
-    public void sendLogInMessage(View view) {
-        Intent intent = new Intent(this, LogInActivity.class);
+    public void patientSignUp(View view) {
+        Intent intent = new Intent(this, PatientSignUp.class);
         startActivity(intent);
     }
-
 }

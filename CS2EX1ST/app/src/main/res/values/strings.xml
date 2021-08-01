@@ -1,3 +1,75 @@
 <resources>
     <string name="app_name">CS2EX1ST</string>
+    <string name="welcome_message">Welcome!</string>
+    <string name="signup">Sign Up</string>
+    <string name="login">Log In</string>
+    <string name="whoami">I am a:</string>
+    <string name="doctor">Doctor</string>
+    <string name="patient">Patient</string>
+    <string name="submit">Submit</string>
+    <string name="email">Enter your email address:</string>
+    <string name="password">Enter your password:</string>
+    <string name="loginacc">Log-In To Your Account</string>
+    <string name="signupacc">Create Your Account</string>
+    <string name="firstname">Enter your first name:</string>
+    <string name="lastname">Enter your last name:</string>
+    <string name="dob">Enter your date of birth (DD/MM/YYYY):</string>
+    <string name="dobformat">DD/MM/YYYY</string>
+    <string name="specialization">Enter your specialization(s):</string>
+    <string name="setpassword">Set Password:</string>
+    <string name="confirmpassword">Confirm Password:</string>
+    <string name="success">Hooray!</string>
+    <string name="createdacc">Your account has been created.</string>
+    <string name="failure">Oops...</string>
+    <string name="loginfail">Email address or password is incorrect.</string>
+    <string name="tryagain">Try Again</string>
+    <string name="askgender">Select your gender:</string>
+    <string-array name="gender">
+        <item>Male</item>
+        <item>Female</item>
+        <item>Other</item>
+    </string-array>
+
+    <string-array name="specialization">
+        <item>Anatomical Pathology</item>
+        <item>Anesthesiology</item>
+        <item>Cardiology</item>
+        <item>Cardiovascular/Thoracic Surgery</item>
+        <item> Clinical Immunology/Allergy</item>
+        <item>Critical Care Medicine</item>
+        <item>Dermatology</item>
+        <item> Diagnostic Radiology</item>
+        <item>Emergency Medicine</item>
+        <item>Endocrinology/Metabolism</item>
+        <item>Family Medicine</item>
+        <item>Gastroenterology</item>
+        <item>General Internal Medicine</item>
+        <item>General Surgery</item>
+        <item>General/Clinical Pathology</item>
+        <item>Geriatric Medicine</item>
+        <item>Hematology</item>
+        <item>Medical Biochemistry</item>
+        <item>Medical Genetics</item>
+        <item>Medical Microbiology and Infectious Diseases</item>
+        <item>Medical Oncology</item>
+        <item>Nephrology</item>
+        <item>Neurology</item>
+        <item>Neurosurgery</item>
+        <item>Nuclear Medicine</item>
+        <item>Obstetrics/Gynecology</item>
+        <item>Occupational Medicine</item>
+        <item>Ophthalmology</item>
+        <item>Orthopedic Surgery</item>
+        <item>Otolaryngology</item>
+        <item>Pediatrics</item>
+        <item>Physical Medicine and Rehabilitation</item>
+        <item>Plastic Surgery</item>
+        <item> Psychiatry</item>
+        <item>Public Health and Preventive Medicine</item>
+        <item>Radiation Oncology</item>
+        <item>Respiratory Medicine/Respirology</item>
+        <item>Rheumatology</item>
+        <item>Urology</item>
+    </string-array>
+    <string name="signupfail">Unable to create account.</string>
 </resources>
