@@ -18,6 +18,18 @@
             tools:context=".DoctorSignUp">
 
             <TextView
+                android:id="@+id/doctorSignInErrorText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="TextView"
+                android:textColor="#F36060"
+                app:layout_constraintBottom_toTopOf="@+id/button6"
+                app:layout_constraintEnd_toEndOf="@+id/doctorpassword"
+                app:layout_constraintHorizontal_bias="0.848"
+                app:layout_constraintStart_toStartOf="@+id/doctorpassword"
+                app:layout_constraintTop_toBottomOf="@+id/doctorpassword" />
+
+            <TextView
                 android:id="@+id/textView3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -91,7 +103,6 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="158dp"
                 android:layout_marginLeft="158dp"
-                android:layout_marginTop="15dp"
                 android:layout_marginEnd="159dp"
                 android:layout_marginRight="159dp"
                 android:layout_marginBottom="10dp"
@@ -99,9 +110,9 @@
                 android:text="@string/submit"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/doctorpassword" />
+                app:layout_constraintTop_toBottomOf="@+id/doctorSignInErrorText" />
 
             <TextView
                 android:id="@+id/textView2"
@@ -160,10 +171,8 @@
                 android:layout_marginLeft="47dp"
                 android:layout_marginEnd="154dp"
                 android:layout_marginRight="154dp"
-                android:layout_marginBottom="15dp"
                 android:ems="10"
                 android:inputType="textPassword"
-                app:layout_constraintBottom_toTopOf="@+id/button6"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"

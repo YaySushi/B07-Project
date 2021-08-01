@@ -8,11 +8,12 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 public class DoctorSignUp extends AppCompatActivity {
     private Spinner spinner1;
     private Spinner spinner2;
-
+    private TextView errorText;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,6 +30,9 @@ public class DoctorSignUp extends AppCompatActivity {
                 getResources().getStringArray(R.array.specialization));
         specializationAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner2.setAdapter(specializationAdapter);
+
+        errorText = (TextView) findViewById(R.id.doctorSignInErrorText);
+        errorText.setText("");
     }
 
     public void submitDoctorData(View view) {
@@ -42,12 +46,13 @@ public class DoctorSignUp extends AppCompatActivity {
         String password = editText.getText().toString();
 
         try {
-            User d = new Doctor(firstName, lastName, email, spinner1.getSelectedItem().toString(), spinner2.getSelectedItem().toString(), password);
+            //User d = new Doctor(firstName, lastName, email, spinner1.getSelectedItem().toString(), spinner2.getSelectedItem().toString(), password);
             //check order of arguments later: first, last, email, gender, specialization, password
         } catch (Exception ex) {
-            Intent intent = new Intent(this, SignUpFailure.class);
-            intent.putExtra("ERROR_MESSAGE", ex.getMessage());
-            startActivity(intent);
+//            Intent intent = new Intent(this, SignUpFailure.class);
+//            intent.putExtra("ERROR_MESSAGE", ex.getMessage());
+//            startActivity(intent);
+            errorText.setText(ex.getMessage());
         }
 
         // search database and indicate failure if email already exists
