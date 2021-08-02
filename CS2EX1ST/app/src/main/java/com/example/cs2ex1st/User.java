@@ -14,7 +14,7 @@ public abstract class User {
                 String last,
                 String email,
                 String gender,
-                String password) {
+                String password) throws InputMismatchException {
         if (first == "" || last == "" || first == null || last == null) {
             throw new InputMismatchException("Invalid name.");
         }
