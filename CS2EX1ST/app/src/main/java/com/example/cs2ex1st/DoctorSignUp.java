@@ -10,6 +10,8 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import java.util.InputMismatchException;
+
 public class DoctorSignUp extends AppCompatActivity {
     private Spinner spinner1;
     private Spinner spinner2;
@@ -47,7 +49,7 @@ public class DoctorSignUp extends AppCompatActivity {
 
         try {
             User d = new Doctor(firstName, lastName, email, spinner1.getSelectedItem().toString(), spinner2.getSelectedItem().toString(), password);
-        } catch (Exception ex) {
+        } catch (InputMismatchException ex) {
             errorText.setText(ex.getMessage());
             return;
         }
