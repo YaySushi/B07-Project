@@ -23,7 +23,7 @@ public class PatientSignUp extends AppCompatActivity {
                 getResources().getStringArray(R.array.gender));
         genderAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(genderAdapter);
-        errorText = (TextView) findViewById(R.id.signInErrorText);
+        errorText = (TextView) findViewById(R.id.patientSignInErrorText);
         errorText.setText("");
     }
 
@@ -41,13 +41,9 @@ public class PatientSignUp extends AppCompatActivity {
 
         try {
             User p = new Patient(firstName, lastName, email, spinner.getSelectedItem().toString(), password);
-            //check order of arguments later: first, last, email, dob, gender, password
         } catch (Exception ex) {
-
-            //Intent intent = new Intent(this, SignUpFailure.class);
-            //intent.putExtra("ERROR_MESSAGE", ex.getMessage());
-            //startActivity(intent);
             errorText.setText(ex.getMessage());
+            return;
         }
 
         // search database and indicate failure if email already exists
