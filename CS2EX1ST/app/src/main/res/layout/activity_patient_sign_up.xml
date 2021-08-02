@@ -107,17 +107,17 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="158dp"
                 android:layout_marginLeft="158dp"
-                android:layout_marginTop="15dp"
+                android:layout_marginTop="10dp"
                 android:layout_marginEnd="159dp"
                 android:layout_marginRight="159dp"
-                android:layout_marginBottom="30dp"
+                android:layout_marginBottom="4dp"
                 android:onClick="submitPatientData"
                 android:text="@string/submit"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/signInErrorText" />
+                app:layout_constraintTop_toBottomOf="@+id/patientSignInErrorText" />
 
             <EditText
                 android:id="@+id/patientdob"
@@ -211,10 +211,10 @@
                 android:layout_marginLeft="47dp"
                 android:layout_marginEnd="154dp"
                 android:layout_marginRight="154dp"
-                android:layout_marginBottom="15dp"
+                android:layout_marginBottom="10dp"
                 android:ems="10"
                 android:inputType="textPassword"
-                app:layout_constraintBottom_toTopOf="@+id/signInErrorText"
+                app:layout_constraintBottom_toTopOf="@+id/patientSignInErrorText"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
@@ -255,9 +255,14 @@
                 app:layout_constraintTop_toBottomOf="@+id/textView22" />
 
             <TextView
-                android:id="@+id/signInErrorText"
+                android:id="@+id/patientSignInErrorText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="176dp"
+                android:layout_marginLeft="176dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="177dp"
+                android:layout_marginRight="177dp"
                 android:text="TextView"
                 android:textColor="#F36060"
                 app:layout_constraintBottom_toTopOf="@+id/button7"
