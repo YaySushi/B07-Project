@@ -26,6 +26,7 @@
     <string name="askgender">Select your gender:</string>
     <string name="label_email">Email:</string>
     <string name="label_gender">Gender:</string>
+    <string name="label_dob">Date of birth:</string>
     <string name="past_appointments">Past Appointments</string>
     <string name="future_appointments">Future Appointments</string>
     <string name="profile">My Profile</string>
