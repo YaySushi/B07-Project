@@ -9,8 +9,7 @@ public class Doctor extends User {
 
     String specialization;
 
-    public Doctor() {
-    }
+    public Doctor() {}
     public Doctor(String first,
                   String last,
                   String email,
@@ -25,7 +24,31 @@ public class Doctor extends User {
         return futureAppointments;
     }
 
+    public void setFutureAppointments(ArrayList<Appointment> futureAppointments) {
+        this.futureAppointments = futureAppointments;
+    }
+
     public ArrayList<Appointment> getPastAppointments() {
-        return futureAppointments;
+        return pastAppointments;
+    }
+
+    public void setPastAppointments(ArrayList<Appointment> pastAppointments) {
+        this.pastAppointments = pastAppointments;
+    }
+
+    public ArrayList<Patient> getPreviousPatients() {
+        return previousPatients;
+    }
+
+    public void setPreviousPatients(ArrayList<Patient> previousPatients) {
+        this.previousPatients = previousPatients;
+    }
+
+    public String getSpecialization() {
+        return specialization;
+    }
+
+    public void setSpecialization(String specialization) {
+        this.specialization = specialization;
     }
 }
