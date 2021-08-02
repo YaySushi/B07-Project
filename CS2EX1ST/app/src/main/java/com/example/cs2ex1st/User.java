@@ -23,6 +23,10 @@ public abstract class User {
             throw new InputMismatchException("Invalid email.");
         }
 
+        if (!Pattern.matches("\\w{4,}", password)) {
+            throw new InputMismatchException("Invalid password.");
+        }
+
         this.email = email;
         firstName = first;
         lastName = last;
