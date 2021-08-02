@@ -9,7 +9,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.CS2EX1ST">
-        <activity android:name=".SignUpFailure"></activity>
+        <activity
+            android:name=".activity_doctor_profile"
+            android:exported="true" />
+        <activity android:name=".SignUpFailure" />
         <activity android:name=".LoginFailure" />
         <activity android:name=".SignUpSuccess" />
         <activity android:name=".PatientSignUp" />

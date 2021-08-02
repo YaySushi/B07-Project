@@ -24,6 +24,10 @@
     <string name="loginfail">Email address or password is incorrect.</string>
     <string name="tryagain">Try Again</string>
     <string name="askgender">Select your gender:</string>
+    <string name="label_email">Email:</string>
+    <string name="label_gender">Gender:</string>
+    <string name="past_appointments">Past Appointments</string>
+    <string name="future_appointments">Future Appointments</string>
     <string-array name="gender">
         <item>Male</item>
         <item>Female</item>
