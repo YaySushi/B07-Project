@@ -47,12 +47,9 @@ public class DoctorSignUp extends AppCompatActivity {
 
         try {
             User d = new Doctor(firstName, lastName, email, spinner1.getSelectedItem().toString(), spinner2.getSelectedItem().toString(), password);
-            //check order of arguments later: first, last, email, gender, specialization, password
         } catch (Exception ex) {
-//            Intent intent = new Intent(this, SignUpFailure.class);
-//            intent.putExtra("ERROR_MESSAGE", ex.getMessage());
-//            startActivity(intent);
             errorText.setText(ex.getMessage());
+            return;
         }
 
         // search database and indicate failure if email already exists
