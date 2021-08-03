@@ -1,14 +1,29 @@
 package com.example.cs2ex1st;
 
+import java.util.Calendar;
+
 public class Appointment {
-    private int startTime;
+    private int hour, day, month, year;
     private boolean isBooked;
     private Doctor doctor;
-    public Appointment(int startTime, boolean isBooked) {
-        this.startTime = startTime;
+    public Appointment(boolean isBooked, int hour, int day, int month, int year) {
         this.isBooked = isBooked;
+        this.hour = hour;
+        this.day = day;
+        this.month = month;
+        this.year = year;
     }
-
+    public void setTime(int hour, int day, int month, int year){
+        this.hour = hour;
+        this.day = day;
+        this.month = month;
+        this.year = year;
+    }
+    public long getMillis(){
+        Calendar c = Calendar.getInstance();
+        c.set(year, month-1, day, hour, 0);
+        return c.getTimeInMillis();
+    }
     public Doctor getDoctor() {
         return doctor;
     }
@@ -17,12 +32,37 @@ public class Appointment {
         this.doctor = doctor;
     }
 
-    public int getStartTime() {
-        return startTime;
+
+    public int getHour() {
+        return hour;
     }
 
-    public void setStartTime(int startTime) {
-        this.startTime = startTime;
+    public void setHour(int hour) {
+        this.hour = hour;
+    }
+
+    public int getDay() {
+        return day;
+    }
+
+    public void setDay(int day) {
+        this.day = day;
+    }
+
+    public int getMonth() {
+        return month;
+    }
+
+    public void setMonth(int month) {
+        this.month = month;
+    }
+
+    public int getYear() {
+        return year;
+    }
+
+    public void setYear(int year) {
+        this.year = year;
     }
 
     public boolean isBooked() {
