@@ -3,11 +3,11 @@ package com.example.cs2ex1st;
 import java.util.*;
 
 public class Doctor extends User {
-    ArrayList<Appointment> pastAppointments;
-    ArrayList<Appointment> futureAppointments;
-    ArrayList<Patient> previousPatients;
+    /*ArrayList<Appointment> pastAppointments;
+    ArrayList<Appointment> futureAppointments;*/ ///Obsolete after we added reserved and prior appts to user
+    private ArrayList<Patient> previousPatients;
 
-    String specialization;
+    private String specialization;
 
     public Doctor() {
     }
@@ -22,7 +22,7 @@ public class Doctor extends User {
     }
 
     // Getters and setters
-    public ArrayList<Appointment> getPastAppointments() {
+    /*public ArrayList<Appointment> getPastAppointments() {
         return pastAppointments;
     }
 
@@ -36,7 +36,7 @@ public class Doctor extends User {
 
     public void setFutureAppointments(ArrayList<Appointment> futureAppointments) {
         this.futureAppointments = futureAppointments;
-    }
+    }*/ //Obsolete after we added reserved and prior appts to user
 
     public ArrayList<Patient> getPreviousPatients() {
         return previousPatients;

@@ -1,5 +1,6 @@
 package com.example.cs2ex1st;
 
+import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.regex.Pattern;
 
@@ -9,6 +10,8 @@ public abstract class User {
     String lastName;
     String gender;
     String password;
+    ArrayList<Appointment> reserved_appointments;
+    ArrayList<Appointment> prior_appointments;
     public User(){}
     public User(String first,
                 String last,
@@ -32,8 +35,28 @@ public abstract class User {
         lastName = last;
         this.gender = gender;
         this.password = password;
+        reserved_appointments=new ArrayList<Appointment>();
+        prior_appointments=new ArrayList<Appointment>();
     }
-
+    public void addAppointment(ArrayList<Appointment> app_list,Appointment app)
+    {
+        app_list.add(app);
+    }
+    public void removeAppointment(ArrayList<Appointment> app_list,Appointment app)
+    {
+        app_list.remove(app);
+    }
+    public void update()
+    {
+        for(Appointment p:reserved_appointments)
+        {
+            if(p.getStartTime()<System.currentTimeMillis())
+            {
+                prior_appointments.add(p);
+                reserved_appointments.remove(p);
+            }
+        }
+    }
     // Getter and setters
     public String getEmail() {
         return email;
@@ -73,5 +96,20 @@ public abstract class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+    public ArrayList<Appointment> getReserved_appointments() {
+        return reserved_appointments;
+    }
+
+    public void setReserved_appointments(ArrayList<Appointment> reserved_appointments) {
+        this.reserved_appointments = reserved_appointments;
+    }
+
+    public ArrayList<Appointment> getPrior_appointments() {
+        return prior_appointments;
+    }
+
+    public void setPrior_appointments(ArrayList<Appointment> prior_appointments) {
+        this.prior_appointments = prior_appointments;
     }
 }
