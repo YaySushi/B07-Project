@@ -43,4 +43,21 @@ public class Patient extends User{
         }
         return false;
     }
+
+    // Getters and setters
+    public ArrayList<Appointment> getReserved_appointments() {
+        return reserved_appointments;
+    }
+
+    public void setReserved_appointments(ArrayList<Appointment> reserved_appointments) {
+        this.reserved_appointments = reserved_appointments;
+    }
+
+    public ArrayList<Appointment> getPrior_appointments() {
+        return prior_appointments;
+    }
+
+    public void setPrior_appointments(ArrayList<Appointment> prior_appointments) {
+        this.prior_appointments = prior_appointments;
+    }
 }

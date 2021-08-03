@@ -21,11 +21,36 @@ public class Doctor extends User {
           this.specialization = specialization;
     }
 
+    // Getters and setters
+    public ArrayList<Appointment> getPastAppointments() {
+        return pastAppointments;
+    }
+
+    public void setPastAppointments(ArrayList<Appointment> pastAppointments) {
+        this.pastAppointments = pastAppointments;
+    }
+
     public ArrayList<Appointment> getFutureAppointments() {
         return futureAppointments;
     }
 
-    public ArrayList<Appointment> getPastAppointments() {
-        return futureAppointments;
+    public void setFutureAppointments(ArrayList<Appointment> futureAppointments) {
+        this.futureAppointments = futureAppointments;
+    }
+
+    public ArrayList<Patient> getPreviousPatients() {
+        return previousPatients;
+    }
+
+    public void setPreviousPatients(ArrayList<Patient> previousPatients) {
+        this.previousPatients = previousPatients;
+    }
+
+    public String getSpecialization() {
+        return specialization;
+    }
+
+    public void setSpecialization(String specialization) {
+        this.specialization = specialization;
     }
 }
