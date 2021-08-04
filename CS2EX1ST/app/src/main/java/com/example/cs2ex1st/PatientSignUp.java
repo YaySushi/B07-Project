@@ -1,7 +1,5 @@
 package com.example.cs2ex1st;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -9,6 +7,11 @@ import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.InputMismatchException;
 
@@ -40,9 +43,10 @@ public class PatientSignUp extends AppCompatActivity {
         String dob = editText.getText().toString();
         editText = (EditText) findViewById(R.id.patientPassword);
         String password = editText.getText().toString();
-
+        //add dob to constructor
+        User p1;
         try {
-            User p = new Patient(firstName, lastName, email, spinner.getSelectedItem().toString(), password);
+            p1 = new Patient(firstName, lastName, email, spinner.getSelectedItem().toString(), password);
         } catch (InputMismatchException ex) {
             errorText.setText(ex.getMessage());
             return;
@@ -50,8 +54,9 @@ public class PatientSignUp extends AppCompatActivity {
 
         // search database and indicate failure if email already exists
         // else add to database
-
-        // finally
+        email = email.replace(".", "*");
+        DatabaseReference ref = FirebaseDatabase.getInstance().getReference();
+        ref.child("Patients").child(email).setValue(p1);
         Intent intent = new Intent(this, SignUpSuccess.class);
         startActivity(intent);
     }
