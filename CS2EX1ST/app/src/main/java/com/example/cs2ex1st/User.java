@@ -30,6 +30,7 @@ public abstract class User {
             throw new InputMismatchException("Invalid password.");
         }
 
+        email = email.replace(".", "*");
         this.email = email;
         firstName = first;
         lastName = last;
