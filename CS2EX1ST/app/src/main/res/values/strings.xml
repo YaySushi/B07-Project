@@ -78,4 +78,5 @@
         <item>Urology</item>
     </string-array>
     <string name="signupfail">Unable to create account.</string>
+    <string name="appointmentfilter">Filters</string>
 </resources>

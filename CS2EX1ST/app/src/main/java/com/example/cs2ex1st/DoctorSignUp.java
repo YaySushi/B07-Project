@@ -10,6 +10,9 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 import java.util.InputMismatchException;
 
 public class DoctorSignUp extends AppCompatActivity {
@@ -35,6 +38,8 @@ public class DoctorSignUp extends AppCompatActivity {
 
         errorText = (TextView) findViewById(R.id.doctorSignInErrorText);
         errorText.setText("");
+
+
     }
 
     public void submitDoctorData(View view) {
@@ -44,20 +49,19 @@ public class DoctorSignUp extends AppCompatActivity {
         String lastName = editText.getText().toString();
         editText = (EditText) findViewById(R.id.doctoremail);
         String email = editText.getText().toString();
+        email = email.replace('.', '*');
         editText = (EditText) findViewById(R.id.doctorpassword);
         String password = editText.getText().toString();
 
+        User d1;
         try {
-            User d = new Doctor(firstName, lastName, email, spinner1.getSelectedItem().toString(), spinner2.getSelectedItem().toString(), password);
+            d1 = new Doctor(firstName, lastName, email, spinner1.getSelectedItem().toString(), spinner2.getSelectedItem().toString(), password);
         } catch (InputMismatchException ex) {
             errorText.setText(ex.getMessage());
             return;
         }
-
-        // search database and indicate failure if email already exists
-        // else add to database
-
-        // finally
+        DatabaseReference ref = FirebaseDatabase.getInstance().getReference();
+        ref.child("Doctors").child(email).setValue(d1);
         Intent intent = new Intent(this, SignUpSuccess.class);
         startActivity(intent);
     }
