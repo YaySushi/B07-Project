@@ -48,14 +48,18 @@ public abstract class User {
     }
     public void update()
     {
+        //bad to remove from a list while iterating it.
+        //so we accumulate the elements to remove, then remove them afterwards.
+        ArrayList<Appointment> toRemove = new ArrayList<Appointment>();
         for(Appointment p:reserved_appointments)
         {
             if(p.getStartTime()<System.currentTimeMillis())
             {
                 prior_appointments.add(p);
-                reserved_appointments.remove(p);
+                toRemove.add(p);
             }
         }
+        for(Appointment p : toRemove) reserved_appointments.remove(p);
     }
     // Getter and setters
     public String getEmail() {
