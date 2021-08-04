@@ -1,7 +1,5 @@
 package com.example.cs2ex1st;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -9,6 +7,8 @@ import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -60,6 +60,7 @@ public class DoctorSignUp extends AppCompatActivity {
             errorText.setText(ex.getMessage());
             return;
         }
+        email = email.replace(".", "*");
         DatabaseReference ref = FirebaseDatabase.getInstance().getReference();
         ref.child("Doctors").child(email).setValue(d1);
         Intent intent = new Intent(this, SignUpSuccess.class);
