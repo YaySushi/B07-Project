@@ -1,12 +1,9 @@
 package com.example.cs2ex1st;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
-
-import java.util.ArrayList;
 
 public class DoctorPastAppt extends AppCompatActivity {
 
@@ -15,7 +12,7 @@ public class DoctorPastAppt extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_doctor_past_appt);
 
-        RecyclerView rvDocPastAppt = (RecyclerView)findViewById(R.id.recyclerPastAppt);
+        RecyclerView rvDocPastAppt = (RecyclerView)findViewById(R.id.recyclerAvailAppnt);
 
         // Get Doctor's list of appointments
 

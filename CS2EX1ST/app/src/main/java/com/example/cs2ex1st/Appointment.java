@@ -2,7 +2,7 @@ package com.example.cs2ex1st;
 
 import java.util.Calendar;
 
-public class Appointment {
+public class Appointment implements Comparable<Appointment> {
     private int hour, day, month, year;
     private boolean isBooked;
     private Doctor doctor;
@@ -71,5 +71,12 @@ public class Appointment {
 
     public void setBooked(boolean booked) {
         this.isBooked = booked;
+    }
+
+    @Override
+    public int compareTo(Appointment appointment) {
+        if(this.getMillis() < appointment.getMillis()) return 1;
+        else if(this.getMillis() == appointment.getMillis()) return 0;
+        else return -1;
     }
 }

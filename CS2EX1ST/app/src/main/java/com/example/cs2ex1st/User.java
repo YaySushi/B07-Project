@@ -2,6 +2,7 @@ package com.example.cs2ex1st;
 
 import java.util.ArrayList;
 import java.util.InputMismatchException;
+import java.util.Objects;
 import java.util.regex.Pattern;
 
 public abstract class User {
@@ -115,5 +116,19 @@ public abstract class User {
 
     public void setPrior_appointments(ArrayList<Appointment> prior_appointments) {
         this.prior_appointments = prior_appointments;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        User user = (User) o;
+        return this.email.equals(((User) o).getEmail());
+    }
+
+    @Override
+    public int hashCode() {
+        return this.email.hashCode();
     }
 }
