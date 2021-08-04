@@ -53,7 +53,7 @@ public class ApptAdapter extends RecyclerView.Adapter<ApptAdapter.ViewHolder> {
         docName.setText(cur.getDoctor().getFirstName() + " " + cur.getDoctor().getLastName());
 
         TextView apptTime = viewHolder.apptTimeTextView;
-        apptTime.setText("Time: " + cur.getStartTime());
+        apptTime.setText("Time: " + cur.getMillis());
     }
 
     // Return item count
