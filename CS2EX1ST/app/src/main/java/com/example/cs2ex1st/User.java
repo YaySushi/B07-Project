@@ -50,7 +50,7 @@ public abstract class User {
     {
         for(Appointment p:reserved_appointments)
         {
-            if(p.getStartTime()<System.currentTimeMillis())
+            if(p.getMillis()<System.currentTimeMillis())
             {
                 prior_appointments.add(p);
                 reserved_appointments.remove(p);

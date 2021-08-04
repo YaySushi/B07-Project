@@ -6,6 +6,14 @@ public class Appointment {
     private int hour, day, month, year;
     private boolean isBooked;
     private Doctor doctor;
+    public Appointment(boolean isBooked, Doctor doctor, int hour, int day, int month, int year) {
+        this.isBooked = isBooked;
+        this.hour = hour;
+        this.day = day;
+        this.month = month;
+        this.year = year;
+        this.doctor = doctor;
+    }
     public Appointment(boolean isBooked, int hour, int day, int month, int year) {
         this.isBooked = isBooked;
         this.hour = hour;
