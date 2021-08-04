@@ -9,7 +9,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.CS2EX1ST">
-        <activity android:name=".DoctorPastAppt"
+        <activity android:name=".PatientFutureAppt"></activity>
+        <activity android:name=".PatientPastAppt" />
+        <activity
+            android:name=".DoctorPastAppt"
             android:exported="true" />
         <activity
             android:name=".activity_patient_profile"
