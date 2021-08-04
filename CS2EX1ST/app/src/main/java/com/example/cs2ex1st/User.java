@@ -53,7 +53,7 @@ public abstract class User {
         ArrayList<Appointment> toRemove = new ArrayList<Appointment>();
         for(Appointment p:reserved_appointments)
         {
-            if(p.getMillis()<System.currentTimeMillis())
+            if(p.getMillis() < System.currentTimeMillis())
             {
                 prior_appointments.add(p);
                 toRemove.add(p);
