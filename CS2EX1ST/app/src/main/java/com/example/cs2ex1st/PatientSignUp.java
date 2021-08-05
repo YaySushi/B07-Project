@@ -43,7 +43,7 @@ public class PatientSignUp extends AppCompatActivity {
         String dob = editText.getText().toString();
         editText = (EditText) findViewById(R.id.patientPassword);
         String password = editText.getText().toString();
-        //add dob to constructor
+        //add dob to User constructor
         User p1;
         try {
             p1 = new Patient(firstName, lastName, email, spinner.getSelectedItem().toString(), password);
@@ -56,7 +56,7 @@ public class PatientSignUp extends AppCompatActivity {
         // else add to database
         email = email.replace(".", "*");
         DatabaseReference ref = FirebaseDatabase.getInstance().getReference();
-        ref.child("Patients").child(email).setValue(p1);
+        ref.child("Patient").child(email).setValue(p1);
         Intent intent = new Intent(this, SignUpSuccess.class);
         startActivity(intent);
     }
