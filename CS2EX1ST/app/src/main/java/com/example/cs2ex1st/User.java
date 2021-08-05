@@ -131,4 +131,7 @@ public abstract class User {
     public int hashCode() {
         return this.email.hashCode();
     }
+
+    @Override
+    public String toString() { return firstName + " " + lastName; }
 }

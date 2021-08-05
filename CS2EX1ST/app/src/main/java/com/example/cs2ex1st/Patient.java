@@ -1,23 +1,29 @@
 package com.example.cs2ex1st;
 import java.util.*;
 public class Patient extends User{
+    String DOB;
+
     //assuming appointment consists of doctor field and time field
     public Patient(String firstname,
                    String lastname,
                    String email,
                    String gender,
+                   String DOB,
                    String password)
     {
         super(firstname,lastname,email, gender, password);
+        this.DOB = DOB;
     }
     public Patient(String firstname,
                    String lastname,
                    String email,
                    String gender,
+                   String DOB,
                    String password,
                    ArrayList<Appointment> past_appointments)
     {
         super(firstname,lastname,email, gender, password);
+        this.DOB = DOB;
         for(Appointment a:past_appointments)
         {
             prior_appointments.add(a);
@@ -44,4 +50,8 @@ public class Patient extends User{
         return false;
     }
 
+
+    public String getDOB() { return DOB; }
+
+    public void setDOB(String DOB) { this.DOB = DOB; }
 }

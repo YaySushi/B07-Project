@@ -42,7 +42,7 @@ public class PatientSignUp extends AppCompatActivity {
         String password = editText.getText().toString();
 
         try {
-            User p = new Patient(firstName, lastName, email, spinner.getSelectedItem().toString(), password);
+            User p = new Patient(firstName, lastName, email, spinner.getSelectedItem().toString(), dob, password);
         } catch (InputMismatchException ex) {
             errorText.setText(ex.getMessage());
             return;

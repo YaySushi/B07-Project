@@ -17,7 +17,7 @@ public class LogInActivity extends AppCompatActivity {
     public void sendLogInInfo(View view) {
         Intent intent;
         // search database and indicate failure if email does not exist or if email exists and password does not match
-        intent = new Intent(this, LoginFailure.class);
+        intent = new Intent(this, activity_patient_profile.class);
         startActivity(intent);
 
         // else if patient, move to patient profile
