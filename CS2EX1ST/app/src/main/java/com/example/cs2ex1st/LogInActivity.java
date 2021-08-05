@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -14,11 +15,14 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 public class LogInActivity extends AppCompatActivity {
+    private TextView logInErrorText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_log_in);
+        logInErrorText = (TextView) findViewById(R.id.errorText1);
+        logInErrorText.setText("");
     }
 
     public void sendLogInInfo(View view) {
@@ -27,32 +31,34 @@ public class LogInActivity extends AppCompatActivity {
         email = email.replace('.', '*');
         editText = (EditText) findViewById(R.id.password);
         String password = editText.getText().toString();
-        String finalEmail = email;
 
-        boolean patientAcc = false;
-        boolean doctorAcc = false;
-        DatabaseReference ref1 = FirebaseDatabase.getInstance().getReference("Doctor");
-        ref1.addValueEventListener(
-                new ValueEventListener() {
-                    @Override
-                    public void onDataChange(DataSnapshot dataSnapshot) {
+        DatabaseReference ref = FirebaseDatabase.getInstance().getReference("ID/" + email);
+        ref.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                if (dataSnapshot.exists()) {
+                    String[] info = ((String)dataSnapshot.getValue()).split(", ");
+                    if (info[0].equals(password)) {
+                        if (info[1].equals("Doctor")) {
+                            Intent intent = new Intent(LogInActivity.this, activity_doctor_profile.class);
+                            startActivity(intent);
+                        } else {
+                            Intent intent = new Intent(LogInActivity.this, activity_patient_profile.class);
+                            startActivity(intent);
+                        }
+                    } else {
+                        logInErrorText.setText("Password is incorrect.");
+                        return;
                     }
-
-                    @Override
-                    public void onCancelled(DatabaseError databaseError) {
-                        System.out.println("The read failed: " + databaseError.toException());
-                    }
-                });
-
-        if (doctorAcc) {
-            Intent intent = new Intent(this, activity_doctor_profile.class);
-            startActivity(intent);
-        } else if (patientAcc) {
-            Intent intent = new Intent(this, activity_patient_profile.class);
-            startActivity(intent);
-        } else {
-            Intent intent = new Intent(this, LoginFailure.class);
-            startActivity(intent);
-        }
+                } else {
+                    logInErrorText.setText("Email address is incorrect.");
+                    return;
+                }
+            }
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                System.out.println("The read failed: " + databaseError.toException());
+            }
+        });
     }
 }
