@@ -20,6 +20,7 @@ public class Doctor extends User implements Serializable {
                   String password) {
           super(first, last, email, gender, password);
           this.specialization = specialization;
+
     }
 
     public ArrayList<Patient> getPreviousPatients() {
@@ -36,5 +37,9 @@ public class Doctor extends User implements Serializable {
 
     public void setSpecialization(String specialization) {
         this.specialization = specialization;
+    }
+
+    public String toString() {
+        return "{ " + firstName + " " + lastName + ", " + email + ", " + gender + ", " + specialization + ", " + password + "} ";
     }
 }

@@ -38,8 +38,6 @@ public class DoctorSignUp extends AppCompatActivity {
 
         errorText = (TextView) findViewById(R.id.doctorSignInErrorText);
         errorText.setText("");
-
-
     }
 
     public void submitDoctorData(View view) {
@@ -60,9 +58,27 @@ public class DoctorSignUp extends AppCompatActivity {
             errorText.setText(ex.getMessage());
             return;
         }
-        email = email.replace(".", "*");
-        DatabaseReference ref = FirebaseDatabase.getInstance().getReference();
-        ref.child("Doctor").child(email).setValue(d1);
+       DatabaseReference ref = FirebaseDatabase.getInstance().getReference();
+        /*ref.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                for (DataSnapshot child:dataSnapshot.getChildren()) {
+                    for (DataSnapshot subChild:child.getChildren()) {
+                        User u = subChild.getValue(User.class);
+                        if (u.equals(d1)) {
+                            errorText.setText("Email already exists.");
+                            return;
+                        }
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                System.out.println("The read failed: " + databaseError.toException());
+            }
+        });*/
+        ref.child("Doctor").child(d1.getEmail()).setValue(d1);
         Intent intent = new Intent(this, SignUpSuccess.class);
         startActivity(intent);
     }
