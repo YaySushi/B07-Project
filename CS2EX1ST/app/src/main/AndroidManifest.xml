@@ -12,6 +12,14 @@
         <activity android:name=".BookApptActivity">
 
         </activity>
+        <activity android:name=".PatientFutureAppt"></activity>
+        <activity android:name=".PatientPastAppt" />
+        <activity
+            android:name=".DoctorFutureAppt"
+            android:exported="true" />
+        <activity
+            android:name=".activity_doctor_available_appt"
+            android:exported="true" />
         <activity
             android:name=".DoctorPastAppt"
             android:exported="true" />

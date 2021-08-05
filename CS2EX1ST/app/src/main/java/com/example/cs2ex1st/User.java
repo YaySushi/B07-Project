@@ -2,6 +2,7 @@ package com.example.cs2ex1st;
 
 import java.util.ArrayList;
 import java.util.InputMismatchException;
+import java.util.Objects;
 import java.util.regex.Pattern;
 
 public abstract class User {
@@ -22,7 +23,7 @@ public abstract class User {
             throw new InputMismatchException("Invalid name.");
         }
 
-        if (!Pattern.matches("[a-zA-Z0-9]@[a-zA-Z0-9]+.[a-zA-Z0-9]+|[a-zA-Z0-9]+[a-zA-Z0-9\\.]*[a-zA-Z0-9]+@[a-zA-Z0-9]+.[a-zA-Z0-9]+", email)) {
+        if (!Pattern.matches("[a-zA-Z0-9]@[a-zA-Z0-9]+\\.[a-zA-Z0-9]+|[a-zA-Z0-9]+[a-zA-Z0-9\\.]*[a-zA-Z0-9]+@[a-zA-Z0-9]+\\.[a-zA-Z0-9]+", email)) {
             throw new InputMismatchException("Invalid email.");
         }
 
@@ -49,14 +50,18 @@ public abstract class User {
     }
     public void update()
     {
+        //bad to remove from a list while iterating it.
+        //so we accumulate the elements to remove, then remove them afterwards.
+        ArrayList<Appointment> toRemove = new ArrayList<Appointment>();
         for(Appointment p:reserved_appointments)
         {
             if(p.getMillis()<System.currentTimeMillis())
             {
                 prior_appointments.add(p);
-                reserved_appointments.remove(p);
+                toRemove.add(p);
             }
         }
+        for(Appointment p : toRemove) reserved_appointments.remove(p);
     }
     // Getter and setters
     public String getEmail() {
@@ -112,5 +117,19 @@ public abstract class User {
 
     public void setPrior_appointments(ArrayList<Appointment> prior_appointments) {
         this.prior_appointments = prior_appointments;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        User user = (User) o;
+        return this.email.equals(((User) o).getEmail());
+    }
+
+    @Override
+    public int hashCode() {
+        return this.email.hashCode();
     }
 }
