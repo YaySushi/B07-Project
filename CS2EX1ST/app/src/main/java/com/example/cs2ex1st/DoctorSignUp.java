@@ -62,7 +62,7 @@ public class DoctorSignUp extends AppCompatActivity {
         }
         email = email.replace(".", "*");
         DatabaseReference ref = FirebaseDatabase.getInstance().getReference();
-        ref.child("Doctors").child(email).setValue(d1);
+        ref.child("Doctor").child(email).setValue(d1);
         Intent intent = new Intent(this, SignUpSuccess.class);
         startActivity(intent);
     }
