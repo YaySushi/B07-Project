@@ -15,16 +15,16 @@
             android:name=".DoctorFutureAppt"
             android:exported="true" />
         <activity
-            android:name=".activity_doctor_available_appt"
+            android:name=".DoctorAvailableAppt"
             android:exported="true" />
         <activity
             android:name=".DoctorPastAppt"
             android:exported="true" />
         <activity
-            android:name=".activity_patient_profile"
+            android:name=".PatientProfile"
             android:exported="true" />
         <activity
-            android:name=".activity_doctor_profile"
+            android:name=".DoctorProfile"
             android:exported="true" />
         <activity android:name=".SignUpFailure" />
         <activity android:name=".LoginFailure" />
