@@ -2,7 +2,6 @@ package com.example.cs2ex1st;
 
 import java.util.ArrayList;
 import java.util.InputMismatchException;
-import java.util.Objects;
 import java.util.regex.Pattern;
 
 public abstract class User {
@@ -23,9 +22,9 @@ public abstract class User {
             throw new InputMismatchException("Invalid name.");
         }
 
-        if (!Pattern.matches("[a-zA-Z0-9]@[a-zA-Z0-9]+\\.[a-zA-Z0-9]+|[a-zA-Z0-9]+[a-zA-Z0-9\\.]*[a-zA-Z0-9]+@[a-zA-Z0-9]+\\.[a-zA-Z0-9]+", email)) {
-            throw new InputMismatchException("Invalid email.");
-        }
+       // if (!Pattern.matches("[a-zA-Z0-9]@[a-zA-Z0-9]+\\.[a-zA-Z0-9]+|[a-zA-Z0-9]+[a-zA-Z0-9\\.]*[a-zA-Z0-9]+@[a-zA-Z0-9]+\\.[a-zA-Z0-9]+", email)) {
+       //     throw new InputMismatchException("Invalid email.");
+        //}
 
         if (!Pattern.matches("\\w{4,}", password)) {
             throw new InputMismatchException("Invalid password.");
