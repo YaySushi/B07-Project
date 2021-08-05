@@ -23,7 +23,7 @@ public abstract class User {
             throw new InputMismatchException("Invalid name.");
         }
 
-        if (!Pattern.matches("[a-zA-Z0-9]@[a-zA-Z0-9]+.[a-zA-Z0-9]+|[a-zA-Z0-9]+[a-zA-Z0-9\\.]*[a-zA-Z0-9]+@[a-zA-Z0-9]+.[a-zA-Z0-9]+", email)) {
+        if (!Pattern.matches("[a-zA-Z0-9]@[a-zA-Z0-9]+\\.[a-zA-Z0-9]+|[a-zA-Z0-9]+[a-zA-Z0-9\\.]*[a-zA-Z0-9]+@[a-zA-Z0-9]+\\.[a-zA-Z0-9]+", email)) {
             throw new InputMismatchException("Invalid email.");
         }
 
