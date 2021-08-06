@@ -12,6 +12,8 @@ public class SignUpSuccess extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up_success);
+
+        FirebaseWrapper.printHashMap(FirebaseWrapper.getInstance().getDoctors());
     }
 
     public void goToLogIn(View view) {

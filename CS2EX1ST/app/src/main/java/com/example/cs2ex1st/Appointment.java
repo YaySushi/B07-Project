@@ -1,8 +1,9 @@
 package com.example.cs2ex1st;
 
+import java.io.Serializable;
 import java.util.Calendar;
 
-public class Appointment implements Comparable<Appointment> {
+public class Appointment implements Comparable<Appointment>, Serializable {
     private int hour, day, month, year;
     private boolean isBooked;
     private Doctor doctor;
