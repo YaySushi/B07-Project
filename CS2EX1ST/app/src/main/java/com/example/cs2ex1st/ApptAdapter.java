@@ -1,4 +1,4 @@
-package com.example.cs2ex1st.Activities;
+package com.example.cs2ex1st;
 
 import android.view.LayoutInflater;
 import android.view.View;

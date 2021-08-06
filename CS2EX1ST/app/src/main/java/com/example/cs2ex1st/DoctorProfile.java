@@ -1,4 +1,4 @@
-package com.example.cs2ex1st.Activities;
+package com.example.cs2ex1st;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -6,13 +6,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
-
-import com.example.cs2ex1st.Activities.DoctorAvailableAppt;
-import com.example.cs2ex1st.Activities.DoctorFutureAppt;
-import com.example.cs2ex1st.Activities.DoctorPastAppt;
-import com.example.cs2ex1st.Doctor;
-import com.example.cs2ex1st.LoggedInUser;
-import com.example.cs2ex1st.R;
 
 public class DoctorProfile extends AppCompatActivity {
 
@@ -22,7 +15,7 @@ public class DoctorProfile extends AppCompatActivity {
         setContentView(R.layout.activity_doctor_profile);
 
         //LoggedInUser is assumed to be initialized from loggin in.
-        Doctor d = (Doctor) LoggedInUser.getUser();
+        Doctor d = (Doctor)LoggedInUser.getUser();
         ((TextView)findViewById(R.id.textView25)).setText(d.toString());
         ((TextView)findViewById(R.id.textView26)).setText(d.getSpecialization());
         ((TextView)findViewById(R.id.textView31)).setText(d.getEmail());

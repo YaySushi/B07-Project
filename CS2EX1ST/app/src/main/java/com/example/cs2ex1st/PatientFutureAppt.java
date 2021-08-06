@@ -1,12 +1,10 @@
-package com.example.cs2ex1st.Activities;
+package com.example.cs2ex1st;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
-
-import com.example.cs2ex1st.R;
 
 public class PatientFutureAppt extends AppCompatActivity {
 

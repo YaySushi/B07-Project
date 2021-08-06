@@ -1,5 +1,7 @@
 package com.example.cs2ex1st;
 
+import android.util.Log;
+
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -17,7 +19,7 @@ public class FirebaseWrapper {
     public static final String ID_KEY = "ID";
 
     private static FirebaseWrapper instance;
-    private HashMap<String, Doctor> doctors = new HashMap<String,Doctor>();
+    private HashMap<String,Doctor> doctors = new HashMap<String,Doctor>();
     private HashMap<String,Patient> patients = new HashMap<String,Patient>();
     private HashMap<String,String> emails = new HashMap<String,String>();
     private FirebaseWrapper(){
@@ -40,9 +42,10 @@ public class FirebaseWrapper {
         ref.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
+                list.clear();
                 for(DataSnapshot child: dataSnapshot.getChildren()){
                     T t = child.getValue(typeClass);
-                    list.put(child.getKey(),t);
+                    list.put(dataSnapshot.getKey(),t);
                 }
             }
 

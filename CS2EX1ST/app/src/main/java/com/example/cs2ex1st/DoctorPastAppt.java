@@ -1,4 +1,4 @@
-package com.example.cs2ex1st.Activities;
+package com.example.cs2ex1st;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -7,17 +7,16 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.os.Bundle;
 
 import com.example.cs2ex1st.R;
-
 import java.util.ArrayList;
 
-public class DoctorFutureAppt extends AppCompatActivity {
+public class DoctorPastAppt extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_doctor_future_appt);
+        setContentView(R.layout.activity_doctor_past_appt);
 
-        RecyclerView rvDocPastAppt = (RecyclerView)findViewById(R.id.recyclerFutureAppt);
+        RecyclerView rvDocPastAppt = (RecyclerView)findViewById(R.id.recyclerAvailAppnt);
 
         // Get Doctor's list of appointments
 
@@ -27,7 +26,8 @@ public class DoctorFutureAppt extends AppCompatActivity {
 
         // Set Layout manager
 
-/*
+
+
         // TESTING data
         ArrayList<Appointment> appointments = new ArrayList<>();
 
@@ -74,7 +74,6 @@ public class DoctorFutureAppt extends AppCompatActivity {
         // Set Layout manager
         rvDocPastAppt.setLayoutManager(new LinearLayoutManager(this));
 
- */
 
     }
 }

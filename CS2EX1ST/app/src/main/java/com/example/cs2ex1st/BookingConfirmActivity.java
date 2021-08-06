@@ -1,6 +1,7 @@
-package com.example.cs2ex1st.Activities;
+package com.example.cs2ex1st;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -8,10 +9,6 @@ import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import com.example.cs2ex1st.Appointment;
-import com.example.cs2ex1st.FirebaseWrapper;
-import com.example.cs2ex1st.R;
 
 public class BookingConfirmActivity extends AppCompatActivity {
     private TextView nameField, timeField, genderField, specField, dateField;
@@ -42,6 +39,10 @@ public class BookingConfirmActivity extends AppCompatActivity {
     public void bookAppointment(View view){
 
         //LoggedInUser.getUser().addAppointment(LoggedInUser.getUser().reserved_appointments, appointment);
+        Toast.makeText(this, "Appointment Booked Successfully", Toast.LENGTH_SHORT).show();
+
+        Intent intent = new Intent(this, BookApptActivity.class);
+        startActivity(intent);
 
         Log.i("firebasehelper",""+FirebaseWrapper.getInstance().getDoctorList().size());
     }
