@@ -16,6 +16,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        //Set up the lists created from the database
+        FirebaseWrapper.getInstance();
     }
 
     public void sendSignUpMessage(View view) {

@@ -4,53 +4,53 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:overScrollMode="ifContentScrolls"
     tools:context=".BookApptActivity">
 
     <Spinner
-        android:id="@+id/gender_filter2"
+        android:id="@+id/specialization_filter"
         android:layout_width="252dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="1dp"
+        android:layout_marginBottom="8dp"
         android:entries="@array/specialization"
-        app:layout_constraintStart_toStartOf="@+id/gender_filter"
+        app:layout_constraintBottom_toTopOf="@+id/booking_list"
+        app:layout_constraintStart_toStartOf="@+id/textView34"
         app:layout_constraintTop_toBottomOf="@+id/textView34" />
 
     <Spinner
         android:id="@+id/gender_filter"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginLeft="32dp"
         android:layout_marginTop="72dp"
         android:entries="@array/gender"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/textView33"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textView33"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginLeft="32dp"
         android:layout_marginTop="10dp"
-        android:text="TextView"
+        android:text="@string/bookinggenderfilter"
         app:layout_constraintBottom_toTopOf="@+id/gender_filter"
-        app:layout_constraintStart_toStartOf="@+id/gender_filter"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView32"
         app:layout_constraintVertical_bias="0.8" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/booking_list"
         android:layout_width="0dp"
-        android:layout_height="587dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="8dp"
         android:background="#E1E0E0"
+        android:fadeScrollbars="true"
+        android:scrollbars="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/gender_filter2" />
+        app:layout_constraintTop_toBottomOf="@+id/specialization_filter" />
 
     <TextView
         android:id="@+id/textView32"
@@ -68,11 +68,11 @@
 
     <TextView
         android:id="@+id/textView34"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="TextView"
-        app:layout_constraintStart_toStartOf="@+id/gender_filter2"
+        android:layout_width="89dp"
+        android:layout_height="22dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/bookingspecializationfilter"
+        app:layout_constraintStart_toStartOf="@+id/gender_filter"
         app:layout_constraintTop_toBottomOf="@+id/gender_filter" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
