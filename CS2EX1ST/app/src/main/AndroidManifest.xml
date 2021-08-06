@@ -23,16 +23,16 @@
             android:name=".DoctorFutureAppt"
             android:exported="true" />
         <activity
-            android:name=".DoctorAvailableAppt"
+            android:name=".activity_doctor_available_appt"
             android:exported="true" />
         <activity
             android:name=".DoctorPastAppt"
             android:exported="true" />
         <activity
-            android:name=".PatientProfile"
+            android:name=".activity_patient_profile"
             android:exported="true" />
         <activity
-            android:name=".DoctorProfile"
+            android:name=".activity_doctor_profile"
             android:exported="true" />
         <activity android:name=".SignUpFailure" />
         <activity android:name=".LoginFailure" />

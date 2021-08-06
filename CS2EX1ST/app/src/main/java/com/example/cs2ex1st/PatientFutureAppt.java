@@ -21,7 +21,7 @@ public class PatientFutureAppt extends AppCompatActivity {
         //patient_future.setAdapter(adapter);
 
         // Set Layout manager
-        //patient_future.setLayoutManager(new LinearLayoutManager(this));
+        patient_future.setLayoutManager(new LinearLayoutManager(this));
 
     }
 }

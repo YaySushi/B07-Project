@@ -19,6 +19,6 @@ public class PatientPastAppt extends AppCompatActivity {
         //patient_past.setAdapter(adapter);
 
         // Set Layout manager
-        //patient_past.setLayoutManager(new LinearLayoutManager(this));
+        patient_past.setLayoutManager(new LinearLayoutManager(this));
     }
 }

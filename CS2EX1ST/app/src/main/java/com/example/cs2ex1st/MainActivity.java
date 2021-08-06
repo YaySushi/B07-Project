@@ -7,7 +7,8 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 
-import com.google.firebase.database.*;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class MainActivity extends AppCompatActivity {
 

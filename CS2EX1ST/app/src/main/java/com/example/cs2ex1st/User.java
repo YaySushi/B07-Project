@@ -137,5 +137,7 @@ public abstract class User implements Serializable {
     }
 
     @Override
-    public String toString() { return firstName + " " + lastName; }
+    public String toString() {
+        return getFirstName() + ":" + getEmail();
+    }
 }

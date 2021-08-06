@@ -8,22 +8,18 @@ public class Patient extends User implements Serializable {
                    String lastname,
                    String email,
                    String gender,
-                   String DOB,
                    String password)
     {
         super(firstname,lastname,email, gender, password);
-        this.DOB = DOB;
     }
     public Patient(String firstname,
                    String lastname,
                    String email,
                    String gender,
-                   String DOB,
                    String password,
                    ArrayList<Appointment> past_appointments)
     {
         super(firstname,lastname,email, gender, password);
-        this.DOB = DOB;
         for(Appointment a:past_appointments)
         {
             prior_appointments.add(a);
@@ -50,8 +46,4 @@ public class Patient extends User implements Serializable {
         return false;
     }
 
-
-    public String getDOB() { return DOB; }
-
-    public void setDOB(String DOB) { this.DOB = DOB; }
 }
