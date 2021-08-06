@@ -31,14 +31,12 @@
     <string name="future_appointments">Future Appointments</string>
     <string name="profile">My Profile</string>
     <string-array name="gender">
-        <item>Choose...</item>
         <item>Male</item>
         <item>Female</item>
         <item>Other</item>
     </string-array>
 
     <string-array name="specialization">
-        <item>Choose...</item>
         <item>Anatomical Pathology</item>
         <item>Anesthesiology</item>
         <item>Cardiology</item>
@@ -81,7 +79,4 @@
     </string-array>
     <string name="signupfail">Unable to create account.</string>
     <string name="appointmentfilter">Filters</string>
-    <string name="bookinggenderfilter">Gender</string>
-    <string name="bookingspecializationfilter">Specialization</string>
-
 </resources>

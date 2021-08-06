@@ -64,7 +64,6 @@ public class DoctorSignUp extends AppCompatActivity {
         DatabaseReference ref = FirebaseDatabase.getInstance().getReference();
         ref.child("Doctors").child(email).setValue(d1);
         Intent intent = new Intent(this, SignUpSuccess.class);
-
         startActivity(intent);
     }
 }

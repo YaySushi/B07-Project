@@ -1,14 +1,11 @@
 package com.example.cs2ex1st;
 
-import androidx.annotation.NonNull;
-
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Objects;
 import java.util.regex.Pattern;
 
-public abstract class User implements Serializable {
+public abstract class User {
     String email;
     String firstName;
     String lastName;
@@ -134,10 +131,5 @@ public abstract class User implements Serializable {
     @Override
     public int hashCode() {
         return this.email.hashCode();
-    }
-
-    @Override
-    public String toString() {
-        return getFirstName() + ":" + getEmail();
     }
 }
