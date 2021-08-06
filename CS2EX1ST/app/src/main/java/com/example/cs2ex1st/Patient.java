@@ -1,9 +1,7 @@
 package com.example.cs2ex1st;
-
 import java.io.Serializable;
 import java.util.*;
 public class Patient extends User implements Serializable {
-    String DOB;
     //assuming appointment consists of doctor field and time field
     public Patient(){}
     public Patient(String firstname,

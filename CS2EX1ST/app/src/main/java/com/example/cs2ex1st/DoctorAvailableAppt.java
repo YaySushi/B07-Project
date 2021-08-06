@@ -1,11 +1,9 @@
-package com.example.cs2ex1st.Activities;
+package com.example.cs2ex1st;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.view.View;
-
-import com.example.cs2ex1st.R;
 
 public class DoctorAvailableAppt extends AppCompatActivity {
 

@@ -1,13 +1,9 @@
-package com.example.cs2ex1st.Activities;
+package com.example.cs2ex1st;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.widget.TextView;
-
-import com.example.cs2ex1st.LoggedInUser;
-import com.example.cs2ex1st.Patient;
-import com.example.cs2ex1st.R;
 
 public class PatientProfile extends AppCompatActivity {
 
@@ -17,7 +13,7 @@ public class PatientProfile extends AppCompatActivity {
         setContentView(R.layout.activity_patient_profile);
 
         //LoggedInUser is assumed to be initialized from loggin in.
-        Patient p = (Patient) LoggedInUser.getUser();
+        Patient p = (Patient)LoggedInUser.getUser();
         ((TextView)findViewById(R.id.textView40)).setText(p.toString());
         ((TextView)findViewById(R.id.textView45)).setText(p.getDOB());
         ((TextView)findViewById(R.id.textView29)).setText(p.getEmail());
