@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activity_doctor_profile">
+    android:onClick="GoToDoctorPastAppointments"
+    tools:context=".DoctorProfile">
 
     <TextView
         android:id="@+id/textView25"
@@ -23,7 +24,7 @@
         app:flow_horizontalAlign="center"
         app:layout_constraintBottom_toTopOf="@+id/textView26"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.523"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView27" />
 
@@ -127,7 +128,6 @@
         android:layout_marginTop="10dp"
         android:layout_marginEnd="107dp"
         android:layout_marginRight="107dp"
-        android:layout_marginBottom="15dp"
         android:text="@string/past_appointments"
         app:layout_constraintBottom_toTopOf="@+id/button14"
         app:layout_constraintEnd_toEndOf="parent"
@@ -141,13 +141,13 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="97dp"
         android:layout_marginLeft="97dp"
-        android:layout_marginTop="15dp"
         android:layout_marginEnd="97dp"
         android:layout_marginRight="97dp"
-        android:layout_marginBottom="166dp"
+        android:onClick="GoToDoctorFutureAppointments"
         android:text="@string/future_appointments"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/button18"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button13" />
 
@@ -165,8 +165,22 @@
         android:textSize="34sp"
         app:layout_constraintBottom_toTopOf="@+id/textView25"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/button18"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="18dp"
+        android:layout_marginBottom="84dp"
+        android:onClick="GoToDoctorAvailableAppointments"
+        android:text="AVAILABLE APPOINTMENTS"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button14" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
