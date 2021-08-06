@@ -1,12 +1,15 @@
 package com.example.cs2ex1st;
 
 import java.io.Serializable;
+import java.text.DateFormat;
 import java.util.Calendar;
+import java.util.Date;
 
 public class Appointment implements Comparable<Appointment>, Serializable {
     private int hour, day, month, year;
     private boolean isBooked;
     private Doctor doctor;
+    private Patient patient;
     public Appointment(boolean isBooked, Doctor doctor, int hour, int day, int month, int year) {
         this.isBooked = isBooked;
         this.hour = hour;
@@ -15,6 +18,7 @@ public class Appointment implements Comparable<Appointment>, Serializable {
         this.year = year;
         this.doctor = doctor;
     }
+    
     public Appointment(boolean isBooked, int hour, int day, int month, int year) {
         this.isBooked = isBooked;
         this.hour = hour;
@@ -33,6 +37,16 @@ public class Appointment implements Comparable<Appointment>, Serializable {
         c.set(year, month-1, day, hour, 0);
         return c.getTimeInMillis();
     }
+    public String getDate() {
+        Calendar c = Calendar.getInstance();
+        c.set(year, month-1, day, hour, 0);
+
+        Date d = c.getTime();
+        String s = DateFormat.getTimeInstance(DateFormat.SHORT).format(d) + " "
+                + DateFormat.getDateInstance().format(d);
+        return s;
+    }
+
     public Doctor getDoctor() {
         return doctor;
     }
@@ -41,6 +55,13 @@ public class Appointment implements Comparable<Appointment>, Serializable {
         this.doctor = doctor;
     }
 
+    public Patient getPatient() {
+        return patient;
+    }
+
+    public void setPatient(Patient patient) {
+        this.patient = patient;
+    }
 
     public int getHour() {
         return hour;

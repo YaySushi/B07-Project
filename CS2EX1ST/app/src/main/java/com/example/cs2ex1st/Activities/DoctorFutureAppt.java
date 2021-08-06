@@ -32,23 +32,31 @@ public class DoctorFutureAppt extends AppCompatActivity {
         ArrayList<Appointment> appointments = new ArrayList<>();
 
         Doctor doc1 = new Doctor("first", "last", "a@b.c", "F", "spec", "pass");
-        Appointment app1 = new Appointment(11, true);
+        Patient pat1 = new Patient("patientFirst", "patientLast", "1@2.3", "F", "12/12/12", "wowow");
+
+        Appointment app1 = new Appointment(true, 10, 1, 1, 2020);
         app1.setDoctor(doc1);
+        app1.setPatient(pat1);
 
-        Appointment app2 = new Appointment(12, true);
+        Appointment app2 = new Appointment(true, 11, 1, 1, 2020);
         app2.setDoctor(doc1);
+        app2.setPatient(pat1);
 
-        Appointment app3 = new Appointment(13, true);
+        Appointment app3 = new Appointment(true, 12, 1, 1, 2020);
         app3.setDoctor(doc1);
+        app3.setPatient(pat1);
 
-        Appointment app4 = new Appointment(14, true);
+        Appointment app4 = new Appointment(true, 13, 1, 1, 2020);
         app4.setDoctor(doc1);
+        app4.setPatient(pat1);
 
-        Appointment app5 = new Appointment(15, true);
+        Appointment app5 = new Appointment(true, 14, 1, 1, 2020);
         app5.setDoctor(doc1);
+        app5.setPatient(pat1);
 
-        Appointment app6 = new Appointment(16, true);
+        Appointment app6 = new Appointment(true, 15, 1, 1, 2020);
         app6.setDoctor(doc1);
+        app6.setPatient(pat1);
 
         appointments.add(app1);
         appointments.add(app2);

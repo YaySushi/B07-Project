@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.cs2ex1st.Appointment;
 import com.example.cs2ex1st.R;
+import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 
@@ -19,12 +20,14 @@ public class ApptAdapter extends RecyclerView.Adapter<ApptAdapter.ViewHolder> {
     // Custom ViewHolder
     public static class ViewHolder extends RecyclerView.ViewHolder {
         private TextView doctorNameTextView;
+        private TextView patientNameTextView;
         private TextView apptTimeTextView;
 
         public ViewHolder(View view) {
             super(view);
 
             doctorNameTextView = (TextView)view.findViewById(R.id.doctor_name);
+            patientNameTextView = (TextView)view.findViewById(R.id.patient_name);
             apptTimeTextView = (TextView)view.findViewById(R.id.appt_time);
         }
     }
@@ -53,10 +56,13 @@ public class ApptAdapter extends RecyclerView.Adapter<ApptAdapter.ViewHolder> {
 
         // Set the views based on cur data
         TextView docName = viewHolder.doctorNameTextView;
-        docName.setText(cur.getDoctor().getFirstName() + " " + cur.getDoctor().getLastName());
+        docName.setText("Doctor: " + cur.getDoctor().toString());
+
+        TextView patientName = viewHolder.patientNameTextView;
+        patientName.setText("Patient: " + cur.getPatient().toString());
 
         TextView apptTime = viewHolder.apptTimeTextView;
-        apptTime.setText("Time: " + cur.getHour());
+        apptTime.setText("Time: " + cur.getDate());
     }
 
     // Return item count
