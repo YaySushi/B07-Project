@@ -42,7 +42,6 @@ public class FirebaseWrapper {
         ref.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                list.clear();
                 for(DataSnapshot child: dataSnapshot.getChildren()){
                     T t = child.getValue(typeClass);
                     list.put(dataSnapshot.getKey(),t);

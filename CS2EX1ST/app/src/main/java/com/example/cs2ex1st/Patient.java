@@ -3,6 +3,7 @@ import java.io.Serializable;
 import java.util.*;
 public class Patient extends User implements Serializable {
     //assuming appointment consists of doctor field and time field
+    private String DOB;
     public Patient(){}
     public Patient(String firstname,
                    String lastname,

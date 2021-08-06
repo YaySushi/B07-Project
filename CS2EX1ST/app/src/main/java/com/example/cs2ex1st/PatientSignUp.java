@@ -46,7 +46,7 @@ public class PatientSignUp extends AppCompatActivity {
         //add dob to constructor
         User p1;
         try {
-            p1 = new Patient(firstName, lastName, email, spinner.getSelectedItem().toString(), password);
+            p1 = new Patient(firstName, lastName, email, spinner.getSelectedItem().toString(), password, dob);
         } catch (InputMismatchException ex) {
             errorText.setText(ex.getMessage());
             return;
