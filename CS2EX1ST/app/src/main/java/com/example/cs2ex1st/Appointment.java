@@ -1,5 +1,7 @@
 package com.example.cs2ex1st;
 
+import androidx.annotation.Nullable;
+
 import java.io.Serializable;
 import java.text.DateFormat;
 import java.util.Calendar;
@@ -8,8 +10,9 @@ import java.util.Date;
 public class Appointment implements Comparable<Appointment>, Serializable {
     private int hour, day, month, year;
     private boolean isBooked;
-    private Doctor doctor;
-    private Patient patient;
+    private Doctor doctor = null;
+    private Patient patient = null;
+
     public Appointment(boolean isBooked, Doctor doctor, int hour, int day, int month, int year) {
         this.isBooked = isBooked;
         this.hour = hour;
@@ -71,9 +74,7 @@ public class Appointment implements Comparable<Appointment>, Serializable {
         this.hour = hour;
     }
 
-    public int getDay() {
-        return day;
-    }
+    public int getDay() { return day; }
 
     public void setDay(int day) {
         this.day = day;
@@ -108,5 +109,20 @@ public class Appointment implements Comparable<Appointment>, Serializable {
         if(this.getMillis() < appointment.getMillis()) return 1;
         else if(this.getMillis() == appointment.getMillis()) return 0;
         else return -1;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if(obj == null) return false;
+        if(obj.getClass() != getClass()) return false;
+
+        Appointment app2 = (Appointment)obj;
+        return (
+                this.hour == app2.getHour()
+                        && this.day == app2.getDay()
+                        && this.month == app2.getMonth()
+                        && this.year == app2.getYear()
+                        && this.doctor.equals(app2.getDoctor())
+        );
     }
 }
