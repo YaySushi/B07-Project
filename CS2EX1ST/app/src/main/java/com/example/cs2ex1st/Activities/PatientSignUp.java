@@ -1,4 +1,4 @@
-package com.example.cs2ex1st;
+package com.example.cs2ex1st.Activities;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,61 +10,58 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.cs2ex1st.Patient;
+import com.example.cs2ex1st.R;
+import com.example.cs2ex1st.User;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.InputMismatchException;
 
-public class DoctorSignUp extends AppCompatActivity {
-    private Spinner spinner1;
-    private Spinner spinner2;
+public class PatientSignUp extends AppCompatActivity {
+    private Spinner spinner;
     private TextView errorText;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_doctor_sign_up);
+        setContentView(R.layout.activity_patient_sign_up);
 
-        spinner1 = (Spinner) findViewById(R.id.doctorGenderSpinner);
+        spinner = (Spinner) findViewById(R.id.patientGenderSpinner);
         ArrayAdapter<CharSequence> genderAdapter = new ArrayAdapter<CharSequence>(this, android.R.layout.simple_spinner_item,
                 getResources().getStringArray(R.array.gender));
         genderAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinner1.setAdapter(genderAdapter);
-
-        spinner2 = (Spinner) findViewById(R.id.doctorSpecialization);
-        ArrayAdapter<CharSequence> specializationAdapter = new ArrayAdapter<CharSequence>(this, android.R.layout.simple_spinner_item,
-                getResources().getStringArray(R.array.specialization));
-        specializationAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinner2.setAdapter(specializationAdapter);
-
-        errorText = (TextView) findViewById(R.id.doctorSignInErrorText);
+        spinner.setAdapter(genderAdapter);
+        errorText = (TextView) findViewById(R.id.patientSignInErrorText);
         errorText.setText("");
-
-
     }
 
-    public void submitDoctorData(View view) {
-        EditText editText = (EditText) findViewById(R.id.doctorfirstname);
+    public void submitPatientData(View view) {
+        EditText editText = (EditText) findViewById(R.id.patientfirstname);
         String firstName = editText.getText().toString();
-        editText = (EditText) findViewById(R.id.doctorlastname);
+        editText = (EditText) findViewById(R.id.patientlastname);
         String lastName = editText.getText().toString();
-        editText = (EditText) findViewById(R.id.doctoremail);
+        editText = (EditText) findViewById(R.id.patientemail);
         String email = editText.getText().toString();
-        email = email.replace('.', '*');
-        editText = (EditText) findViewById(R.id.doctorpassword);
+        editText = (EditText) findViewById(R.id.patientdob);
+        String dob = editText.getText().toString();
+        editText = (EditText) findViewById(R.id.patientPassword);
         String password = editText.getText().toString();
-
-        User d1;
+        //add dob to constructor
+        User p1;
         try {
-            d1 = new Doctor(firstName, lastName, email, spinner1.getSelectedItem().toString(), spinner2.getSelectedItem().toString(), password);
+            p1 = new Patient(firstName, lastName, email, spinner.getSelectedItem().toString(), password, dob);
         } catch (InputMismatchException ex) {
             errorText.setText(ex.getMessage());
             return;
         }
+
+        // search database and indicate failure if email already exists
+        // else add to database
         email = email.replace(".", "*");
         DatabaseReference ref = FirebaseDatabase.getInstance().getReference();
-        ref.child("Doctors").child(email).setValue(d1);
+        ref.child("Patients").child(email).setValue(p1);
         Intent intent = new Intent(this, SignUpSuccess.class);
-
         startActivity(intent);
     }
+
 }

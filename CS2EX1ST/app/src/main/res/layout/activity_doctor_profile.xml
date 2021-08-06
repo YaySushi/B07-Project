@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:onClick="GoToDoctorPastAppointments"
-    tools:context=".DoctorProfile">
+    tools:context=".Activities.DoctorProfile">
 
     <TextView
         android:id="@+id/textView25"

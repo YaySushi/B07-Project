@@ -1,4 +1,4 @@
-package com.example.cs2ex1st;
+package com.example.cs2ex1st.Activities;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -6,6 +6,9 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.cs2ex1st.Appointment;
+import com.example.cs2ex1st.R;
 
 import java.util.ArrayList;
 

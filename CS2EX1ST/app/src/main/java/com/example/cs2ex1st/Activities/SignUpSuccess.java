@@ -1,10 +1,14 @@
-package com.example.cs2ex1st;
+package com.example.cs2ex1st.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+
+import com.example.cs2ex1st.Activities.LogInActivity;
+import com.example.cs2ex1st.FirebaseWrapper;
+import com.example.cs2ex1st.R;
 
 public class SignUpSuccess extends AppCompatActivity {
 

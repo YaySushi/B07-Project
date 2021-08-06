@@ -1,9 +1,11 @@
-package com.example.cs2ex1st;
+package com.example.cs2ex1st.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+
+import com.example.cs2ex1st.R;
 
 public class DoctorPastAppt extends AppCompatActivity {
 

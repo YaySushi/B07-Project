@@ -1,15 +1,21 @@
-package com.example.cs2ex1st;
+package com.example.cs2ex1st.Activities;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.cs2ex1st.Appointment;
+import com.example.cs2ex1st.R;
 
 import java.util.ArrayList;
 
@@ -67,10 +73,27 @@ public class BookingRecyclerAdapter
         viewHolder.mainLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                    Log.i("info", ""+cur.getDoctor().getFirstName());
-                    Intent intent = new Intent(context, BookingConfirmActivity.class);
-                    intent.putExtra("appointment", cur);
-                    context.startActivity(intent);
+                    AlertDialog dialog;
+                    AlertDialog.Builder builder = new AlertDialog.Builder(context);
+                    builder.setTitle("Confirm your appointment");
+                    //builder.setMessage(
+                            //"Doctor: " + cur.getDoctor().getFirstName() + " " + cur.getDoctor().getLastName() +  " \n" +
+                    //        "Time: " + cur.getHour() + ":00 - " + (cur.getHour()+1) + ":00");
+                    builder.setPositiveButton("Confirm", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            Toast.makeText(context.getApplicationContext(), "Appointment Booked Successfully!", Toast.LENGTH_SHORT).show();
+
+                        }
+                    });
+                    builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+
+                        }
+                    });
+                    dialog = builder.create();
+                    dialog.show();
             }
         });
     }
