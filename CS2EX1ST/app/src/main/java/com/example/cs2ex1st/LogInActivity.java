@@ -16,7 +16,7 @@ import com.google.firebase.database.ValueEventListener;
 
 public class LogInActivity extends AppCompatActivity {
     private TextView logInErrorText;
-
+    private User u;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,9 +40,11 @@ public class LogInActivity extends AppCompatActivity {
                     String[] info = ((String)dataSnapshot.getValue()).split(", ");
                     if (info[0].equals(password)) {
                         if (info[1].equals("Doctor")) {
+                            LoggedInUser.setUser((String)dataSnapshot.getKey(), "Doctor");
                             Intent intent = new Intent(LogInActivity.this, DoctorProfile.class);
                             startActivity(intent);
                         } else {
+                            LoggedInUser.setUser((String)dataSnapshot.getKey(), "Patient");
                             Intent intent = new Intent(LogInActivity.this, PatientProfile.class);
                             startActivity(intent);
                         }
