@@ -1,6 +1,7 @@
 {
   "project_info": {
     "project_number": "306257558589",
+    "firebase_url": "https://haha-90773-default-rtdb.firebaseio.com",
     "project_id": "haha-90773",
     "storage_bucket": "haha-90773.appspot.com"
   },
@@ -10,35 +11,6 @@
         "mobilesdk_app_id": "1:306257558589:android:303235178c4d4cacad3e54",
         "android_client_info": {
           "package_name": "com.example.cs2ex1st"
-        }
-      },
-      "oauth_client": [
-        {
-          "client_id": "306257558589-mohcjuik6l08dbok15ercoe4q49apgh5.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
-      "api_key": [
-        {
-          "current_key": "AIzaSyCVRFdGHmIt8Nr6MwKECxf4IXvsBXJd4_w"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "306257558589-mohcjuik6l08dbok15ercoe4q49apgh5.apps.googleusercontent.com",
-              "client_type": 3
-            }
-          ]
-        }
-      }
-    },
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:306257558589:android:af7e9c0fab0478fdad3e54",
-        "android_client_info": {
-          "package_name": "com.example.haha"
         }
       },
       "oauth_client": [
