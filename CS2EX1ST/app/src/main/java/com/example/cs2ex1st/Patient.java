@@ -44,6 +44,7 @@ public class Patient extends User implements Serializable {
         if(can_reserve && !app.isBooked())
         {
             app.setBooked(true);
+            app.setPatient(this);
             app.getDoctor().addAppointment(app.getDoctor().getReserved_appointments(),app);
             this.addAppointment(reserved_appointments,app);
             return true;

@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 public class PatientPastAppt extends AppCompatActivity {
@@ -14,11 +15,13 @@ public class PatientPastAppt extends AppCompatActivity {
         setContentView(R.layout.activity_patient_past_appt);
         RecyclerView patient_past= (RecyclerView)findViewById(R.id.recyclerPatientPast);
         //savedInstanceState.getPatient().update();
-        //ApptAdapter adapter = new ApptAdapter(savedInstanceState.getPatient().getPrior_appointments());
+        Intent intent= getIntent();
+        Patient s= (Patient)intent.getSerializableExtra(PatientProfile.EXTRA_MESSAGE);//add EXTRA_MESSAGE in the activities that pass intents
+        ApptAdapter adapter = new ApptAdapter(s.getPrior_appointments());
         // Attach adapter to RecyclerView
-        //patient_past.setAdapter(adapter);
+        patient_past.setAdapter(adapter);
 
         // Set Layout manager
-        //patient_past.setLayoutManager(new LinearLayoutManager(this));
+        patient_past.setLayoutManager(new LinearLayoutManager(this));
     }
 }
