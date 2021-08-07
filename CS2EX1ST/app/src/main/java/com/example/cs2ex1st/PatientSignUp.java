@@ -10,8 +10,11 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.InputMismatchException;
 
@@ -43,7 +46,7 @@ public class PatientSignUp extends AppCompatActivity {
         String dob = editText.getText().toString();
         editText = (EditText) findViewById(R.id.patientPassword);
         String password = editText.getText().toString();
-        //add dob to constructor
+        //add dob to User constructor
         User p1;
         try {
             p1 = new Patient(firstName, lastName, email, spinner.getSelectedItem().toString(), dob, password);
@@ -51,14 +54,25 @@ public class PatientSignUp extends AppCompatActivity {
             errorText.setText(ex.getMessage());
             return;
         }
-
-        // search database and indicate failure if email already exists
-        // else add to database
-        email = email.replace(".", "*");
-        DatabaseReference ref = FirebaseDatabase.getInstance().getReference();
-        ref.child("Patients").child(email).setValue(p1);
-        Intent intent = new Intent(this, SignUpSuccess.class);
-        startActivity(intent);
+        DatabaseReference ref2 = FirebaseDatabase.getInstance().getReference();
+        DatabaseReference ref = FirebaseDatabase.getInstance().getReference("ID/" + p1.getEmail());
+        ref.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                if (dataSnapshot.exists()) {
+                    errorText.setText("Email already exists.");
+                } else {
+                    ref2.child("Patient").child(p1.getEmail()).setValue(p1);
+                    ref2.child("ID").child(p1.getEmail()).setValue(p1.getPassword() + ", Patient");
+                    Intent intent = new Intent(PatientSignUp.this, SignUpSuccess.class);
+                    startActivity(intent);
+                }
+            }
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                System.out.println("The read failed: " + databaseError.toException());
+            }
+        });
     }
 
 }

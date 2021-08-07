@@ -5,7 +5,6 @@ import androidx.annotation.NonNull;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
-import java.util.Objects;
 import java.util.regex.Pattern;
 
 public abstract class User implements Serializable {
@@ -26,9 +25,9 @@ public abstract class User implements Serializable {
             throw new InputMismatchException("Invalid name.");
         }
 
-        if (!Pattern.matches("[a-zA-Z0-9]@[a-zA-Z0-9]+\\.[a-zA-Z0-9]+|[a-zA-Z0-9]+[a-zA-Z0-9\\.]*[a-zA-Z0-9]+@[a-zA-Z0-9]+\\.[a-zA-Z0-9]+", email)) {
-            throw new InputMismatchException("Invalid email.");
-        }
+       // if (!Pattern.matches("[a-zA-Z0-9]@[a-zA-Z0-9]+\\.[a-zA-Z0-9]+|[a-zA-Z0-9]+[a-zA-Z0-9\\.]*[a-zA-Z0-9]+@[a-zA-Z0-9]+\\.[a-zA-Z0-9]+", email)) {
+       //     throw new InputMismatchException("Invalid email.");
+        //}
 
         if (!Pattern.matches("\\w{4,}", password)) {
             throw new InputMismatchException("Invalid password.");
