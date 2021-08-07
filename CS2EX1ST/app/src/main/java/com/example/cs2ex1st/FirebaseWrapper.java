@@ -19,24 +19,17 @@ public class FirebaseWrapper {
     public static final String ID_KEY = "ID";
 
     private static FirebaseWrapper instance;
-    private HashMap<String,Doctor> doctors = new HashMap<String,Doctor>();
-    private HashMap<String,Patient> patients = new HashMap<String,Patient>();
-    private HashMap<String,String> emails = new HashMap<String,String>();
-    private FirebaseWrapper(){
+    private static HashMap<String,Doctor> doctors = new HashMap<String,Doctor>();
+    private static  HashMap<String,Patient> patients = new HashMap<String,Patient>();
+    private static HashMap<String,String> emails = new HashMap<String,String>();
+    public static void setUpHashMaps(){
         fillMapAtPath(doctors, DOCTOR_KEY, Doctor.class);
         fillMapAtPath(patients, PATIENT_KEY, Patient.class);
         fillMapAtPath(emails, ID_KEY, String.class);
 
     }
 
-    public static FirebaseWrapper getInstance() {
-        if(instance == null){
-            instance = new FirebaseWrapper();
-        }
-        return instance;
-    }
-
-    private <T> void fillMapAtPath(HashMap<String,T> list, String path, Class<T> typeClass){
+    private static <T> void fillMapAtPath(HashMap<String,T> list, String path, Class<T> typeClass){
         DatabaseReference ref = FirebaseDatabase.getInstance().getReference(path);
         // called once when the listener is added
         ref.addValueEventListener(new ValueEventListener() {
@@ -62,28 +55,33 @@ public class FirebaseWrapper {
     }
     public static void addPatientToDatabase(Patient addMe){
         // TODO
-        DatabaseReference ref = FirebaseDatabase.getInstance().getReference("Patient");
+            DatabaseReference ref = FirebaseDatabase.getInstance().getReference(PATIENT_KEY);
+            ref.child(addMe.email.replace(".","*")).setValue(addMe);
+    }
+    public static void addDoctorToDatabase(Doctor addMe){
+        // TODO
+        DatabaseReference ref = FirebaseDatabase.getInstance().getReference(DOCTOR_KEY);
         ref.child(addMe.email.replace(".","*")).setValue(addMe);
     }
-    public ArrayList<Doctor> getDoctorList(){
+    public static ArrayList<Doctor> getDoctorList(){
         return new ArrayList<Doctor>(doctors.values());
     }
-    public ArrayList<Patient> getPatientList(){
+    public static ArrayList<Patient> getPatientList(){
         return new ArrayList<Patient>(patients.values());
     }
-    public ArrayList<String> getIdList(){
+    public static ArrayList<String> getIdList(){
         return new ArrayList<String>(emails.keySet());
     }
 
-    public HashMap<String, Doctor> getDoctors() {
+    public static HashMap<String, Doctor> getDoctors() {
         return doctors;
     }
 
-    public HashMap<String, Patient> getPatients() {
+    public static HashMap<String, Patient> getPatients() {
         return patients;
     }
 
-    public HashMap<String, String> getEmails() {
+    public static HashMap<String, String> getEmails() {
         return emails;
     }
 }

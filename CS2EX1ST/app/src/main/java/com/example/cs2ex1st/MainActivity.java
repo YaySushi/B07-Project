@@ -15,7 +15,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         //Set up the lists created from the database
-        FirebaseWrapper.getInstance();
+        //FirebaseWrapper.setUpHashMaps();
     }
 
     public void sendSignUpMessage(View view) {

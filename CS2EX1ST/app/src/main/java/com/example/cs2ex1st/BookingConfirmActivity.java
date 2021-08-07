@@ -34,7 +34,6 @@ public class BookingConfirmActivity extends AppCompatActivity {
             dateField.setText("Day: " + appointment.getDay() + "/" + appointment.getMonth() + "/" + appointment.getYear());
         }
 
-        FirebaseWrapper.getInstance();
     }
     public void bookAppointment(View view){
 
@@ -44,6 +43,6 @@ public class BookingConfirmActivity extends AppCompatActivity {
         Intent intent = new Intent(this, BookApptActivity.class);
         startActivity(intent);
 
-        Log.i("firebasehelper",""+FirebaseWrapper.getInstance().getDoctorList().size());
+        Log.i("firebasehelper",""+FirebaseWrapper.getDoctorList().size());
     }
 }

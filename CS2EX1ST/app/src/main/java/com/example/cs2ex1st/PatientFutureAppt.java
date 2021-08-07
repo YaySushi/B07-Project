@@ -17,10 +17,10 @@ public class PatientFutureAppt extends AppCompatActivity {
         // Create adapter and pass in appointment data
         //savedInstanceState.getPatient().update();
         Intent intent= getIntent();
-        Patient s= (Patient)intent.getSerializableExtra(PatientProfile.EXTRA_MESSAGE);
-        ApptAdapter adapter = new ApptAdapter(s.getReserved_appointments());
+        //Patient s= (Patient)intent.getSerializableExtra(PatientProfile.EXTRA_MESSAGE);
+        //ApptAdapter adapter = new ApptAdapter(s.getReserved_appointments());
         // Attach adapter to RecyclerView
-        patient_future.setAdapter(adapter);
+        //patient_future.setAdapter(adapter);
 
         // Set Layout manager
         patient_future.setLayoutManager(new LinearLayoutManager(this));
