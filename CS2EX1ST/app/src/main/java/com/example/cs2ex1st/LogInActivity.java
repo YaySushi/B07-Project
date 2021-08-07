@@ -40,9 +40,11 @@ public class LogInActivity extends AppCompatActivity {
                     String[] info = ((String)dataSnapshot.getValue()).split(", ");
                     if (info[0].equals(password)) {
                         if (info[1].equals("Doctor")) {
+                            LoggedInUser.setUser((String) dataSnapshot.getKey(), "Doctor");
                             Intent intent = new Intent(LogInActivity.this, activity_doctor_profile.class);
                             startActivity(intent);
                         } else {
+                            LoggedInUser.setUser((String) dataSnapshot.getKey(), "Patient");
                             Intent intent = new Intent(LogInActivity.this, activity_patient_profile.class);
                             startActivity(intent);
                         }
