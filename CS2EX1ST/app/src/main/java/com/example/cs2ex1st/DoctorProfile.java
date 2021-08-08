@@ -1,11 +1,11 @@
 package com.example.cs2ex1st;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class DoctorProfile extends AppCompatActivity {
 
@@ -35,6 +35,11 @@ public class DoctorProfile extends AppCompatActivity {
 
     public void GoToDoctorPastAppointments(View view) {
         Intent intent = new Intent(this, DoctorPastAppt.class);
+        startActivity(intent);
+    }
+
+    public void goToListOfPatients(View view) {
+        Intent intent = new Intent(this, DisplayPatientsList.class);
         startActivity(intent);
     }
 }

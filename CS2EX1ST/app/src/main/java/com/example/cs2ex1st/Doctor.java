@@ -5,7 +5,7 @@ import java.io.Serializable;
 import java.util.*;
 
 public class Doctor extends User implements Serializable {
-    private ArrayList<Patient> previousPatients;
+    private ArrayList<Patient> previousPatients = new ArrayList<Patient>();
 
     private String specialization;
 

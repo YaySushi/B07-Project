@@ -4,6 +4,7 @@ import java.util.*;
 public class Patient extends User implements Serializable {
     //assuming appointment consists of doctor field and time field
     private String DOB;
+    private ArrayList<String> previousDoctors = new ArrayList<String>();
     public Patient(){}
     public Patient(String firstname,
                    String lastname,
@@ -52,6 +53,9 @@ public class Patient extends User implements Serializable {
         return false;
     }
 
+    public ArrayList<String> getPreviousDoctors() {
+        return this.previousDoctors;
+    }
 
     public String getDOB() { return DOB; }
 

@@ -9,9 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.CS2EX1ST">
-        <activity android:name=".BookApptActivity">
-
-        </activity>
+        <activity android:name=".DisplayPatientsList"></activity>
+        <activity android:name=".BookApptActivity"></activity>
         <activity android:name=".PatientFutureAppt" />
         <activity android:name=".PatientPastAppt" />
         <activity
@@ -29,8 +28,6 @@
         <activity
             android:name=".DoctorProfile"
             android:exported="true" />
-        <activity android:name=".SignUpFailure" />
-        <activity android:name=".LoginFailure" />
         <activity android:name=".SignUpSuccess" />
         <activity android:name=".PatientSignUp" />
         <activity android:name=".DoctorSignUp" />

@@ -30,6 +30,8 @@
     <string name="past_appointments">Past Appointments</string>
     <string name="future_appointments">Future Appointments</string>
     <string name="profile">My Profile</string>
+    <string name="doc_patient">My Patients</string>
+    <string name="return_to_home">Return</string>
     <string-array name="gender">
         <item>Choose...</item>
         <item>Male</item>
