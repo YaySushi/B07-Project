@@ -44,8 +44,4 @@ public class Doctor extends User implements Serializable {
     public void setSpecialization(String specialization) {
         this.specialization = specialization;
     }
-
-    public String toString() {
-        return "{ " + firstName + " " + lastName + ", " + email + ", " + gender + ", " + specialization + ", " + password + "} ";
-    }
 }
