@@ -15,15 +15,16 @@ public class DoctorFutureAppt extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_doctor_future_appt);
 
-        RecyclerView rvDocPastAppt = (RecyclerView)findViewById(R.id.recyclerFutureAppt);
+        RecyclerView rvDocFutureAppt = (RecyclerView)findViewById(R.id.recyclerFutureAppt);
 
-        // Get Doctor's list of appointments
-
-        // Create adapter and pass in appointment data
+        // Create adapter and pass in current user's appointment data
+        ApptAdapter adapter = new ApptAdapter(LoggedInUser.getUser().getReserved_appointments());
 
         // Attach adapter to RecyclerView
+        rvDocFutureAppt.setAdapter(adapter);
 
         // Set Layout manager
+        rvDocFutureAppt.setLayoutManager(new LinearLayoutManager(this));
 
 /*
         // TESTING data
@@ -67,12 +68,12 @@ public class DoctorFutureAppt extends AppCompatActivity {
         ApptAdapter adapter = new ApptAdapter(appointments);
 
         // Attach adapter to RecyclerView
-        rvDocPastAppt.setAdapter(adapter);
+        rvDocFutureAppt.setAdapter(adapter);
 
         // Set Layout manager
-        rvDocPastAppt.setLayoutManager(new LinearLayoutManager(this));
+        rvDocFutureAppt.setLayoutManager(new LinearLayoutManager(this));
+*/
 
- */
 
     }
 }

@@ -18,16 +18,16 @@ public class DoctorPastAppt extends AppCompatActivity {
 
         RecyclerView rvDocPastAppt = (RecyclerView)findViewById(R.id.recyclerAvailAppnt);
 
-        // Get Doctor's list of appointments
-
-        // Create adapter and pass in appointment data
+        // Create adapter and pass in current user's appointment data
+        ApptAdapter adapter = new ApptAdapter(LoggedInUser.getUser().getPrior_appointments());
 
         // Attach adapter to RecyclerView
+        rvDocPastAppt.setAdapter(adapter);
 
         // Set Layout manager
+        rvDocPastAppt.setLayoutManager(new LinearLayoutManager(this));
 
-
-
+/*
         // TESTING data
         ArrayList<Appointment> appointments = new ArrayList<>();
 
@@ -73,7 +73,6 @@ public class DoctorPastAppt extends AppCompatActivity {
 
         // Set Layout manager
         rvDocPastAppt.setLayoutManager(new LinearLayoutManager(this));
-
-
+*/
     }
 }
