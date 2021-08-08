@@ -18,7 +18,6 @@ public class FirebaseWrapper {
     public static final String PATIENT_KEY = "Patient";
     public static final String ID_KEY = "ID";
 
-    private static FirebaseWrapper instance;
     private static HashMap<String,Doctor> doctors = new HashMap<String,Doctor>();
     private static  HashMap<String,Patient> patients = new HashMap<String,Patient>();
     private static HashMap<String,String> emails = new HashMap<String,String>();
@@ -37,7 +36,7 @@ public class FirebaseWrapper {
             public void onDataChange(DataSnapshot dataSnapshot) {
                 for(DataSnapshot child: dataSnapshot.getChildren()){
                     T t = child.getValue(typeClass);
-                    list.put(dataSnapshot.getKey(),t);
+                    list.put(child.getKey(),t);
                 }
             }
 

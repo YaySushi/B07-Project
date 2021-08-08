@@ -26,12 +26,13 @@ import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class BookApptActivity extends AppCompatActivity {
+    RecyclerView rvBookingAppt;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_book_appt);
 
-        RecyclerView rvBookingAppt = (RecyclerView) findViewById(R.id.booking_list);
+        rvBookingAppt = (RecyclerView) findViewById(R.id.booking_list);
         Spinner genderFilter = (Spinner) findViewById(R.id.gender_filter);
         genderFilter.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -40,6 +41,23 @@ public class BookApptActivity extends AppCompatActivity {
                                        int position,
                                        long id) {
                 //Log.i("info", ((TextView)selectedItemView).getText().toString());
+                String selectedGender = ((TextView)selectedItemView).getText().toString();
+                if(selectedGender.equals(getResources().getStringArray(R.array.gender)[0]))
+                {
+                    resetRecyclerView();
+                    return;
+                }
+                ArrayList<Appointment> appointments = new ArrayList<>();
+                int i = 0;
+                for(Doctor doctor: FirebaseWrapper.getDoctorList()){
+                    if(doctor.getGender().equals(selectedGender)){
+                        appointments.add(new Appointment(false, doctor,i, 1,1,1));
+                        i++;
+                    }
+                }
+
+                // Attach adapter to RecyclerView
+                rvBookingAppt.setAdapter(new BookingRecyclerAdapter(BookApptActivity.this, appointments));
             }
 
             @Override
@@ -47,45 +65,57 @@ public class BookApptActivity extends AppCompatActivity {
                 return;
             }
         });
+        Spinner specFilter = (Spinner) findViewById(R.id.specialization_filter);
+        specFilter.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parentView,
+                                       View selectedItemView,
+                                       int position,
+                                       long id) {
+                //Log.i("info", ((TextView)selectedItemView).getText().toString());
+                String selectedSpec = ((TextView)selectedItemView).getText().toString();
+                if(selectedSpec.equals(getResources().getStringArray(R.array.specialization)[0])) {
+                    resetRecyclerView();
+                    return;
+                }
+                ArrayList<Appointment> appointments = new ArrayList<>();
+                int i = 0;
+                for(Doctor doctor: FirebaseWrapper.getDoctorList()){
+                    if(doctor.getSpecialization().equals(selectedSpec)){
+                        appointments.add(new Appointment(false, doctor,i, 1,1,1));
+                        i++;
+                    }
+                }
+
+                // Attach adapter to RecyclerView
+                rvBookingAppt.setAdapter(new BookingRecyclerAdapter(BookApptActivity.this, appointments));
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+                return;
+            }
+        });
+
         // TESTING data
-        ArrayList<Appointment> appointments = new ArrayList<>();
+        resetRecyclerView();
 
-        Doctor doc1 = new Doctor("first", "last", "a@b.c", "Female", "Anesthesiology", "pass");
-        Appointment app1 = new Appointment(false, 1, 1, 1,1);
-        app1.setDoctor(doc1);
-        doc1 = new Doctor("first", "last", "a@b.c", "Male", "Cardiology", "pass");
+        // Set Layout manager
+        rvBookingAppt.setLayoutManager(new LinearLayoutManager(this));
 
-        Appointment app2 = new Appointment(false, 2, 1, 1,1);
-        app2.setDoctor(doc1);
-
-        Appointment app3 = new Appointment(false, 3, 1, 1,1);
-        app3.setDoctor(doc1);
-
-        Appointment app4 = new Appointment(false, 4, 1, 1,1);
-        app4.setDoctor(doc1);
-
-        Appointment app5 = new Appointment(false, 5, 1, 1,1);
-        app5.setDoctor(doc1);
-
-        Appointment app6 = new Appointment(false, 6, 1, 1,1);
-        app6.setDoctor(doc1);
-
-        appointments.add(app1);
-        appointments.add(app2);
-        appointments.add(app3);
-        appointments.add(app4);
-        appointments.add(app5);
-        appointments.add(app6);
+    }
+    private void resetRecyclerView(){
+        ArrayList<Appointment> appointments = new ArrayList<Appointment>();
+        int i = 0;
+        for(Doctor doctor: FirebaseWrapper.getDoctorList()){
+            appointments.add(new Appointment(false, doctor,i, 1,1,1));
+            i++;
+        }
 
         // Create adapter and pass in appointment data
         BookingRecyclerAdapter adapter = new BookingRecyclerAdapter(this, appointments);
 
         // Attach adapter to RecyclerView
         rvBookingAppt.setAdapter(adapter);
-
-        // Set Layout manager
-        rvBookingAppt.setLayoutManager(new LinearLayoutManager(this));
-
     }
-
 }

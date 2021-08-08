@@ -9,11 +9,6 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.CS2EX1ST">
-        <activity
-            android:name=".BookingConfirmActivity"
-            android:parentActivityName="com.example.cs2ex1st.BookApptActivity">
-
-        </activity>
         <activity android:name=".BookApptActivity">
 
         </activity>

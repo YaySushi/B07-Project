@@ -1,12 +1,15 @@
 package com.example.cs2ex1st;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
@@ -67,10 +70,32 @@ public class BookingRecyclerAdapter
         viewHolder.mainLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                    Log.i("info", ""+cur.getDoctor().getFirstName());
-                    Intent intent = new Intent(context, BookingConfirmActivity.class);
-                    intent.putExtra("appointment", cur);
-                    context.startActivity(intent);
+                AlertDialog.Builder builder = new AlertDialog.Builder(context);
+                builder.setTitle("Please confirm appointment");
+                builder.setCancelable(true);
+                builder.setMessage(
+                        "Doctor: " + cur.getDoctor().getFirstName() + " " + cur.getDoctor().getLastName() +"\n"
+                        + "Time: " + cur.getDate());
+                builder.setPositiveButton("Confirm", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        Patient user = (Patient)LoggedInUser.getUser();
+
+                        if(user.book_appointment(cur)){
+                            Toast.makeText(context, "Appointment Sucessfully Booked", Toast.LENGTH_SHORT).show();
+                        }
+                        else{
+                            Toast.makeText(context, "Failed to book an appointment", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
+                builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        //close and do nothing
+                    }
+                });
+                builder.create().show();
             }
         });
     }

@@ -15,6 +15,7 @@ public class DoctorProfile extends AppCompatActivity {
         setContentView(R.layout.activity_doctor_profile);
 
         //LoggedInUser is assumed to be initialized from loggin in.
+        FirebaseWrapper.printHashMap(FirebaseWrapper.getDoctors());
         Doctor d = (Doctor)LoggedInUser.getUser();
         ((TextView)findViewById(R.id.textView25)).setText(d.toString());
         ((TextView)findViewById(R.id.textView26)).setText(d.getSpecialization());

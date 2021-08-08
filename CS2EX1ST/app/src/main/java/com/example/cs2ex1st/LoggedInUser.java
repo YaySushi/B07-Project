@@ -21,24 +21,26 @@ public class LoggedInUser {
     public static void setUser(String email, String type) {
         DatabaseReference ref;
         if (type.equals("Doctor")) {
-            ref = FirebaseDatabase.getInstance().getReference("Doctor/" + email);
+            //ref = FirebaseDatabase.getInstance().getReference("Doctor/" + email);
+            currentUser = FirebaseWrapper.getDoctors().get(email);
         } else {
-            ref = FirebaseDatabase.getInstance().getReference("Patient/" + email);
+            currentUser = FirebaseWrapper.getPatients().get(email);
         }
-        ref.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                if (type.equals("Doctor")) {
-                    currentUser = (Doctor) dataSnapshot.getValue();
-                } else {
-                    currentUser = (Patient) dataSnapshot.getValue();
-                }
-            }
 
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-                System.out.println("The read failed: " + databaseError.toException());
-            }
-        });
+//        ref.addListenerForSingleValueEvent(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(DataSnapshot dataSnapshot) {
+//                if (type.equals("Doctor")) {
+//                    currentUser = (Doctor) dataSnapshot.getValue();
+//                } else {
+//                    currentUser = (Patient) dataSnapshot.getValue();
+//                }
+//            }
+//
+//            @Override
+//            public void onCancelled(DatabaseError databaseError) {
+//                System.out.println("The read failed: " + databaseError.toException());
+//            }
+//        });
     }
 }
