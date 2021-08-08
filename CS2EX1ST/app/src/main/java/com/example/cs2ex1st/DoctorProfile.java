@@ -23,23 +23,31 @@ public class DoctorProfile extends AppCompatActivity {
         ((TextView)findViewById(R.id.textView29)).setText(d.getGender());
     }
 
-    public void GoToDoctorAvailableAppointments(View view) {
+    public void goToDoctorAvailableAppointments(View view) {
         Intent intent = new Intent(this, DoctorAvailableAppt.class);
         startActivity(intent);
     }
 
-    public void GoToDoctorFutureAppointments(View view) {
+    public void goToDoctorFutureAppointments(View view) {
         Intent intent = new Intent(this, DoctorFutureAppt.class);
         startActivity(intent);
     }
 
-    public void GoToDoctorPastAppointments(View view) {
+    public void goToDoctorPastAppointments(View view) {
         Intent intent = new Intent(this, DoctorPastAppt.class);
         startActivity(intent);
     }
 
     public void goToListOfPatients(View view) {
         Intent intent = new Intent(this, DisplayPatientsList.class);
+        startActivity(intent);
+    }
+
+    public void deleteProfile(View view) {
+
+        //delete profile
+
+        Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
     }
 }
