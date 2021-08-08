@@ -31,7 +31,10 @@ public class LogInActivity extends AppCompatActivity {
         email = email.replace('.', '*');
         editText = (EditText) findViewById(R.id.password);
         String password = editText.getText().toString();
-
+        if (email.equals("")) {
+            logInErrorText.setText("Email address is incorrect.");
+            return;
+        }
         DatabaseReference ref = FirebaseDatabase.getInstance().getReference("ID/" + email);
         ref.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
