@@ -47,6 +47,9 @@ public class Patient extends User implements Serializable {
             app.setBooked(true);
             app.setPatient(this);
             app.getDoctor().addAppointment(app.getDoctor().getReserved_appointments(),app);
+            ArrayList<Patient> patients = app.getDoctor().getFuturePatients();
+            patients.add(this);
+            app.getDoctor().setFuturePatients(patients);
             this.addAppointment(reserved_appointments,app);
             return true;
         }

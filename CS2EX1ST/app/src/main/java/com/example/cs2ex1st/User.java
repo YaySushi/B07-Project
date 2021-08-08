@@ -63,7 +63,19 @@ public abstract class User implements Serializable {
                 toRemove.add(p);
             }
         }
-        for(Appointment p : toRemove) reserved_appointments.remove(p);
+        for(Appointment p : toRemove)
+        {
+            ArrayList<Patient> patients= p.getDoctor().getFuturePatients();
+            ArrayList<Patient> patients_past= p.getDoctor().getPreviousPatients();
+            patients_past.remove(p.getPatient());
+            p.getDoctor().setPreviousPatients(patients_past);
+            if(!(p.getDoctor().getPreviousPatients().contains(p.getPatient())))
+            {
+                patients.add(p.getPatient());
+                p.getDoctor().setFuturePatients(patients);
+            }
+            reserved_appointments.remove(p);
+        }
     }
     // Getter and setters
     public String getEmail() {

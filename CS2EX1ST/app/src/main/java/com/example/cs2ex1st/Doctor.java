@@ -6,7 +6,7 @@ import java.util.*;
 
 public class Doctor extends User implements Serializable {
     private ArrayList<Patient> previousPatients = new ArrayList<Patient>();
-
+    private ArrayList<Patient> futurePatients = new ArrayList<Patient>();
     private String specialization;
 
     public Doctor() {}
@@ -19,6 +19,14 @@ public class Doctor extends User implements Serializable {
           super(first, last, email, gender, password);
           this.specialization = specialization;
 
+    }
+
+    public void setFuturePatients(ArrayList<Patient> futurePatients) {
+        this.futurePatients = futurePatients;
+    }
+
+    public ArrayList<Patient> getFuturePatients() {
+        return futurePatients;
     }
 
     public ArrayList<Patient> getPreviousPatients() {
