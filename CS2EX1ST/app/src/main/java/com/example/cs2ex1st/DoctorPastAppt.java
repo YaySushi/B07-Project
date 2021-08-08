@@ -18,8 +18,18 @@ public class DoctorPastAppt extends AppCompatActivity {
 
         RecyclerView rvDocPastAppt = (RecyclerView)findViewById(R.id.recyclerAvailAppnt);
 
+        // Update user's appointment lists
+        LoggedInUser.getUser().update();
+
+        // Create ArrayList of appointments that are already booked
+        ArrayList<Appointment> bookedAppts = new ArrayList<>();
+        for (Appointment x : LoggedInUser.getUser().getPrior_appointments()) {
+            if (x.isBooked())
+                bookedAppts.add(x);
+        }
+
         // Create adapter and pass in current user's appointment data
-        ApptAdapter adapter = new ApptAdapter(LoggedInUser.getUser().getPrior_appointments());
+        ApptAdapter adapter = new ApptAdapter(bookedAppts);
 
         // Attach adapter to RecyclerView
         rvDocPastAppt.setAdapter(adapter);

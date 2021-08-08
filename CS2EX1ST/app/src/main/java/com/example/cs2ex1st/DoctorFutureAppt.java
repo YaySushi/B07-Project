@@ -17,8 +17,18 @@ public class DoctorFutureAppt extends AppCompatActivity {
 
         RecyclerView rvDocFutureAppt = (RecyclerView)findViewById(R.id.recyclerFutureAppt);
 
+        // Update user's appointment lists
+        LoggedInUser.getUser().update();
+
+        // Create ArrayList of appointments that are already booked
+        ArrayList<Appointment> bookedAppts = new ArrayList<>();
+        for (Appointment x : LoggedInUser.getUser().getReserved_appointments()) {
+            if (x.isBooked())
+                bookedAppts.add(x);
+        }
+
         // Create adapter and pass in current user's appointment data
-        ApptAdapter adapter = new ApptAdapter(LoggedInUser.getUser().getReserved_appointments());
+        ApptAdapter adapter = new ApptAdapter(bookedAppts);
 
         // Attach adapter to RecyclerView
         rvDocFutureAppt.setAdapter(adapter);
