@@ -27,13 +27,21 @@ import java.util.ArrayList;
 
 public class BookApptActivity extends AppCompatActivity {
     RecyclerView rvBookingAppt;
+    String selectedGender , selectedSpec;
+    String genderDefault, specDefault;
+    ArrayList<Appointment> appointments;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_book_appt);
+        appointments = new ArrayList<Appointment>();
+
 
         rvBookingAppt = (RecyclerView) findViewById(R.id.booking_list);
         Spinner genderFilter = (Spinner) findViewById(R.id.gender_filter);
+
+        genderDefault = getResources().getStringArray(R.array.gender)[0];
+        selectedGender = genderDefault;
         genderFilter.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parentView,
@@ -41,16 +49,16 @@ public class BookApptActivity extends AppCompatActivity {
                                        int position,
                                        long id) {
                 //Log.i("info", ((TextView)selectedItemView).getText().toString());
-                String selectedGender = ((TextView)selectedItemView).getText().toString();
-                if(selectedGender.equals(getResources().getStringArray(R.array.gender)[0]))
+                selectedGender = ((TextView)selectedItemView).getText().toString();
+                if(selectedGender.equals(genderDefault))
                 {
                     resetRecyclerView();
                     return;
                 }
-                ArrayList<Appointment> appointments = new ArrayList<>();
+                appointments = new ArrayList<>();
                 int i = 0;
                 for(Doctor doctor: FirebaseWrapper.getDoctorList()){
-                    if(doctor.getGender().equals(selectedGender)){
+                    if(passesFilter(doctor)){
                         appointments.add(new Appointment(false, doctor,i, 1,1,1));
                         i++;
                     }
@@ -66,6 +74,8 @@ public class BookApptActivity extends AppCompatActivity {
             }
         });
         Spinner specFilter = (Spinner) findViewById(R.id.specialization_filter);
+        specDefault = getResources().getStringArray(R.array.specialization)[0];
+        selectedSpec = specDefault;
         specFilter.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parentView,
@@ -73,15 +83,15 @@ public class BookApptActivity extends AppCompatActivity {
                                        int position,
                                        long id) {
                 //Log.i("info", ((TextView)selectedItemView).getText().toString());
-                String selectedSpec = ((TextView)selectedItemView).getText().toString();
-                if(selectedSpec.equals(getResources().getStringArray(R.array.specialization)[0])) {
+                selectedSpec = ((TextView)selectedItemView).getText().toString();
+                if(selectedSpec.equals(specDefault)) {
                     resetRecyclerView();
                     return;
                 }
-                ArrayList<Appointment> appointments = new ArrayList<>();
+                appointments = new ArrayList<>();
                 int i = 0;
                 for(Doctor doctor: FirebaseWrapper.getDoctorList()){
-                    if(doctor.getSpecialization().equals(selectedSpec)){
+                    if(passesFilter(doctor)){
                         appointments.add(new Appointment(false, doctor,i, 1,1,1));
                         i++;
                     }
@@ -99,17 +109,18 @@ public class BookApptActivity extends AppCompatActivity {
 
         // TESTING data
         resetRecyclerView();
-
         // Set Layout manager
         rvBookingAppt.setLayoutManager(new LinearLayoutManager(this));
 
     }
     private void resetRecyclerView(){
-        ArrayList<Appointment> appointments = new ArrayList<Appointment>();
+        appointments = new ArrayList<>();
         int i = 0;
         for(Doctor doctor: FirebaseWrapper.getDoctorList()){
-            appointments.add(new Appointment(false, doctor,i, 1,1,1));
-            i++;
+            if(passesFilter(doctor)){
+                appointments.add(new Appointment(false, doctor,i, 1,1,1));
+                i++;
+            }
         }
 
         // Create adapter and pass in appointment data
@@ -117,5 +128,11 @@ public class BookApptActivity extends AppCompatActivity {
 
         // Attach adapter to RecyclerView
         rvBookingAppt.setAdapter(adapter);
+    }
+
+    public boolean passesFilter(Doctor doctor){
+        boolean passGender = selectedGender.equals(genderDefault) || doctor.getGender().equals(selectedGender);
+        boolean passSpec = selectedSpec.equals(specDefault) || doctor.getSpecialization().equals(selectedSpec);
+        return passGender && passSpec;
     }
 }
