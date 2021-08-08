@@ -31,4 +31,8 @@ public class PatientProfile extends AppCompatActivity {
         Intent intent = new Intent(this, PatientPastAppt.class);
         startActivity(intent);
     }
+    public void GoToPatientBookAppoinment(View view) {
+        Intent intent = new Intent(this, BookApptActivity.class);
+        startActivity(intent);
+    }
 }

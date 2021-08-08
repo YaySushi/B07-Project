@@ -29,6 +29,7 @@
     <string name="label_dob">Date of birth:</string>
     <string name="past_appointments">Past Appointments</string>
     <string name="future_appointments">Future Appointments</string>
+    <string name="book_appoinment">Book Appointment</string>
     <string name="profile">My Profile</string>
     <string name="doc_patient">My Patients</string>
     <string name="return_to_home">Return</string>
