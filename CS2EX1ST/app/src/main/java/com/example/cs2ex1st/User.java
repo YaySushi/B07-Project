@@ -53,7 +53,8 @@ public abstract class User implements Serializable {
         //bad to remove from a list while iterating it.
         //so we accumulate the elements to remove, then remove them afterwards.
         ArrayList<Appointment> toRemove = new ArrayList<Appointment>();
-        if(reserved_appointments == null) return;
+        if(reserved_appointments == null) reserved_appointments = new ArrayList<>();
+        if(prior_appointments == null) prior_appointments = new ArrayList<>();
         for(Appointment p:reserved_appointments)
         {
             if(p.getMillis()<System.currentTimeMillis())

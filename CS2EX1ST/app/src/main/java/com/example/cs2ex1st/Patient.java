@@ -35,24 +35,26 @@ public class Patient extends User implements Serializable {
     }
     public boolean book_appointment(Appointment app)
     {
-        boolean can_reserve=false;
-        for(Appointment a:prior_appointments)
-        {
-            if(a.DoctorGet()==app.DoctorGet())
-            {
-                can_reserve=true;
-                break;
-            }
-        }
+        boolean can_reserve=true;
+//        for(Appointment a:prior_appointments)
+//        {
+//            if(a.DoctorGet()==app.DoctorGet())
+//            {
+//                can_reserve=true;
+//                break;
+//            }
+//        }
         if(can_reserve && !app.isBooked())
         {
             app.setBooked(true);
             app.PatientSet(this);
-            app.DoctorGet().addAppointment(app.DoctorGet().getReserved_appointments(),app);
+            //app.DoctorGet().addAppointment(app.DoctorGet().getReserved_appointments(),app);
             ArrayList<Patient> patients = app.DoctorGet().getFuturePatients();
             patients.add(this);
             app.DoctorGet().setFuturePatients(patients);
             this.addAppointment(reserved_appointments,app);
+            FirebaseWrapper.addDoctorToDatabase(app.DoctorGet());
+            FirebaseWrapper.addPatientToDatabase(app.PatientGet());
             return true;
         }
         return false;
