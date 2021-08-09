@@ -32,7 +32,7 @@ public class LogInActivity extends AppCompatActivity {
         editText = (EditText) findViewById(R.id.password);
         String password = editText.getText().toString();
         if (email.equals("")) {
-            logInErrorText.setText("Email address is incorrect.");
+            logInErrorText.setText("Email address cannot be empty.");
             return;
         }
         DatabaseReference ref = FirebaseDatabase.getInstance().getReference("ID/" + email);

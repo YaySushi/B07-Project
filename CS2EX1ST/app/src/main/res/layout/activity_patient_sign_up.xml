@@ -118,18 +118,15 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/patientSignInErrorText" />
 
-            <EditText
+            <DatePicker
                 android:id="@+id/patientdob"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="357dp"
+                android:layout_height="408dp"
                 android:layout_marginStart="46dp"
                 android:layout_marginLeft="46dp"
-                android:layout_marginEnd="162dp"
-                android:layout_marginRight="162dp"
+                android:layout_marginEnd="7dp"
+                android:layout_marginRight="7dp"
                 android:layout_marginBottom="15dp"
-                android:ems="10"
-                android:hint="@string/dobformat"
-                android:inputType="date"
                 app:layout_constraintBottom_toTopOf="@+id/textView20"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
