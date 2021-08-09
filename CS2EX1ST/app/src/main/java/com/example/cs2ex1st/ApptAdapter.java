@@ -7,10 +7,6 @@ import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.cs2ex1st.Appointment;
-import com.example.cs2ex1st.R;
-import org.w3c.dom.Text;
-
 import java.util.ArrayList;
 
 public class ApptAdapter extends RecyclerView.Adapter<ApptAdapter.ViewHolder> {
@@ -56,10 +52,10 @@ public class ApptAdapter extends RecyclerView.Adapter<ApptAdapter.ViewHolder> {
 
         // Set the views based on cur data
         TextView docName = viewHolder.doctorNameTextView;
-        docName.setText("Doctor: " + cur.getDoctor().toString());
+        docName.setText("Doctor: " + cur.DoctorGet().toString());
 
         TextView patientName = viewHolder.patientNameTextView;
-        patientName.setText("Patient: " + cur.getPatient().toString());
+        patientName.setText("Patient: " + cur.patientGet().toString());
 
         TextView apptTime = viewHolder.apptTimeTextView;
         apptTime.setText("Time: " + cur.getDate());

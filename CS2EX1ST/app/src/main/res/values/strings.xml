@@ -61,7 +61,6 @@
         <item>Hematology</item>
         <item>Medical Biochemistry</item>
         <item>Medical Genetics</item>
-        <item>Medical Microbiology and Infectious Diseases</item>
         <item>Medical Oncology</item>
         <item>Nephrology</item>
         <item>Neurology</item>
@@ -73,12 +72,9 @@
         <item>Orthopedic Surgery</item>
         <item>Otolaryngology</item>
         <item>Pediatrics</item>
-        <item>Physical Medicine and Rehabilitation</item>
         <item>Plastic Surgery</item>
         <item>Psychiatry</item>
-        <item>Public Health and Preventive Medicine</item>
         <item>Radiation Oncology</item>
-        <item>Respiratory Medicine/Respirology</item>
         <item>Rheumatology</item>
         <item>Urology</item>
     </string-array>
