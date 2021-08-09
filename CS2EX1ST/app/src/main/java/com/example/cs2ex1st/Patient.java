@@ -33,6 +33,34 @@ public class Patient extends User implements Serializable {
             prior_appointments.add(a);
         }
     }
+    public void remove_references_to_doc(Doctor doc)
+    {
+        ArrayList<Appointment> past_to_remove=new ArrayList<Appointment>();
+        ArrayList<Appointment> future_to_remove=new ArrayList<Appointment>();
+        for(Appointment p:prior_appointments)
+        {
+            if(p.DoctorGet()==doc)
+            {
+                past_to_remove.add(p);
+            }
+        }
+        for(Appointment p:reserved_appointments)
+        {
+            if(p.DoctorGet()==doc)
+            {
+                future_to_remove.add(p);
+            }
+        }
+        for(Appointment p:past_to_remove)
+        {
+            prior_appointments.remove(p);
+        }
+        for(Appointment p:future_to_remove)
+        {
+            reserved_appointments.remove(p);
+        }
+        FirebaseWrapper.updateDatabase();
+    }
     public boolean book_appointment(Appointment app)
     {
         boolean can_reserve=true;

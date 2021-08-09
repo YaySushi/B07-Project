@@ -45,7 +45,12 @@ public class DoctorProfile extends AppCompatActivity {
     public void deleteProfile(View view) {
 
         // TODO delete profile
-
+        Doctor d = (Doctor)LoggedInUser.getUser();
+        for(String key:d.getPreviousPatientsKey())
+        {
+            (FirebaseWrapper.getPatientWithKey(key)).remove_references_to_doc(d);
+        }
+        //deleteDoctorFromDatabase(d);
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
     }
