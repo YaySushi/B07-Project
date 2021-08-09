@@ -14,6 +14,8 @@ public class PatientPastAppt extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_patient_past_appt);
         RecyclerView patient_past= (RecyclerView)findViewById(R.id.recyclerPatientPast);
+        // Update user's appointment lists
+        LoggedInUser.getUser().update();
         // Create adapter and pass in appointment data
         Patient s= (Patient)LoggedInUser.getUser();
         ApptAdapter adapter = new ApptAdapter(s.getPrior_appointments());
