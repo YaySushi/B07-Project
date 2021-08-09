@@ -123,9 +123,9 @@ public class Appointment implements Comparable<Appointment>, Serializable {
 
     @Override
     public int compareTo(Appointment appointment) {
-        if(this.getMillis() < appointment.getMillis()) return 1;
+        if(this.getMillis() < appointment.getMillis()) return -1;
         else if(this.getMillis() == appointment.getMillis()) return 0;
-        else return -1;
+        else return 1;
     }
 
     @Override
