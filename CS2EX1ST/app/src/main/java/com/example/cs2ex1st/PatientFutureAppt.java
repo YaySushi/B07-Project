@@ -13,7 +13,7 @@ public class PatientFutureAppt extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_patient_future_appt);
-        RecyclerView patient_future= (RecyclerView)findViewById(R.id.recyclerPatientPast);
+        RecyclerView patient_future= (RecyclerView)findViewById(R.id.recyclePatientFuture);
         // Create adapter and pass in appointment data
         Patient s= (Patient)LoggedInUser.getUser();
         ApptAdapter adapter = new ApptAdapter(s.getReserved_appointments());

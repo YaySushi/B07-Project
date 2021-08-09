@@ -13,6 +13,10 @@ public class Appointment implements Comparable<Appointment>, Serializable {
     private Doctor doctor = null;
     private Patient patient = null;
 
+    public Appointment()
+    {
+
+    }
     public Appointment(boolean isBooked, Doctor doctor, int hour, int day, int month, int year) {
         this.isBooked = isBooked;
         this.hour = hour;
