@@ -55,6 +55,19 @@ public class FirebaseWrapper {
             Log.i(key , value);
         }
     }
+    public static void updateDatabase(){
+        DatabaseReference ref = FirebaseDatabase.getInstance().getReference(PATIENT_KEY);
+
+        for(String key: doctors.keySet()){
+            ref.child(DOCTOR_KEY).child(key).setValue(doctors.get(key));
+        }
+        for(String key: patients.keySet()){
+            ref.child(PATIENT_KEY).child(key).setValue(patients.get(key));
+        }
+        for(String key: emails.keySet()){
+            ref.child(ID_KEY).child(key).setValue(emails.get(key));
+        }
+    }
     public static void addPatientToDatabase(Patient addMe){
         String key = addMe.email.replace(".","*");
         DatabaseReference ref = FirebaseDatabase.getInstance().getReference(PATIENT_KEY);

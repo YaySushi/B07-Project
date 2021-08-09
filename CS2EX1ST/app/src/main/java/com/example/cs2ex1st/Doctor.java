@@ -37,7 +37,7 @@ public class Doctor extends User implements Serializable {
             tomorrow.set(curYear, curMonth, curDay+1);
             Appointment appt = new Appointment(
                     false,
-                    Doctor.this,
+                    this.email,
                     hour,
                     tomorrow.get(Calendar.DATE),
                     tomorrow.get(Calendar.MONTH)+1, //Calendar counts months starting from 0
