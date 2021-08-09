@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -43,13 +44,15 @@ public class PatientSignUp extends AppCompatActivity {
         String lastName = editText.getText().toString();
         editText = (EditText) findViewById(R.id.patientemail);
         String email = editText.getText().toString();
-        editText = (EditText) findViewById(R.id.patientdob);
-        String dob = editText.getText().toString();
+        DatePicker dp = (DatePicker) findViewById(R.id.patientdob);
+        String dob = myFormatDate(dp.getDayOfMonth(), dp.getMonth() + 1, dp.getYear());
+
         editText = (EditText) findViewById(R.id.patientPassword);
         String password = editText.getText().toString();
 
         editText = (EditText) findViewById(R.id.prevDoctorsList);
         String[] prevDocsArray = editText.getText().toString().split(",");
+
         ArrayList<String> prevDocsList = new ArrayList<String>();
         for (String doc:prevDocsArray) {
             prevDocsList.add(doc);
@@ -83,5 +86,14 @@ public class PatientSignUp extends AppCompatActivity {
             }
         });
     }
+    public String myFormatDate(int day, int month, int year) {
+        String out = "";
+        if(day < 10) out += "0";
+        out += day + "/";
+        if(month < 10) out += "0";
+        out += month + "/";
+        out += year;
 
+        return out;
+    }
 }
