@@ -10,20 +10,18 @@ import java.util.Date;
 public class Appointment implements Comparable<Appointment>, Serializable {
     private int hour, day, month, year;
     private boolean isBooked;
-    private Doctor doctor = null;
-    private Patient patient = null;
+    private String doctorKey, patientKey;
 
-    public Appointment()
-    {
+    public Appointment() {}
 
-    }
-    public Appointment(boolean isBooked, Doctor doctor, int hour, int day, int month, int year) {
+    public Appointment(boolean isBooked, String doctorKey, int hour, int day, int month, int year) {
+
         this.isBooked = isBooked;
         this.hour = hour;
         this.day = day;
         this.month = month;
         this.year = year;
-        this.doctor = doctor;
+        this.doctorKey = doctorKey.replace('.', '*');
     }
     
     public Appointment(boolean isBooked, int hour, int day, int month, int year) {
@@ -54,21 +52,19 @@ public class Appointment implements Comparable<Appointment>, Serializable {
         return s;
     }
 
-    public Doctor getDoctor() {
-        return doctor;
+    public Doctor DoctorGet() {
+        return FirebaseWrapper.getDoctorWithKey(doctorKey);
+    }
+    public void DoctorSet(Doctor doctor) {
+        this.doctorKey = doctor.email.replace('.', '*');
+    }
+    public Patient PatientGet() {
+        return FirebaseWrapper.getPatientWithKey(patientKey);
+    }
+    public void PatientSet(Patient patient) {
+        this.patientKey = patient.email.replace('.', '*');
     }
 
-    public void setDoctor(Doctor doctor) {
-        this.doctor = doctor;
-    }
-
-    public Patient getPatient() {
-        return patient;
-    }
-
-    public void setPatient(Patient patient) {
-        this.patient = patient;
-    }
 
     public int getHour() {
         return hour;
@@ -108,6 +104,22 @@ public class Appointment implements Comparable<Appointment>, Serializable {
         this.isBooked = booked;
     }
 
+    public String getDoctorKey() {
+        return doctorKey;
+    }
+
+    public void setDoctorKey(String doctorKey) {
+        this.doctorKey = doctorKey;
+    }
+
+    public String getPatientKey() {
+        return patientKey;
+    }
+
+    public void setPatientKey(String patientKey) {
+        this.patientKey = patientKey;
+    }
+
     @Override
     public int compareTo(Appointment appointment) {
         if(this.getMillis() < appointment.getMillis()) return 1;
@@ -126,7 +138,7 @@ public class Appointment implements Comparable<Appointment>, Serializable {
                         && this.day == app2.getDay()
                         && this.month == app2.getMonth()
                         && this.year == app2.getYear()
-                        && this.doctor.equals(app2.getDoctor())
+                        && this.doctorKey.equals(app2.getDoctorKey())
         );
     }
 }

@@ -23,9 +23,9 @@ public abstract class User implements Serializable {
             throw new InputMismatchException("Invalid name.");
         }
 
-        if (!Pattern.matches("[a-zA-Z0-9]@[a-zA-Z0-9]+\\.[a-zA-Z0-9]+|[a-zA-Z0-9]+[a-zA-Z0-9\\.]*[a-zA-Z0-9]+@[a-zA-Z0-9]+\\.[a-zA-Z0-9]+", email)) {
-            throw new InputMismatchException("Invalid email.");
-        }
+        //if (!Pattern.matches("[a-zA-Z0-9]@[a-zA-Z0-9]+\\.[a-zA-Z0-9]+|[a-zA-Z0-9]+[a-zA-Z0-9\\.]*[a-zA-Z0-9]+@[a-zA-Z0-9]+\\.[a-zA-Z0-9]+", email)) {
+       //     throw new InputMismatchException("Invalid email.");
+        //}
 
         if (!Pattern.matches("\\w{4,}", password)) {
             throw new InputMismatchException("Invalid password.");
@@ -53,6 +53,7 @@ public abstract class User implements Serializable {
         //bad to remove from a list while iterating it.
         //so we accumulate the elements to remove, then remove them afterwards.
         ArrayList<Appointment> toRemove = new ArrayList<Appointment>();
+        if(reserved_appointments == null) return;
         for(Appointment p:reserved_appointments)
         {
             if(p.getMillis()<System.currentTimeMillis())
@@ -61,16 +62,18 @@ public abstract class User implements Serializable {
                 toRemove.add(p);
             }
         }
+
+        if(toRemove == null) return;
         for(Appointment p : toRemove)
         {
-            ArrayList<Patient> patients= p.getDoctor().getFuturePatients();
-            ArrayList<Patient> patients_past= p.getDoctor().getPreviousPatients();
-            patients_past.remove(p.getPatient());
-            p.getDoctor().setPreviousPatients(patients_past);
-            if(!(p.getDoctor().getPreviousPatients().contains(p.getPatient())))
+            ArrayList<Patient> patients= p.DoctorGet().getFuturePatients();
+            ArrayList<Patient> patients_past= p.DoctorGet().getPreviousPatients();
+            patients_past.remove(p.PatientGet());
+            p.DoctorGet().setPreviousPatients(patients_past);
+            if(!(p.DoctorGet().getPreviousPatients().contains(p.PatientGet())))
             {
-                patients.add(p.getPatient());
-                p.getDoctor().setFuturePatients(patients);
+                patients.add(p.PatientGet());
+                p.DoctorGet().setFuturePatients(patients);
             }
             reserved_appointments.remove(p);
         }

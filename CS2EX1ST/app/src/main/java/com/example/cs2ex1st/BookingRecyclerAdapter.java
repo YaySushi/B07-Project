@@ -61,9 +61,9 @@ public class BookingRecyclerAdapter
         Appointment cur = appointments.get(position);
 
         // Set the views based on cur data
-        viewHolder.nameField.setText(cur.getDoctor().getFirstName() + " " + cur.getDoctor().getLastName());
-        viewHolder.genderField.setText(cur.getDoctor().getGender());
-        viewHolder.specField.setText(cur.getDoctor().getSpecialization());
+        viewHolder.nameField.setText(cur.DoctorGet().getFirstName() + " " + cur.DoctorGet().getLastName());
+        viewHolder.genderField.setText(cur.DoctorGet().getGender());
+        viewHolder.specField.setText(cur.DoctorGet().getSpecialization());
         viewHolder.timeField.setText(cur.getHour() + ":00 - " + (cur.getHour()+1) + ":00");
         viewHolder.dateField.setText(cur.getDay() + "/" + cur.getMonth() + "/" + cur.getYear());
 
@@ -74,7 +74,7 @@ public class BookingRecyclerAdapter
                 builder.setTitle("Please confirm appointment");
                 builder.setCancelable(true);
                 builder.setMessage(
-                        "Doctor: " + cur.getDoctor().getFirstName() + " " + cur.getDoctor().getLastName() +"\n"
+                        "Doctor: " + cur.DoctorGet().getFirstName() + " " + cur.DoctorGet().getLastName() +"\n"
                         + "Time: " + cur.getDate());
                 builder.setPositiveButton("Confirm", new DialogInterface.OnClickListener() {
                     @Override

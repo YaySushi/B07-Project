@@ -72,6 +72,7 @@ public class PatientSignUp extends AppCompatActivity {
                 } else {
                     ref2.child("Patient").child(p1.getEmail()).setValue(p1);
                     ref2.child("ID").child(p1.getEmail()).setValue(p1.getPassword() + ", Patient");
+                    FirebaseWrapper.setUpHashMaps();
                     Intent intent = new Intent(PatientSignUp.this, SignUpSuccess.class);
                     startActivity(intent);
                 }

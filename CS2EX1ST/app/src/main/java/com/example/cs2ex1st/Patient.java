@@ -38,7 +38,7 @@ public class Patient extends User implements Serializable {
         boolean can_reserve=false;
         for(Appointment a:prior_appointments)
         {
-            if(a.getDoctor()==app.getDoctor())
+            if(a.DoctorGet()==app.DoctorGet())
             {
                 can_reserve=true;
                 break;
@@ -47,11 +47,11 @@ public class Patient extends User implements Serializable {
         if(can_reserve && !app.isBooked())
         {
             app.setBooked(true);
-            app.setPatient(this);
-            app.getDoctor().addAppointment(app.getDoctor().getReserved_appointments(),app);
-            ArrayList<Patient> patients = app.getDoctor().getFuturePatients();
+            app.PatientSet(this);
+            app.DoctorGet().addAppointment(app.DoctorGet().getReserved_appointments(),app);
+            ArrayList<Patient> patients = app.DoctorGet().getFuturePatients();
             patients.add(this);
-            app.getDoctor().setFuturePatients(patients);
+            app.DoctorGet().setFuturePatients(patients);
             this.addAppointment(reserved_appointments,app);
             return true;
         }

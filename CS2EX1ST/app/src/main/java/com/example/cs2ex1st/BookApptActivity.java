@@ -59,7 +59,7 @@ public class BookApptActivity extends AppCompatActivity {
                 int i = 0;
                 for(Doctor doctor: FirebaseWrapper.getDoctorList()){
                     if(passesFilter(doctor)){
-                        appointments.add(new Appointment(false, doctor,i, 1,1,1));
+                        appointments.add(new Appointment(false, doctor.getEmail(), i, 1,1,1));
                         i++;
                     }
                 }
@@ -92,7 +92,7 @@ public class BookApptActivity extends AppCompatActivity {
                 int i = 0;
                 for(Doctor doctor: FirebaseWrapper.getDoctorList()){
                     if(passesFilter(doctor)){
-                        appointments.add(new Appointment(false, doctor,i, 1,1,1));
+                        appointments.add(new Appointment(false, doctor.getEmail(), i, 1,1,1));
                         i++;
                     }
                 }
@@ -118,7 +118,7 @@ public class BookApptActivity extends AppCompatActivity {
         int i = 0;
         for(Doctor doctor: FirebaseWrapper.getDoctorList()){
             if(passesFilter(doctor)){
-                appointments.add(new Appointment(false, doctor,i, 1,1,1));
+                appointments.add(new Appointment(false, doctor.getEmail(), i, 1,1,1));
                 i++;
             }
         }
