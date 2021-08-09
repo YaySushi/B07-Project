@@ -11,10 +11,12 @@ public class Patient extends User implements Serializable {
                    String email,
                    String gender,
                    String DOB,
+                   ArrayList<String> prevDoctors,
                    String password)
     {
         super(firstname,lastname,email, gender, password);
         this.DOB = DOB;
+        this.previousDoctors = prevDoctors;
     }
     public Patient(String firstname,
                    String lastname,

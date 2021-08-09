@@ -1,11 +1,10 @@
 package com.example.cs2ex1st;
 
+import android.os.Bundle;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
-import android.os.Bundle;
-import android.view.View;
 
 import java.util.ArrayList;
 
@@ -21,7 +20,9 @@ public class DoctorAvailableAppt extends AppCompatActivity {
         //LoggedInUser.setUser(new Doctor("fren", "zarded", "fren@gmail.com", "mail", "liver", "pass"));
         //LoggedInUser.getUser().addAppointment(new Appointment(true, 11, 1, 1, 2021));
         Doctor doc = new Doctor("fren", "zarded", "fren@gmail.com", "mail", "liver", "pass");
-        Patient p = new Patient("ali", "orozgani", "someone@gmail.com", "other", "23/04/2014", "passssssss");
+        ArrayList<String> prevDoc = new ArrayList<String>();
+        prevDoc.add("hi"); prevDoc.add("bye");
+        Patient p = new Patient("ali", "orozgani", "someone@gmail.com", "other", "23/04/2014", prevDoc, "passssssss");
 
 
         //this is doctor's reserved appointments.

@@ -16,6 +16,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.ArrayList;
 import java.util.InputMismatchException;
 
 public class PatientSignUp extends AppCompatActivity {
@@ -46,10 +47,17 @@ public class PatientSignUp extends AppCompatActivity {
         String dob = editText.getText().toString();
         editText = (EditText) findViewById(R.id.patientPassword);
         String password = editText.getText().toString();
-        //add dob to User constructor
+
+        editText = (EditText) findViewById(R.id.prevDoctorsList);
+        String[] prevDocsArray = editText.getText().toString().split(",");
+        ArrayList<String> prevDocsList = new ArrayList<String>();
+        for (String doc:prevDocsArray) {
+            prevDocsList.add(doc);
+        }
+
         User p1;
         try {
-            p1 = new Patient(firstName, lastName, email, spinner.getSelectedItem().toString(), dob, password);
+            p1 = new Patient(firstName, lastName, email, spinner.getSelectedItem().toString(), dob, prevDocsList, password);
         } catch (InputMismatchException ex) {
             errorText.setText(ex.getMessage());
             return;
