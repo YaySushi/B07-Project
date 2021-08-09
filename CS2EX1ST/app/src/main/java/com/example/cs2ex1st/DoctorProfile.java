@@ -12,7 +12,7 @@ public class DoctorProfile extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_doctor_profile);
-
+        setTitle("Profile");
         //LoggedInUser is assumed to be initialized from loggin in.
         FirebaseWrapper.printHashMap(FirebaseWrapper.getDoctors());
         Doctor d = (Doctor)LoggedInUser.getUser();

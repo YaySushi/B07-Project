@@ -15,7 +15,7 @@ public class DoctorAvailableAppt extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_doctor_available_appt);
         RecyclerView rvDocAvailAppt = (RecyclerView)findViewById(R.id.recyclerAvailAppnt);
-
+        setTitle("Available Appointments");
         //ArrayList<Appointment> appointments = new ArrayList<>();
         //LoggedInUser.setUser(new Doctor("fren", "zarded", "fren@gmail.com", "mail", "liver", "pass"));
         //LoggedInUser.getUser().addAppointment(new Appointment(true, 11, 1, 1, 2021));
