@@ -44,20 +44,21 @@ public class Patient extends User implements Serializable {
 //                break;
 //            }
 //        }
-        //if(can_reserve && !app.isBooked())
-        //{
-        //    app.setBooked(true);
-        //    app.PatientSet(this);
-        //    //app.DoctorGet().addAppointment(app.DoctorGet().getReserved_appointments(),app);
-        //    ArrayList<Patient> patients = app.DoctorGet().getFuturePatients();
-        //    patients.add(this);
-        //    app.DoctorGet().setFuturePatients(patients);
-        //    this.addAppointment(reserved_appointments,app);
-        //    FirebaseWrapper.addDoctorToDatabase(app.DoctorGet());
-        //    FirebaseWrapper.addPatientToDatabase(app.PatientGet());
-        //    return true;
-        //}
-        // */
+        if(can_reserve && !app.isBooked())
+        {
+            app.setBooked(true);
+            app.PatientSet(this);
+            //app.DoctorGet().addAppointment(app.DoctorGet().getReserved_appointments(),app);
+            //ArrayList<Patient> patients = app.DoctorGet().getFuturePatients();
+            //patients.add(this);
+            //app.DoctorGet().setFuturePatients(patients);
+            this.addAppointment(reserved_appointments,app);
+            //FirebaseWrapper.addDoctorToDatabase(app.DoctorGet());
+            //FirebaseWrapper.addPatientToDatabase(app.PatientGet());
+            FirebaseWrapper.updateDatabase();
+            return true;
+        }
+
         return false;
     }
 
