@@ -7,10 +7,6 @@ import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.cs2ex1st.Appointment;
-import com.example.cs2ex1st.R;
-import org.w3c.dom.Text;
-
 import java.util.ArrayList;
 
 public class ApptAdapter extends RecyclerView.Adapter<ApptAdapter.ViewHolder> {

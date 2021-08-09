@@ -29,13 +29,17 @@ public class BookApptActivity extends AppCompatActivity {
     RecyclerView rvBookingAppt;
     String selectedGender , selectedSpec;
     String genderDefault, specDefault;
-    ArrayList<Appointment> appointments;
+    ArrayList<Doctor> doctors;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_book_appt);
-        appointments = new ArrayList<Appointment>();
+        doctors = new ArrayList<Doctor>();
 
+        //update all doctors appointments
+        for(Doctor doctor: FirebaseWrapper.getDoctorList()){
+            doctor.update();
+        }
 
         rvBookingAppt = (RecyclerView) findViewById(R.id.booking_list);
         Spinner genderFilter = (Spinner) findViewById(R.id.gender_filter);
@@ -55,17 +59,17 @@ public class BookApptActivity extends AppCompatActivity {
                     resetRecyclerView();
                     return;
                 }
-                appointments = new ArrayList<>();
+                doctors = new ArrayList<>();
                 int i = 0;
                 for(Doctor doctor: FirebaseWrapper.getDoctorList()){
                     if(passesFilter(doctor)){
-                        appointments.add(new Appointment(false, doctor.getEmail(), i, 1,1,1));
+                        doctors.add(doctor);
                         i++;
                     }
                 }
 
                 // Attach adapter to RecyclerView
-                rvBookingAppt.setAdapter(new BookingRecyclerAdapter(BookApptActivity.this, appointments));
+                rvBookingAppt.setAdapter(new BookingRecyclerAdapter(BookApptActivity.this, doctors));
             }
 
             @Override
@@ -88,17 +92,16 @@ public class BookApptActivity extends AppCompatActivity {
                     resetRecyclerView();
                     return;
                 }
-                appointments = new ArrayList<>();
+                doctors = new ArrayList<>();
                 int i = 0;
                 for(Doctor doctor: FirebaseWrapper.getDoctorList()){
                     if(passesFilter(doctor)){
-                        appointments.add(new Appointment(false, doctor.getEmail(), i, 1,1,1));
-                        i++;
+                        doctors.add(doctor);
                     }
                 }
 
                 // Attach adapter to RecyclerView
-                rvBookingAppt.setAdapter(new BookingRecyclerAdapter(BookApptActivity.this, appointments));
+                rvBookingAppt.setAdapter(new BookingRecyclerAdapter(BookApptActivity.this, doctors));
             }
 
             @Override
@@ -111,20 +114,17 @@ public class BookApptActivity extends AppCompatActivity {
         resetRecyclerView();
         // Set Layout manager
         rvBookingAppt.setLayoutManager(new LinearLayoutManager(this));
-
     }
     private void resetRecyclerView(){
-        appointments = new ArrayList<>();
-        int i = 0;
+        doctors = new ArrayList<>();
         for(Doctor doctor: FirebaseWrapper.getDoctorList()){
             if(passesFilter(doctor)){
-                appointments.add(new Appointment(false, doctor.getEmail(), i, 1,1,1));
-                i++;
+                doctors.add(doctor);
             }
         }
 
         // Create adapter and pass in appointment data
-        BookingRecyclerAdapter adapter = new BookingRecyclerAdapter(this, appointments);
+        BookingRecyclerAdapter adapter = new BookingRecyclerAdapter(this, doctors);
 
         // Attach adapter to RecyclerView
         rvBookingAppt.setAdapter(adapter);

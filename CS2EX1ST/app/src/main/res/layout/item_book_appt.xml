@@ -19,15 +19,6 @@
             android:layout_marginBottom="5sp">
 
             <TextView
-                android:id="@+id/booking_date_field"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:text="dd/mm/yy"
-                app:layout_constraintEnd_toEndOf="@+id/booking_time_field"
-                app:layout_constraintTop_toBottomOf="@+id/booking_time_field" />
-
-            <TextView
                 android:id="@+id/booking_docname_field"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -38,19 +29,6 @@
                 android:textSize="20sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
-                android:id="@+id/booking_time_field"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="24dp"
-                android:layout_marginRight="24dp"
-                android:text="TextView"
-                android:textSize="20sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:text="13:00 - 14:00" />
 
             <TextView
                 android:id="@+id/booking_gender_field"

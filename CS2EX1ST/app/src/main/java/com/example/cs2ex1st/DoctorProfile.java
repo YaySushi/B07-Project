@@ -8,7 +8,6 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class DoctorProfile extends AppCompatActivity {
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,7 +44,7 @@ public class DoctorProfile extends AppCompatActivity {
 
     public void deleteProfile(View view) {
 
-        //delete profile
+        // TODO delete profile
 
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
