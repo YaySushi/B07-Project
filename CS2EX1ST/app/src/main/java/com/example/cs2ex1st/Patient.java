@@ -44,6 +44,8 @@ public class Patient extends User implements Serializable {
                 break;
             }
         }
+
+        /*                      for now commentd out.       TODO
         if(can_reserve && !app.isBooked())
         {
             app.setBooked(true);
@@ -55,6 +57,7 @@ public class Patient extends User implements Serializable {
             this.addAppointment(reserved_appointments,app);
             return true;
         }
+         */
         return false;
     }
 

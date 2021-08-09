@@ -21,7 +21,7 @@ public class LoggedInUser {
             currentUser = FirebaseWrapper.getPatients().get(email);
         }
 
-        currentUser.setPrior_appointments(new ArrayList<>());
-        currentUser.setReserved_appointments(new ArrayList<>());
+        //currentUser.setPrior_appointments(new ArrayList<>());
+        //currentUser.setReserved_appointments(new ArrayList<>());
     }
 }

@@ -22,6 +22,7 @@ public class Appointment implements Comparable<Appointment>, Serializable {
         this.month = month;
         this.year = year;
         this.doctorKey = doctorKey.replace('.', '*');
+        this.patientKey = "";
     }
     
     public Appointment(boolean isBooked, int hour, int day, int month, int year) {

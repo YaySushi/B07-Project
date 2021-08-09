@@ -9,8 +9,7 @@ import java.util.*;
 public class Doctor extends User implements Serializable {
     private final int STARTING_HOUR = 9;
     private final int ENDING_HOUR = 17;
-    private ArrayList<Patient> previousPatients = new ArrayList<Patient>();
-    private ArrayList<Patient> futurePatients = new ArrayList<Patient>();
+    private ArrayList<String> previousPatientsKey = new ArrayList<String>();
     private String specialization;
     private String lastDayUpdated;
     public Doctor() {}
@@ -22,6 +21,7 @@ public class Doctor extends User implements Serializable {
                   String password) {
         super(first, last, email, gender, password);
         this.specialization = specialization;
+        this.previousPatientsKey = new ArrayList<String>();
         addFreeAppointments();
     }
     public void addFreeAppointments(){
@@ -53,20 +53,13 @@ public class Doctor extends User implements Serializable {
             addFreeAppointments();
         }
     }
-    public void setFuturePatients(ArrayList<Patient> futurePatients) {
-        this.futurePatients = futurePatients;
+
+    public ArrayList<String> getPreviousPatientsKey() {
+        return previousPatientsKey;
     }
 
-    public ArrayList<Patient> getFuturePatients() {
-        return futurePatients;
-    }
-
-    public ArrayList<Patient> getPreviousPatients() {
-        return previousPatients;
-    }
-
-    public void setPreviousPatients(ArrayList<Patient> previousPatients) {
-        this.previousPatients = previousPatients;
+    public void setPreviousPatientsKey(ArrayList<String> previousPatientsKey) {
+        this.previousPatientsKey = previousPatientsKey;
     }
 
     public String getSpecialization() {

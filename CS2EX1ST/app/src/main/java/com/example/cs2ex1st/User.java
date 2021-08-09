@@ -11,8 +11,8 @@ public abstract class User implements Serializable {
     String lastName;
     String gender;
     String password;
-    ArrayList<Appointment> reserved_appointments;
-    ArrayList<Appointment> prior_appointments;
+    ArrayList<Appointment> reserved_appointments = new ArrayList<Appointment>();;
+    ArrayList<Appointment> prior_appointments = new ArrayList<Appointment>();;
     public User(){}
     public User(String first,
                 String last,
@@ -62,7 +62,7 @@ public abstract class User implements Serializable {
                 toRemove.add(p);
             }
         }
-
+        /*   FOR NOW COMMENTED OUT    TODO
         if(toRemove == null) return;
         for(Appointment p : toRemove)
         {
@@ -77,6 +77,7 @@ public abstract class User implements Serializable {
             }
             reserved_appointments.remove(p);
         }
+         */
     }
     // Getter and setters
     public String getEmail() {
