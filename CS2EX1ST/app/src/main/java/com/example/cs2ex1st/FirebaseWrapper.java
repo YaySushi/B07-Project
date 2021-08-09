@@ -29,6 +29,7 @@ public class FirebaseWrapper {
         fillMapAtPath(doctors, DOCTOR_KEY, Doctor.class);
         fillMapAtPath(patients, PATIENT_KEY, Patient.class);
         fillMapAtPath(emails, ID_KEY, String.class);
+
     }
 
     private static <T> void fillMapAtPath(HashMap<String,T> list, String path, Class<T> typeClass){
@@ -56,7 +57,7 @@ public class FirebaseWrapper {
         }
     }
     public static void updateDatabase(){
-        DatabaseReference ref = FirebaseDatabase.getInstance().getReference(PATIENT_KEY);
+        DatabaseReference ref = FirebaseDatabase.getInstance().getReference();
 
         for(String key: doctors.keySet()){
             ref.child(DOCTOR_KEY).child(key).setValue(doctors.get(key));
