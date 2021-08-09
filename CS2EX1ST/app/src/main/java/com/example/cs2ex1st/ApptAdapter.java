@@ -53,17 +53,17 @@ public class ApptAdapter extends RecyclerView.Adapter<ApptAdapter.ViewHolder> {
         // Set the views based on cur data
         try {
             TextView docName = viewHolder.doctorNameTextView;
-            docName.setText("Doctor: " + cur.DoctorGet().toString());
+            docName.setText(cur.DoctorGet().toString());
         } catch(Exception e) {
             TextView docName = viewHolder.doctorNameTextView;
-            docName.setText("Doctor: " + "ERROR");
+            docName.setText("ERROR");
         }
 
         TextView patientName = viewHolder.patientNameTextView;
-        patientName.setText("Patient: " + cur.PatientGet().toString());
+        patientName.setText(cur.PatientGet().toString());
 
         TextView apptTime = viewHolder.apptTimeTextView;
-        apptTime.setText("Time: " + cur.getDate());
+        apptTime.setText(cur.getDate());
     }
 
     // Return item count

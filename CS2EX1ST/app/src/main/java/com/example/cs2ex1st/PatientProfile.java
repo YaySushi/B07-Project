@@ -13,7 +13,7 @@ public class PatientProfile extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_patient_profile);
-
+        setTitle("Profile");
         //LoggedInUser is assumed to be initialized from loggin in.
         Patient p = (Patient)LoggedInUser.getUser();
         ((TextView)findViewById(R.id.textView40)).setText(p.toString());

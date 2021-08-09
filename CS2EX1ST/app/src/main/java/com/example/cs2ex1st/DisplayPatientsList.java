@@ -16,6 +16,7 @@ public class DisplayPatientsList extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_display_patients_list);
+        setTitle("Previous Patients");
 
         RecyclerView rvDocListPatients = (RecyclerView)findViewById(R.id.recyclerPatientList);
         Doctor u = (Doctor) LoggedInUser.getUser();

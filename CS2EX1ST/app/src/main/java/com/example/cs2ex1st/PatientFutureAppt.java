@@ -14,7 +14,7 @@ public class PatientFutureAppt extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_patient_future_appt);
         RecyclerView patient_future= (RecyclerView)findViewById(R.id.recyclePatientFuture);
-
+        setTitle("Upcoming Appointments");
         // Update user's appointment lists
         LoggedInUser.getUser().update();
 

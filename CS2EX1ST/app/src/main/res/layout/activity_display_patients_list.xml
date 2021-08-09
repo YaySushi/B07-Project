@@ -19,14 +19,10 @@
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recyclerPatientList"
-                android:layout_width="317dp"
-                android:layout_height="592dp"
-                android:layout_marginStart="47dp"
-                android:layout_marginLeft="47dp"
-                android:layout_marginTop="50dp"
-                android:layout_marginEnd="47dp"
-                android:layout_marginRight="47dp"
+                android:layout_width="411dp"
+                android:layout_height="0dp"
                 android:layout_marginBottom="10dp"
+                android:background="#EAEAEA"
                 app:layout_constraintBottom_toTopOf="@+id/button19"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"

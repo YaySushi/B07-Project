@@ -34,6 +34,8 @@ public class BookApptActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_book_appt);
+        setTitle("Select a Doctor");
+
         doctors = new ArrayList<Doctor>();
 
         //update all doctors appointments

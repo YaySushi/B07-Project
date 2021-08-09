@@ -108,7 +108,7 @@ public class BookingRecyclerAdapter
                 ArrayList<String> times = new ArrayList<>();
                 for(Appointment a: doctor.reserved_appointments){
                     if(!a.isBooked()){
-                        times.add(a.getHour() + " :00");
+                        times.add(a.getDate());
                     }
                 }
                 String[] s = new String[times.size()];

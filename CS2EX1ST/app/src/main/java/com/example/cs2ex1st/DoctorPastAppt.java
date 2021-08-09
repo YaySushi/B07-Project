@@ -15,7 +15,7 @@ public class DoctorPastAppt extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_doctor_past_appt);
-
+        setTitle("Past Appointments");
         RecyclerView rvDocPastAppt = (RecyclerView)findViewById(R.id.recyclerAvailAppnt);
 
         // Update user's appointment lists

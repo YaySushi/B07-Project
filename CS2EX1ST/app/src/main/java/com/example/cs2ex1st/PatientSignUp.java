@@ -27,7 +27,7 @@ public class PatientSignUp extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_patient_sign_up);
-
+        setTitle("Sign up (Patient)");
         spinner = (Spinner) findViewById(R.id.patientGenderSpinner);
         ArrayAdapter<CharSequence> genderAdapter = new ArrayAdapter<CharSequence>(this, android.R.layout.simple_spinner_item,
                 getResources().getStringArray(R.array.gender));

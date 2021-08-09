@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:overScrollMode="ifContentScrolls"
-    tools:context=".Activities.BookApptActivity">
+    tools:context=".BookApptActivity">
 
     <Spinner
         android:id="@+id/specialization_filter"
@@ -44,7 +44,7 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginTop="8dp"
-        android:background="#E1E0E0"
+        android:background="#EAEAEA"
         android:fadeScrollbars="true"
         android:scrollbars="vertical"
         app:layout_constraintBottom_toBottomOf="parent"

@@ -1,6 +1,5 @@
 package com.example.cs2ex1st;
 
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -26,10 +25,10 @@ public class PatientListAdapter extends RecyclerView.Adapter<PatientListAdapter.
         public ViewHolder(View view) {
             super(view);
 
-            patientNameTextView = (TextView)view.findViewById(R.id.patient_info1);
-            patientGender = (TextView)view.findViewById(R.id.patient_info2);
-            patientDOB = (TextView)view.findViewById(R.id.patient_info3);
-            listDoctors = (TextView)view.findViewById(R.id.list_doctors);
+            patientNameTextView = (TextView)view.findViewById(R.id.patient_list_name);
+            patientGender = (TextView)view.findViewById(R.id.patient_list_gender);
+            patientDOB = (TextView)view.findViewById(R.id.patient_info_dob);
+            //listDoctors = (TextView)view.findViewById(R.id.list_doctors);
         }
     }
 
@@ -48,10 +47,10 @@ public class PatientListAdapter extends RecyclerView.Adapter<PatientListAdapter.
         // Get Appointment at position
         Patient cur = patientList.get(position);
         // Set the views based on cur data
-        viewHolder.patientNameTextView.setText("Patient: " + cur.toString());
-        viewHolder.patientGender.setText("Gender: " + cur.getGender());
-        viewHolder.patientDOB.setText("Date of Birth: " + cur.getDOB());
-        viewHolder.listDoctors.setText("List of Doctors Visited: " + cur.getPreviousDoctors());
+        viewHolder.patientNameTextView.setText(cur.toString());
+        viewHolder.patientGender.setText(cur.getGender());
+        viewHolder.patientDOB.setText(cur.getDOB());
+        //viewHolder.listDoctors.setText("List of Doctors Visited: " + cur.getPreviousDoctors());
     }
 
     @Override
