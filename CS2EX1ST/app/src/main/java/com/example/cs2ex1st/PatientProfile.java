@@ -1,11 +1,11 @@
 package com.example.cs2ex1st;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class PatientProfile extends AppCompatActivity {
 
@@ -33,6 +33,13 @@ public class PatientProfile extends AppCompatActivity {
     }
     public void GoToPatientBookAppoinment(View view) {
         Intent intent = new Intent(this, BookApptActivity.class);
+        startActivity(intent);
+    }
+
+    public void patientLogOut(View vie) {
+        LoggedInUser.setUser(null);
+        LoggedInUser.setInspectingPatient(null);
+        Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
     }
 }

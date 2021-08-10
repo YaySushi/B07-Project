@@ -58,4 +58,11 @@ public class DoctorProfile extends AppCompatActivity {
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
     }
+
+    public void doctorLogOut(View vie) {
+        LoggedInUser.setUser(null);
+        LoggedInUser.setInspectingPatient(null);
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
+    }
 }

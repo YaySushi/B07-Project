@@ -1,7 +1,5 @@
 package com.example.cs2ex1st;
 
-import java.util.ArrayList;
-
 //singleton class that contains a User that's currently logged in.
 public class LoggedInUser {
     private static User currentUser = null;
@@ -29,8 +27,5 @@ public class LoggedInUser {
         } else {
             currentUser = FirebaseWrapper.getPatients().get(email);
         }
-
-        //currentUser.setPrior_appointments(new ArrayList<>());
-        //currentUser.setReserved_appointments(new ArrayList<>());
     }
 }

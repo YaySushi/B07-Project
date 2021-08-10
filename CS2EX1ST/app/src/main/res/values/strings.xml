@@ -86,5 +86,6 @@
     <string name="bookingspecializationfilter">Specialization</string>
     <string name="if_no_account">Don\'t have an account?</string>
     <string name="if_account">Already have an account?</string>
+    <string name="log_out">Log Out</string>
 
 </resources>

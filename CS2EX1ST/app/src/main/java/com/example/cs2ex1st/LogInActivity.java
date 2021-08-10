@@ -8,12 +8,6 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
-
 public class LogInActivity extends AppCompatActivity {
     private TextView logInErrorText;
     private Presenter presenter;
@@ -54,6 +48,11 @@ public class LogInActivity extends AppCompatActivity {
 
     public void startPatientProfile() {
         Intent intent = new Intent(LogInActivity.this, PatientProfile.class);
+        startActivity(intent);
+    }
+
+    public void signUpInstead(View view) {
+        Intent intent = new Intent(this, SignUpActivity.class);
         startActivity(intent);
     }
 
