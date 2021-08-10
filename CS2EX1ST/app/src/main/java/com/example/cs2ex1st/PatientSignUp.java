@@ -37,6 +37,11 @@ public class PatientSignUp extends AppCompatActivity {
         errorText.setText("");
     }
 
+    public void patientLogInInstead(View view) {
+        Intent intent = new Intent(this, LogInActivity.class);
+        startActivity(intent);
+    }
+
     public void submitPatientData(View view) {
         EditText editText = (EditText) findViewById(R.id.patientfirstname);
         String firstName = editText.getText().toString();

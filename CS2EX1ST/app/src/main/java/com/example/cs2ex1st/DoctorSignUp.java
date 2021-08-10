@@ -40,8 +40,13 @@ public class DoctorSignUp extends AppCompatActivity {
         specializationAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner2.setAdapter(specializationAdapter);
 
-        errorText = (TextView) findViewById(R.id.doctorSignInErrorText);
+        errorText = (TextView) findViewById(R.id.doctorSignUpErrorText);
         errorText.setText("");
+    }
+
+    public void doctorLogInInstead(View view) {
+        Intent intent = new Intent(this, LogInActivity.class);
+        startActivity(intent);
     }
 
     public void submitDoctorData(View view) {

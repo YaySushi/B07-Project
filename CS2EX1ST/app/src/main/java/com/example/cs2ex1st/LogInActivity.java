@@ -26,6 +26,11 @@ public class LogInActivity extends AppCompatActivity {
         logInErrorText.setText("");
     }
 
+    public void signUpInstead(View view) {
+        Intent intent = new Intent(this, SignUpActivity.class);
+        startActivity(intent);
+    }
+
     public void sendLogInInfo(View view) {
         EditText editText = (EditText) findViewById(R.id.emailaddress);
         String email = editText.getText().toString();
@@ -42,6 +47,10 @@ public class LogInActivity extends AppCompatActivity {
             public void onDataChange(DataSnapshot dataSnapshot) {
                 if (dataSnapshot.exists()) {
                     String[] info = ((String)dataSnapshot.getValue()).split(", ");
+                    if (password.equals("")) {
+                        logInErrorText.setText("Password cannot be empty.");
+                        return;
+                    }
                     if (info[0].equals(password)) {
                         if (info[1].equals("Doctor")) {
                             LoggedInUser.setUser((String)dataSnapshot.getKey(), "Doctor");
