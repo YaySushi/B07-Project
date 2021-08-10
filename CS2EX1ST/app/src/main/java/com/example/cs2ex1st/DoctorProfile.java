@@ -47,9 +47,9 @@ public class DoctorProfile extends AppCompatActivity {
 
         // TODO delete profile
         Doctor d = (Doctor)LoggedInUser.getUser();
-        for(String key:d.getPreviousPatientsKey())
+        for(Patient p:FirebaseWrapper.getPatientList())
         {
-            (FirebaseWrapper.getPatientWithKey(key)).remove_references_to_doc(d);
+            p.remove_references_to_doc(d);
         }
         FirebaseWrapper.updateDatabase();
         FirebaseWrapper.deleteDoctorFromDatabase(d);
