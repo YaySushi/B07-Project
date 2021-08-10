@@ -48,12 +48,51 @@ public class MainActivity extends AppCompatActivity {
         //ref = FirebaseDatabase.getInstance().getReference();
         //ref.child("ID").child("ali@gmail*com").setValue(p.getPassword() + ", Patient");
 
-
+        ArrayList<String> prevDoctors  = new ArrayList<String>();
+        prevDoctors.add("ter@gmail*com");
+        Patient p = new Patient("Harry",
+                "Kane",
+                "harry@gmail.com",
+                "Male",
+                "01/05/2003",
+                prevDoctors,
+                "iamharry");
+        FirebaseWrapper.addPatientToDatabase(p);
         //Set up the lists created from the database
         FirebaseWrapper.setUpHashMaps();
     }
 
     public void sendSignUpMessage(View view) {
+        //Doctor d = new Doctor("Muffy",
+        //        "Crosswire",
+        //        "muffy@gmail.com",
+        //        "Female",
+        //        "Pediatrics",
+        //        "iammuffy");
+//
+//
+        ArrayList<String> prevDoctors  = new ArrayList<String>();
+        //prevDoctors.add("muffy@gmail*com");
+        //prevDoctors.add("john@gmail*com");
+        //prevDoctors.add("ter@gmail*com");
+        //prevDoctors.add("muffy@gmail*com");
+        //prevDoctors.add("john@gmail*com");
+        //prevDoctors.add("ter@gmail*com");
+        //prevDoctors.add("muffy@gmail*com");
+        //prevDoctors.add("john@gmail*com");
+        prevDoctors.add("ter@gmail*com");
+        Patient p = new Patient("Ali",
+                "Orozgani",
+                "ali@gmail.com",
+                "Male",
+                "09/08/2002",
+                 prevDoctors,
+                "iamali");
+//
+        //LoggedInUser.setUser(d);
+
+
+
         Intent intent = new Intent(this, SignUpActivity.class);
         startActivity(intent);
     }

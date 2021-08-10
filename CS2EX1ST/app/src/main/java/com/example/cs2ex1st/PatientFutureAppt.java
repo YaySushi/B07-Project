@@ -32,7 +32,7 @@ public class PatientFutureAppt extends AppCompatActivity {
             Collections.sort(appointments);
             Appointment next = appointments.get(0);
 
-            docName.setText(next.DoctorGet().getFirstName() + " " + next.DoctorGet().getFirstName());
+            docName.setText(next.DoctorGet().getFirstName() + " " + next.DoctorGet().getLastName());
             date.setText(next.getDate());
             appointments.remove(next);
         }

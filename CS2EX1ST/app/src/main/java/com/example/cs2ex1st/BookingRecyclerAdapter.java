@@ -88,6 +88,7 @@ public class BookingRecyclerAdapter
 
                         if(user.book_appointment(selectedAppointment)){
                             Toast.makeText(context, "Appointment Sucessfully Booked", Toast.LENGTH_SHORT).show();
+                            user.addToPreviousDoctors(cur.getEmail().replace('.', '*'));
                             FirebaseWrapper.updateDatabase();
                         }
                         else{

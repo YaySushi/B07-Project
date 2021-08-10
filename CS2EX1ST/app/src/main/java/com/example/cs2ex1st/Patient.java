@@ -93,6 +93,9 @@ public class Patient extends User implements Serializable {
     public ArrayList<String> getPreviousDoctors() {
         return this.previousDoctors;
     }
+    public void addToPreviousDoctors(String doctorKey) {
+        if(!this.previousDoctors.contains(doctorKey)) this.previousDoctors.add(doctorKey);
+    }
 
     public String getDOB() { return DOB; }
 

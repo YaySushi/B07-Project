@@ -3,23 +3,31 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/duckl/Desktop/B07-Project/CS2EX1ST/app/src/main/res/layout/activity_book_appt.xml" value="0.15677083333333333" />
+        <entry key="..\:/Users/duckl/Desktop/B07-Project/CS2EX1ST/app/src/main/res/layout/activity_book_appt.xml" value="0.25" />
+        <entry key="..\:/Users/duckl/Desktop/B07-Project/CS2EX1ST/app/src/main/res/layout/activity_display_patients_list.xml" value="0.11666666666666667" />
         <entry key="..\:/Users/duckl/Desktop/B07-Project/CS2EX1ST/app/src/main/res/layout/activity_doctor_available_appt.xml" value="0.21" />
-        <entry key="..\:/Users/duckl/Desktop/B07-Project/CS2EX1ST/app/src/main/res/layout/activity_doctor_future_appt.xml" value="0.2028985507246377" />
+        <entry key="..\:/Users/duckl/Desktop/B07-Project/CS2EX1ST/app/src/main/res/layout/activity_doctor_future_appt.xml" value="0.2540192926045016" />
         <entry key="..\:/Users/duckl/Desktop/B07-Project/CS2EX1ST/app/src/main/res/layout/activity_doctor_past_appt.xml" value="0.33" />
         <entry key="..\:/Users/duckl/Desktop/B07-Project/CS2EX1ST/app/src/main/res/layout/activity_doctor_profile.xml" value="0.5" />
         <entry key="..\:/Users/duckl/Desktop/B07-Project/CS2EX1ST/app/src/main/res/layout/activity_doctor_sign_up.xml" value="0.18931159420289856" />
         <entry key="..\:/Users/duckl/Desktop/B07-Project/CS2EX1ST/app/src/main/res/layout/activity_log_in.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/duckl/Desktop/B07-Project/CS2EX1ST/app/src/main/res/layout/activity_login_failure.xml" value="0.18931159420289856" />
         <entry key="..\:/Users/duckl/Desktop/B07-Project/CS2EX1ST/app/src/main/res/layout/activity_main.xml" value="0.20416666666666666" />
-        <entry key="..\:/Users/duckl/Desktop/B07-Project/CS2EX1ST/app/src/main/res/layout/activity_patient_future_appt.xml" value="0.15625" />
+        <entry key="..\:/Users/duckl/Desktop/B07-Project/CS2EX1ST/app/src/main/res/layout/activity_patient_future_appt.xml" value="0.330028328611898" />
+        <entry key="..\:/Users/duckl/Desktop/B07-Project/CS2EX1ST/app/src/main/res/layout/activity_patient_inspect.xml" value="0.33" />
         <entry key="..\:/Users/duckl/Desktop/B07-Project/CS2EX1ST/app/src/main/res/layout/activity_patient_past_appt.xml" value="0.15625" />
         <entry key="..\:/Users/duckl/Desktop/B07-Project/CS2EX1ST/app/src/main/res/layout/activity_patient_profile.xml" value="0.33" />
         <entry key="..\:/Users/duckl/Desktop/B07-Project/CS2EX1ST/app/src/main/res/layout/activity_patient_sign_up.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/duckl/Desktop/B07-Project/CS2EX1ST/app/src/main/res/layout/activity_sign_up.xml" value="0.12447916666666667" />
         <entry key="..\:/Users/duckl/Desktop/B07-Project/CS2EX1ST/app/src/main/res/layout/activity_sign_up_failure.xml" value="0.12447916666666667" />
         <entry key="..\:/Users/duckl/Desktop/B07-Project/CS2EX1ST/app/src/main/res/layout/activity_sign_up_success.xml" value="0.12447916666666667" />
-        <entry key="..\:/Users/duckl/Desktop/B07-Project/CS2EX1ST/app/src/main/res/layout/item_appt.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/duckl/Desktop/B07-Project/CS2EX1ST/app/src/main/res/layout/content_patient_inspect.xml" value="0.33" />
+        <entry key="..\:/Users/duckl/Desktop/B07-Project/CS2EX1ST/app/src/main/res/layout/fragment_first.xml" value="0.25" />
+        <entry key="..\:/Users/duckl/Desktop/B07-Project/CS2EX1ST/app/src/main/res/layout/fragment_second.xml" value="0.16847826086956522" />
+        <entry key="..\:/Users/duckl/Desktop/B07-Project/CS2EX1ST/app/src/main/res/layout/item_appt.xml" value="0.6371681415929203" />
+        <entry key="..\:/Users/duckl/Desktop/B07-Project/CS2EX1ST/app/src/main/res/layout/item_book_appt.xml" value="0.33" />
+        <entry key="..\:/Users/duckl/Desktop/B07-Project/CS2EX1ST/app/src/main/res/layout/item_doctor_list.xml" value="0.67" />
+        <entry key="..\:/Users/duckl/Desktop/B07-Project/CS2EX1ST/app/src/main/res/layout/item_patient_list.xml" value="0.67" />
       </map>
     </option>
   </component>

@@ -5,8 +5,10 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class DoctorFutureAppt extends AppCompatActivity {
 
@@ -23,67 +25,29 @@ public class DoctorFutureAppt extends AppCompatActivity {
         // Create ArrayList of appointments that are already booked
         ArrayList<Appointment> bookedAppts = new ArrayList<>();
         for (Appointment x : LoggedInUser.getUser().getReserved_appointments()) {
-            if (x.isBooked())
-                bookedAppts.add(x);
+            if (x.isBooked()) bookedAppts.add(x);
         }
 
-        // Create adapter and pass in current user's appointment data
-        ApptAdapter adapter = new ApptAdapter(bookedAppts);
+        // Sort the ArrayList of appointments to display in order
+        Collections.sort(bookedAppts);
 
-        // Attach adapter to RecyclerView
+        // Get textboxes for the "first" appointment.
+        TextView patientName = findViewById(R.id.next_appt_patname3);
+        TextView date = findViewById(R.id.next_appt_date3);
+
+        if(bookedAppts.size() > 0) {
+            Appointment a = bookedAppts.get(0);
+            patientName.setText(a.PatientGet().getFirstName() + " " + a.PatientGet().getLastName());
+            date.setText(a.getDate());
+            bookedAppts.remove(a);
+        }
+        else{
+            patientName.setText("N/A");
+            date.setText("N/A");
+        }
+
+        DoctorFutureApptAdapter adapter = new DoctorFutureApptAdapter(bookedAppts);
         rvDocFutureAppt.setAdapter(adapter);
-
-        // Set Layout manager
         rvDocFutureAppt.setLayoutManager(new LinearLayoutManager(this));
-
-/*
-        // TESTING data
-        ArrayList<Appointment> appointments = new ArrayList<>();
-
-        Doctor doc1 = new Doctor("first", "last", "a@b.c", "F", "spec", "pass");
-        Patient pat1 = new Patient("patientFirst", "patientLast", "1@2.3", "F", "12/12/12", "wowow");
-
-        Appointment app1 = new Appointment(true, 10, 1, 1, 2020);
-        app1.setDoctor(doc1);
-        app1.setPatient(pat1);
-
-        Appointment app2 = new Appointment(true, 11, 1, 1, 2020);
-        app2.setDoctor(doc1);
-        app2.setPatient(pat1);
-
-        Appointment app3 = new Appointment(true, 12, 1, 1, 2020);
-        app3.setDoctor(doc1);
-        app3.setPatient(pat1);
-
-        Appointment app4 = new Appointment(true, 13, 1, 1, 2020);
-        app4.setDoctor(doc1);
-        app4.setPatient(pat1);
-
-        Appointment app5 = new Appointment(true, 14, 1, 1, 2020);
-        app5.setDoctor(doc1);
-        app5.setPatient(pat1);
-
-        Appointment app6 = new Appointment(true, 15, 1, 1, 2020);
-        app6.setDoctor(doc1);
-        app6.setPatient(pat1);
-
-        appointments.add(app1);
-        appointments.add(app2);
-        appointments.add(app3);
-        appointments.add(app4);
-        appointments.add(app5);
-        appointments.add(app6);
-
-        // Create adapter and pass in appointment data
-        ApptAdapter adapter = new ApptAdapter(appointments);
-
-        // Attach adapter to RecyclerView
-        rvDocFutureAppt.setAdapter(adapter);
-
-        // Set Layout manager
-        rvDocFutureAppt.setLayoutManager(new LinearLayoutManager(this));
-*/
-
-
     }
 }

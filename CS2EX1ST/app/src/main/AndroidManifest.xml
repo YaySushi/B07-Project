@@ -10,29 +10,32 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.CS2EX1ST">
         <activity
+            android:name=".PatientInspect"
+            android:exported="true" />
+        <activity
             android:name=".DisplayPatientsList"
-            android:parentActivityName=".DoctorProfile"/>
+            android:parentActivityName=".DoctorProfile" />
         <activity
             android:name=".BookApptActivity"
-            android:parentActivityName=".PatientProfile"/>
+            android:parentActivityName=".PatientProfile" />
         <activity
             android:name=".PatientFutureAppt"
-            android:parentActivityName=".PatientProfile"/>
+            android:parentActivityName=".PatientProfile" />
         <activity
             android:name=".PatientPastAppt"
-            android:parentActivityName=".PatientProfile"/>
+            android:parentActivityName=".PatientProfile" />
         <activity
             android:name=".DoctorFutureAppt"
             android:exported="true"
-            android:parentActivityName=".DoctorProfile"/>
+            android:parentActivityName=".DoctorProfile" />
         <activity
             android:name=".DoctorAvailableAppt"
             android:exported="true"
-            android:parentActivityName=".DoctorProfile"/>
+            android:parentActivityName=".DoctorProfile" />
         <activity
             android:name=".DoctorPastAppt"
             android:exported="true"
-            android:parentActivityName=".DoctorProfile"/>
+            android:parentActivityName=".DoctorProfile" />
         <activity
             android:name=".PatientProfile"
             android:exported="true" />
@@ -45,7 +48,7 @@
         <activity android:name=".LogInActivity" />
         <activity
             android:name=".SignUpActivity"
-            android:parentActivityName=".MainActivity"/>
+            android:parentActivityName=".MainActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
