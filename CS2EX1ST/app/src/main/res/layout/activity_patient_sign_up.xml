@@ -109,14 +109,13 @@
                 android:layout_marginTop="10dp"
                 android:layout_marginEnd="156dp"
                 android:layout_marginRight="156dp"
-                android:layout_marginBottom="18dp"
-                android:onClick="submitPatientData"
-                android:text="@string/submit"
+                android:onClick="patientLogInInstead"
+                android:text="@string/login"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/patientSignInErrorText" />
+                app:layout_constraintTop_toBottomOf="@+id/acc_already" />
 
             <DatePicker
                 android:id="@+id/patientdob"
@@ -247,22 +246,21 @@
                 app:layout_constraintTop_toBottomOf="@+id/textView22" />
 
             <TextView
-                android:id="@+id/patientSignInErrorText"
+                android:id="@+id/acc_already"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="176dp"
-                android:layout_marginLeft="176dp"
-                android:layout_marginTop="15dp"
-                android:layout_marginEnd="177dp"
-                android:layout_marginRight="177dp"
+                android:layout_marginStart="126dp"
+                android:layout_marginLeft="126dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="126dp"
+                android:layout_marginRight="126dp"
                 android:layout_marginBottom="10dp"
-                android:text="TextView"
-                android:textColor="#F36060"
+                android:text="@string/if_account"
                 app:layout_constraintBottom_toTopOf="@+id/button7"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/prevDoctorsList" />
+                app:layout_constraintTop_toBottomOf="@+id/button9" />
 
             <TextView
                 android:id="@+id/textView35"
@@ -297,6 +295,43 @@
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView35" />
+
+            <TextView
+                android:id="@+id/patientSignInErrorText"
+                android:layout_width="159dp"
+                android:layout_height="28dp"
+                android:layout_marginStart="126dp"
+                android:layout_marginLeft="126dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="126dp"
+                android:layout_marginRight="126dp"
+                android:layout_marginBottom="10dp"
+                android:gravity="center"
+                android:text="TextView"
+                android:textColor="#F36060"
+                app:layout_constraintBottom_toTopOf="@+id/button9"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/prevDoctorsList" />
+
+            <Button
+                android:id="@+id/button9"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="158dp"
+                android:layout_marginLeft="158dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="159dp"
+                android:layout_marginRight="159dp"
+                android:layout_marginBottom="30dp"
+                android:onClick="submitPatientData"
+                android:text="@string/submit"
+                app:layout_constraintBottom_toTopOf="@+id/acc_already"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/patientSignInErrorText" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

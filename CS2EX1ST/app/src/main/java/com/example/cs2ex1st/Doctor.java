@@ -2,9 +2,9 @@ package com.example.cs2ex1st;
 
 
 import java.io.Serializable;
-import java.time.LocalDate;
-import java.time.ZoneId;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.InputMismatchException;
 
 public class Doctor extends User implements Serializable {
     private final int STARTING_HOUR = 9;
@@ -21,7 +21,7 @@ public class Doctor extends User implements Serializable {
                   String password) {
         super(first, last, email, gender, password);
         if(specialization.equals("Choose...")){
-            throw new InputMismatchException("Invalid Specialization");
+            throw new InputMismatchException("Invalid specialization");
         }
         this.specialization = specialization;
         this.previousPatientsKey = new ArrayList<String>();
