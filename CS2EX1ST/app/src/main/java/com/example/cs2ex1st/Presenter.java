@@ -15,6 +15,12 @@ public class Presenter {
 
         if (email.equals("")) {
             view.displayMessage("Email address cannot be empty.");
+            return;
+        }
+
+        if (password.equals("")) {
+            view.displayMessage("Password cannot be empty");
+            return;
         }
 
         if (model.checkEmail(email)) {
