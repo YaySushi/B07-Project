@@ -4,14 +4,16 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.Collections;
 
 public class DoctorFutureAppt extends AppCompatActivity {
-
+    private Appointment firstAppointment = null;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,11 +39,12 @@ public class DoctorFutureAppt extends AppCompatActivity {
 
         if(bookedAppts.size() > 0) {
             Appointment a = bookedAppts.get(0);
+            firstAppointment = a;
             patientName.setText(a.PatientGet().getFirstName() + " " + a.PatientGet().getLastName());
             date.setText(a.getDate());
             bookedAppts.remove(a);
         }
-        else{
+        else {
             patientName.setText("N/A");
             date.setText("N/A");
         }
@@ -49,5 +52,12 @@ public class DoctorFutureAppt extends AppCompatActivity {
         DoctorFutureApptAdapter adapter = new DoctorFutureApptAdapter(bookedAppts);
         rvDocFutureAppt.setAdapter(adapter);
         rvDocFutureAppt.setLayoutManager(new LinearLayoutManager(this));
+    }
+    public void onClick(View v) {
+        if(firstAppointment == null) return;
+
+        LoggedInUser.setInspectingPatient(firstAppointment.PatientGet());
+        Intent i = new Intent(this, PatientInspect.class);
+        startActivity(i);
     }
 }

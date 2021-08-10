@@ -81,6 +81,8 @@ public class PatientSignUp extends AppCompatActivity {
                     ref2.child("Patient").child(p1.getEmail()).setValue(p1);
                     ref2.child("ID").child(p1.getEmail()).setValue(p1.getPassword() + ", Patient");
                     FirebaseWrapper.setUpHashMaps();
+
+                    errorText.setText("");
                     Intent intent = new Intent(PatientSignUp.this, SignUpSuccess.class);
                     startActivity(intent);
                 }
@@ -96,8 +98,7 @@ public class PatientSignUp extends AppCompatActivity {
         if(day < 10) out += "0";
         out += day + "/";
         if(month < 10) out += "0";
-        out += month + "/";
-        out += year;
+        out += month + "/" + year;
 
         return out;
     }

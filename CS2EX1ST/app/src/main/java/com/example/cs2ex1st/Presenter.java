@@ -21,9 +21,11 @@ public class Presenter {
             if (model.checkPassword(email, password)) {
                 if (model.isDoctor(email)) {
                     LoggedInUser.setUser(email, "Doctor");
+                    view.displayMessage("");
                     view.startDoctorProfile();
                 } else {
                     LoggedInUser.setUser(email, "Patient");
+                    view.displayMessage("");
                     view.startPatientProfile();
                 }
             } else {
