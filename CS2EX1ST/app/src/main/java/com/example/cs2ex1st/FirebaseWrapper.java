@@ -87,6 +87,11 @@ public class FirebaseWrapper {
         ref = FirebaseDatabase.getInstance().getReference(ID_KEY);
         ref.child(key).setValue(addMe.getPassword() + ", Doctor");
     }
+    public static void deleteDoctorFromDatabase(Doctor doctor){
+        DatabaseReference ref = FirebaseDatabase.getInstance().getReference();
+        ref.child(DOCTOR_KEY).child(doctor.email).removeValue();
+        ref.child(ID_KEY).child(doctor.email).removeValue();
+    }
     public static ArrayList<Doctor> getDoctorList(){
         return new ArrayList<Doctor>(doctors.values());
     }

@@ -11,7 +11,7 @@
         android:id="@+id/recyclePatientFuture"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:background="#EAEAEA"
+        android:background="@color/background_gray"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
@@ -47,7 +47,7 @@
         android:id="@+id/textView49"
         android:layout_width="45dp"
         android:layout_height="23dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:text="Doctor"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="@+id/textView48"
@@ -57,7 +57,7 @@
         android:id="@+id/textView50"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:text="Time and Date"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="@+id/next_appt_docname"
@@ -68,6 +68,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Doctor Name"
+        android:textSize="20sp"
         app:layout_constraintStart_toStartOf="@+id/textView49"
         app:layout_constraintTop_toBottomOf="@+id/textView49" />
 
@@ -76,6 +77,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="12:00am Tues 1 December"
+        android:textSize="20sp"
         app:layout_constraintStart_toStartOf="@+id/textView50"
         app:layout_constraintTop_toBottomOf="@+id/textView50" />
 
@@ -83,7 +85,7 @@
         android:id="@+id/textView53"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
         android:text="Upcoming Appointments"

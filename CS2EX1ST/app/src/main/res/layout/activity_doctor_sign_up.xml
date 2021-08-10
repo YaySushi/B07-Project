@@ -21,18 +21,13 @@
                 android:id="@+id/doctorSignInErrorText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="170dp"
-                android:layout_marginLeft="170dp"
                 android:layout_marginTop="10dp"
-                android:layout_marginEnd="183dp"
-                android:layout_marginRight="183dp"
                 android:layout_marginBottom="5dp"
                 android:text="TextView"
                 android:textColor="#F36060"
                 app:layout_constraintBottom_toTopOf="@+id/button6"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.03"
-                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/button6"
+                app:layout_constraintStart_toStartOf="@+id/button6"
                 app:layout_constraintTop_toBottomOf="@+id/doctorpassword" />
 
             <TextView
@@ -204,16 +199,17 @@
 
             <Spinner
                 android:id="@+id/doctorGenderSpinner"
-                android:layout_width="113dp"
-                android:layout_height="29dp"
+                android:layout_width="193dp"
+                android:layout_height="30dp"
                 android:layout_marginStart="47dp"
                 android:layout_marginLeft="47dp"
-                android:layout_marginEnd="251dp"
-                android:layout_marginRight="251dp"
+                android:layout_marginEnd="171dp"
+                android:layout_marginRight="171dp"
                 android:layout_marginBottom="15dp"
+                android:entries="@array/gender"
+                android:spinnerMode="dropdown"
                 app:layout_constraintBottom_toTopOf="@+id/textView13"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView14" />
 

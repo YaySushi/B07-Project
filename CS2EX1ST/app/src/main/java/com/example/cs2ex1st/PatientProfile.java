@@ -18,7 +18,7 @@ public class PatientProfile extends AppCompatActivity {
         Patient p = (Patient)LoggedInUser.getUser();
         ((TextView)findViewById(R.id.textView40)).setText(p.toString());
         ((TextView)findViewById(R.id.textView45)).setText(p.getDOB());
-        ((TextView)findViewById(R.id.textView29)).setText(p.getEmail());
+        ((TextView)findViewById(R.id.textView29)).setText(p.getEmail().replace("*","."));
         ((TextView)findViewById(R.id.textView41)).setText(p.getGender());
     }
 

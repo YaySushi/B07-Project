@@ -20,6 +20,9 @@ public class Doctor extends User implements Serializable {
                   String specialization,
                   String password) {
         super(first, last, email, gender, password);
+        if(specialization.equals("Choose...")){
+            throw new InputMismatchException("Invalid Specialization");
+        }
         this.specialization = specialization;
         this.previousPatientsKey = new ArrayList<String>();
         addFreeAppointments();
