@@ -1,10 +1,10 @@
 package com.example.cs2ex1st;
 
-public class Presenter {
-    private Model model;
-    private LogInActivity view;
+public class Presenter implements Contract.Presenter {
+    private Contract.Model model;
+    private Contract.View view;
 
-    public Presenter(Model model, LogInActivity view) {
+    public Presenter(Contract.Model model, Contract.View view) {
         this.model = model;
         this.view = view;
     }

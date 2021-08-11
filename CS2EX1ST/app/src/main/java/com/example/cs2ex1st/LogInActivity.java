@@ -8,9 +8,9 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class LogInActivity extends AppCompatActivity {
+public class LogInActivity extends AppCompatActivity implements Contract.View {
     private TextView logInErrorText;
-    private Presenter presenter;
+    private Contract.Presenter presenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

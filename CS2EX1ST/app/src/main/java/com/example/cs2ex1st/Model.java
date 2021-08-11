@@ -10,7 +10,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.HashMap;
 
-public class Model {
+public class Model implements Contract.Model {
 
     private HashMap<String, String> id;
 
