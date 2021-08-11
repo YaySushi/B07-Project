@@ -50,6 +50,8 @@ public class Doctor extends User implements Serializable {
     }
     public void update(){
         super.update();
+
+        // if the current day has passed refresh the available appointments
         Calendar today = Calendar.getInstance();
         String curDay = today.get(Calendar.DATE) + "/" + today.get(Calendar.MONTH) + "/" + today.get(Calendar.YEAR);
         if(!lastDayUpdated.equals(curDay)){

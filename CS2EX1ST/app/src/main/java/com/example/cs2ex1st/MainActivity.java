@@ -48,16 +48,7 @@ public class MainActivity extends AppCompatActivity {
         //ref = FirebaseDatabase.getInstance().getReference();
         //ref.child("ID").child("ali@gmail*com").setValue(p.getPassword() + ", Patient");
 
-        ArrayList<String> prevDoctors  = new ArrayList<String>();
-        prevDoctors.add("ter@gmail*com");
-        Patient p = new Patient("Harry",
-                "Kane",
-                "harry@gmail.com",
-                "Male",
-                "01/05/2003",
-                prevDoctors,
-                "iamharry");
-        FirebaseWrapper.addPatientToDatabase(p);
+
         //Set up the lists created from the database
         FirebaseWrapper.setUpHashMaps();
     }

@@ -1,42 +1,34 @@
 package com.example.cs2ex1st;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.example.cs2ex1st.R;
-import com.google.firebase.database.ChildEventListener;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
-
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class BookApptActivity extends AppCompatActivity {
     RecyclerView rvBookingAppt;
     String selectedGender , selectedSpec;
     String genderDefault, specDefault;
-    ArrayList<Doctor> doctors;
+    private ArrayList<Doctor> displayDoctors;
+    private ArrayList<Doctor> allAvailableDoctors = new ArrayList<>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_book_appt);
-        setTitle("Select a Doctor");
 
-        doctors = new ArrayList<Doctor>();
+        setTitle("Select a Doctor to see times");
+        Patient p = (Patient) LoggedInUser.getUser();
+        for(String email: p.getPreviousDoctors()){
+            allAvailableDoctors.add(FirebaseWrapper.getDoctorWithKey(email));
+        }
+        displayDoctors = new ArrayList<Doctor>();
 
         //update all doctors appointments
         for(Doctor doctor: FirebaseWrapper.getDoctorList()){
@@ -56,22 +48,7 @@ public class BookApptActivity extends AppCompatActivity {
                                        long id) {
                 //Log.i("info", ((TextView)selectedItemView).getText().toString());
                 selectedGender = ((TextView)selectedItemView).getText().toString();
-                if(selectedGender.equals(genderDefault))
-                {
-                    resetRecyclerView();
-                    return;
-                }
-                doctors = new ArrayList<>();
-                int i = 0;
-                for(Doctor doctor: FirebaseWrapper.getDoctorList()){
-                    if(passesFilter(doctor)){
-                        doctors.add(doctor);
-                        i++;
-                    }
-                }
-
-                // Attach adapter to RecyclerView
-                rvBookingAppt.setAdapter(new BookingRecyclerAdapter(BookApptActivity.this, doctors));
+                resetRecyclerView();
             }
 
             @Override
@@ -90,20 +67,7 @@ public class BookApptActivity extends AppCompatActivity {
                                        long id) {
                 //Log.i("info", ((TextView)selectedItemView).getText().toString());
                 selectedSpec = ((TextView)selectedItemView).getText().toString();
-                if(selectedSpec.equals(specDefault)) {
-                    resetRecyclerView();
-                    return;
-                }
-                doctors = new ArrayList<>();
-                int i = 0;
-                for(Doctor doctor: FirebaseWrapper.getDoctorList()){
-                    if(passesFilter(doctor)){
-                        doctors.add(doctor);
-                    }
-                }
-
-                // Attach adapter to RecyclerView
-                rvBookingAppt.setAdapter(new BookingRecyclerAdapter(BookApptActivity.this, doctors));
+                resetRecyclerView();
             }
 
             @Override
@@ -118,15 +82,15 @@ public class BookApptActivity extends AppCompatActivity {
         rvBookingAppt.setLayoutManager(new LinearLayoutManager(this));
     }
     private void resetRecyclerView(){
-        doctors = new ArrayList<>();
-        for(Doctor doctor: FirebaseWrapper.getDoctorList()){
+        displayDoctors = new ArrayList<>();
+        for(Doctor doctor: allAvailableDoctors){
             if(passesFilter(doctor)){
-                doctors.add(doctor);
+                displayDoctors.add(doctor);
             }
         }
 
         // Create adapter and pass in appointment data
-        BookingRecyclerAdapter adapter = new BookingRecyclerAdapter(this, doctors);
+        BookingRecyclerAdapter adapter = new BookingRecyclerAdapter(this, displayDoctors);
 
         // Attach adapter to RecyclerView
         rvBookingAppt.setAdapter(adapter);

@@ -22,6 +22,9 @@ public class FirebaseWrapper {
     private static HashMap<String,Doctor> doctors = new HashMap<String,Doctor>();
     private static  HashMap<String,Patient> patients = new HashMap<String,Patient>();
     private static HashMap<String,String> emails = new HashMap<String,String>();
+    /*
+    This function should only be called once at the start of the app
+     */
     public static void setUpHashMaps(){
         doctors = new HashMap<String,Doctor>();
         patients = new HashMap<String,Patient>();

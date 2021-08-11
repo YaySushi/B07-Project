@@ -19,6 +19,7 @@
         android:layout_marginRight="20dp"
         android:background="#ECEFF1"
         android:shadowColor="#ECEFF1"
+        app:layout_constraintBottom_toTopOf="@+id/textView63"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -141,6 +142,7 @@
         android:text="Previously visited doctors:"
         android:textSize="16sp"
         android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/recyclerPreviouslyVisitedDoctors"
         app:layout_constraintStart_toStartOf="@+id/textView55"
         app:layout_constraintTop_toBottomOf="@+id/textView55" />
 
@@ -150,7 +152,7 @@
         android:layout_height="453dp"
         android:layout_marginStart="5dp"
         android:layout_marginLeft="5dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="5dp"
         android:layout_marginRight="5dp"
         android:background="#ECEFF1"

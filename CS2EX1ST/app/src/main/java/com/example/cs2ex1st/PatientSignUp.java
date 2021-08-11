@@ -95,8 +95,8 @@ public class PatientSignUp extends AppCompatActivity {
         ArrayList<String> doctors = new ArrayList<>();
         for(Doctor d: allDoctors){
             doctors.add(
-                    d.getFirstName() + " " + d.getLastName() + "\n" +
-                            d.getGender() + ", " + d.getSpecialization());
+                    d.getFirstName() + " " + d.getLastName() +", " + d.getGender() + ", " + "\n" +
+                            d.getSpecialization() + "\n");
         }
         String[] s = new String[doctors.size()];
         doctors.toArray(s);
