@@ -63,22 +63,19 @@ public abstract class User implements Serializable {
                 toRemove.add(p);
             }
         }
-        /*   FOR NOW COMMENTED OUT    TODO
-        if(toRemove == null) return;
         for(Appointment p : toRemove)
         {
-            ArrayList<Patient> patients= p.DoctorGet().getFuturePatients();
-            ArrayList<Patient> patients_past= p.DoctorGet().getPreviousPatients();
-            patients_past.remove(p.PatientGet());
-            p.DoctorGet().setPreviousPatients(patients_past);
-            if(!(p.DoctorGet().getPreviousPatients().contains(p.PatientGet())))
-            {
-                patients.add(p.PatientGet());
-                p.DoctorGet().setFuturePatients(patients);
-            }
+//            ArrayList<Patient> patients= p.DoctorGet().getFuturePatients();
+//            ArrayList<Patient> patients_past= p.DoctorGet().getPreviousPatients();
+//            patients_past.remove(p.PatientGet());
+//            p.DoctorGet().setPreviousPatients(patients_past);
+//            if(!(p.DoctorGet().getPreviousPatients().contains(p.PatientGet())))
+//            {
+//                patients.add(p.PatientGet());
+//                p.DoctorGet().setFuturePatients(patients);
+//            }
             reserved_appointments.remove(p);
         }
-         */
     }
     // Getter and setters
     public String getEmail() {
