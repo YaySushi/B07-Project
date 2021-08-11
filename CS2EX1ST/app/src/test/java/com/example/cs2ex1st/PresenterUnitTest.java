@@ -65,7 +65,7 @@ public class PresenterUnitTest {
         when(view.getEmail()).thenReturn("null@b07.com");
         when(view.getPassword()).thenReturn("kek");
         when(model.checkEmail("null@b07*com")).thenReturn(true);
-        when(model.checkPassword("null@b07.com","kek")).thenReturn(false);
+        when(model.checkPassword("null@b07*com","kek")).thenReturn(false);
         Presenter presenter=new Presenter(model,view);
         presenter.validateUser();
         verify(view).displayMessage("Password is incorrect.");
