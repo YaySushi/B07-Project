@@ -1,9 +1,12 @@
 package com.example.cs2ex1st;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -37,9 +40,24 @@ public class PatientProfile extends AppCompatActivity {
     }
 
     public void patientLogOut(View vie) {
-        LoggedInUser.setUser(null);
-        LoggedInUser.setInspectingPatient(null);
-        Intent intent = new Intent(this, MainActivity.class);
-        startActivity(intent);
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Confirm Log-out");
+        builder.setPositiveButton("Confirm", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                LoggedInUser.setUser(null);
+                LoggedInUser.setInspectingPatient(null);
+                Toast.makeText(getApplicationContext(), "Logged-out successfully", Toast.LENGTH_LONG);
+                Intent intent = new Intent(PatientProfile.this, MainActivity.class);
+                startActivity(intent);
+            }
+        });
+        builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                // Closes dialog
+            }
+        });
+        builder.create().show();
     }
 }
