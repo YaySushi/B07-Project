@@ -1,96 +1,102 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFFFFF"
-    tools:context=".PatientFutureAppt">
+    android:fillViewport="true">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclePatientFuture"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:background="@color/background_gray"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView53" />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#FFFFFF"
+        tools:context=".PatientFutureAppt">
 
-    <TextView
-        android:id="@+id/textView54"
-        android:layout_width="335dp"
-        android:layout_height="161dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="16dp"
-        android:background="@drawable/next_appointment_box"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclePatientFuture"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@color/background_gray"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView53" />
 
-    <TextView
-        android:id="@+id/textView48"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="8dp"
-        android:text="Next Appointment"
-        android:textColor="#3C3C3C"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="@+id/textView54"
-        app:layout_constraintTop_toTopOf="@+id/textView54" />
+        <TextView
+            android:id="@+id/textView54"
+            android:layout_width="335dp"
+            android:layout_height="161dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/next_appointment_box"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/textView49"
-        android:layout_width="45dp"
-        android:layout_height="23dp"
-        android:layout_marginTop="8dp"
-        android:text="Doctor"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="@+id/textView48"
-        app:layout_constraintTop_toBottomOf="@+id/textView48" />
+        <TextView
+            android:id="@+id/textView48"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="8dp"
+            android:text="Next Appointment"
+            android:textColor="#3C3C3C"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@+id/textView54"
+            app:layout_constraintTop_toTopOf="@+id/textView54" />
 
-    <TextView
-        android:id="@+id/textView50"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="Time and Date"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="@+id/next_appt_docname"
-        app:layout_constraintTop_toBottomOf="@+id/next_appt_docname" />
+        <TextView
+            android:id="@+id/textView49"
+            android:layout_width="45dp"
+            android:layout_height="23dp"
+            android:layout_marginTop="8dp"
+            android:text="Doctor"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@+id/textView48"
+            app:layout_constraintTop_toBottomOf="@+id/textView48" />
 
-    <TextView
-        android:id="@+id/next_appt_docname"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Doctor Name"
-        android:textSize="20sp"
-        app:layout_constraintStart_toStartOf="@+id/textView49"
-        app:layout_constraintTop_toBottomOf="@+id/textView49" />
+        <TextView
+            android:id="@+id/textView50"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Time and Date"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@+id/next_appt_docname"
+            app:layout_constraintTop_toBottomOf="@+id/next_appt_docname" />
 
-    <TextView
-        android:id="@+id/next_appt_date"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="12:00am Tues 1 December"
-        android:textSize="20sp"
-        app:layout_constraintStart_toStartOf="@+id/textView50"
-        app:layout_constraintTop_toBottomOf="@+id/textView50" />
+        <TextView
+            android:id="@+id/next_appt_docname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Doctor Name"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="@+id/textView49"
+            app:layout_constraintTop_toBottomOf="@+id/textView49" />
 
-    <TextView
-        android:id="@+id/textView53"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
-        android:text="Upcoming Appointments"
-        android:textSize="12sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/next_appt_date" />
+        <TextView
+            android:id="@+id/next_appt_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="12:00am Tues 1 December"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="@+id/textView50"
+            app:layout_constraintTop_toBottomOf="@+id/textView50" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:id="@+id/textView53"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginRight="16dp"
+            android:text="Upcoming Appointments"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/next_appt_date" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

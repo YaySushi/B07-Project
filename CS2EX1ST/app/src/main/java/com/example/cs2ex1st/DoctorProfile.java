@@ -1,7 +1,6 @@
 package com.example.cs2ex1st;
 
 import android.app.AlertDialog;
-import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -47,7 +46,6 @@ public class DoctorProfile extends AppCompatActivity {
     }
 
     public void deleteProfile(View view) {
-
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Confirm Deletion");
         builder.setPositiveButton("Confirm", new DialogInterface.OnClickListener() {
@@ -61,6 +59,7 @@ public class DoctorProfile extends AppCompatActivity {
                 FirebaseWrapper.updateDatabase();
                 FirebaseWrapper.deleteDoctorFromDatabase(d);
                 LoggedInUser.setUser(null);
+                LoggedInUser.setInspectingPatient(null);
                 Toast.makeText(getApplicationContext(), "Account deleted successfully", Toast.LENGTH_LONG);
                 Intent intent = new Intent(DoctorProfile.this, MainActivity.class);
                 startActivity(intent);
@@ -75,10 +74,25 @@ public class DoctorProfile extends AppCompatActivity {
         builder.create().show();
     }
 
-    public void doctorLogOut(View vie) {
-        LoggedInUser.setUser(null);
-        LoggedInUser.setInspectingPatient(null);
-        Intent intent = new Intent(this, MainActivity.class);
-        startActivity(intent);
+    public void doctorLogOut(View view) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Confirm Log-out");
+        builder.setPositiveButton("Confirm", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                LoggedInUser.setUser(null);
+                LoggedInUser.setInspectingPatient(null);
+                Toast.makeText(getApplicationContext(), "Logged-out successfully", Toast.LENGTH_LONG);
+                Intent intent = new Intent(DoctorProfile.this, MainActivity.class);
+                startActivity(intent);
+            }
+        });
+        builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                // Closes dialog
+            }
+        });
+        builder.create().show();
     }
 }

@@ -20,15 +20,12 @@ public class PatientListAdapter extends RecyclerView.Adapter<PatientListAdapter.
         private TextView patientNameTextView;
         private TextView patientGender;
         private TextView patientDOB;
-        private TextView listDoctors;
 
         public ViewHolder(View view) {
             super(view);
-
             patientNameTextView = (TextView)view.findViewById(R.id.patient_list_name);
             patientGender = (TextView)view.findViewById(R.id.patient_list_gender);
             patientDOB = (TextView)view.findViewById(R.id.patient_info_dob);
-            //listDoctors = (TextView)view.findViewById(R.id.list_doctors);
         }
     }
 
@@ -50,7 +47,6 @@ public class PatientListAdapter extends RecyclerView.Adapter<PatientListAdapter.
         viewHolder.patientNameTextView.setText(cur.toString());
         viewHolder.patientGender.setText(cur.getGender());
         viewHolder.patientDOB.setText(cur.getDOB());
-        //viewHolder.listDoctors.setText("List of Doctors Visited: " + cur.getPreviousDoctors());
     }
 
     @Override
