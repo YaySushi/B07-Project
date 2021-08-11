@@ -16,7 +16,7 @@ public class LogInActivity extends AppCompatActivity implements Contract.View {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_log_in);
-        setTitle("Login");
+        setTitle("Log in");
         logInErrorText = (TextView) findViewById(R.id.errorText1);
         logInErrorText.setText("");
 

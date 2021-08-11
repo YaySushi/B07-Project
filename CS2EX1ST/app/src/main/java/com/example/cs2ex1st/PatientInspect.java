@@ -26,7 +26,7 @@ public class PatientInspect extends AppCompatActivity {
         tv_name.setText(inspectingPatient.getFirstName() + " " + inspectingPatient.getLastName());
 
         TextView tv_email = (TextView) findViewById(R.id.textView57);
-        tv_email.setText(inspectingPatient.getEmail());
+        tv_email.setText(inspectingPatient.getEmail().replace('*', '.'));
 
         TextView tv_gender = (TextView) findViewById(R.id.textView61);
         tv_gender.setText(inspectingPatient.getGender());
