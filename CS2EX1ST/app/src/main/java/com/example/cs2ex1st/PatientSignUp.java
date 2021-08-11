@@ -1,5 +1,7 @@
 package com.example.cs2ex1st;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -22,7 +24,9 @@ import java.util.InputMismatchException;
 
 public class PatientSignUp extends AppCompatActivity {
     private Spinner spinner;
-    private TextView errorText;
+    private TextView errorText, previousDoctorsText;
+    private ArrayList<String> prevDoctors = new ArrayList<>();
+    boolean[] selectedItems;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,14 +38,70 @@ public class PatientSignUp extends AppCompatActivity {
         genderAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(genderAdapter);
         errorText = (TextView) findViewById(R.id.patientSignInErrorText);
+        previousDoctorsText = (TextView) findViewById(R.id.prevDoctorsList);
+        ArrayList<Doctor> allDoctors = FirebaseWrapper.getDoctorList();
+        String[] displayItems = getDoctorNames(allDoctors);
+        selectedItems = new boolean[displayItems.length];
+        previousDoctorsText.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AlertDialog.Builder builder= new AlertDialog.Builder(PatientSignUp.this);
+                builder.setTitle("Select Doctors");
+
+                builder.setMultiChoiceItems(displayItems, selectedItems, new DialogInterface.OnMultiChoiceClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which, boolean isChecked) {
+                        if(isChecked){
+                            prevDoctors.add(allDoctors.get(which).getEmail());
+                        }
+                        else{
+                            prevDoctors.remove(allDoctors.get(which).getEmail());
+                        }
+                    }
+                });
+                builder.setPositiveButton("Confirm", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        String display = "";
+                        for(String email: prevDoctors){
+                            display += FirebaseWrapper.getDoctorWithKey(email).getFirstName() + ", ";
+                        }
+                        if(display.length() > 2) display = display.substring(0, display.length()-2);
+                        previousDoctorsText.setText(display);
+                    }
+                });
+                builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        // Do nothing
+                        prevDoctors.clear();
+                        for(int i = 0; i < selectedItems.length; i++){
+                            selectedItems[i] = false;
+                        }
+                        previousDoctorsText.setText("");
+                    }
+                });
+                builder.create().show();
+            }
+
+        });
         errorText.setText("");
     }
-
     public void patientLogInInstead(View view) {
         Intent intent = new Intent(this, LogInActivity.class);
         startActivity(intent);
     }
-
+    private String[] getDoctorNames(ArrayList<Doctor> allDoctors){
+        ArrayList<String> doctors = new ArrayList<>();
+        for(Doctor d: allDoctors){
+            doctors.add(
+                    d.getFirstName() + " " + d.getLastName() + "\n" +
+                            d.getGender() + ", " + d.getSpecialization());
+        }
+        String[] s = new String[doctors.size()];
+        doctors.toArray(s);
+        return s;
+    }
     public void submitPatientData(View view) {
         EditText editText = (EditText) findViewById(R.id.patientfirstname);
         String firstName = editText.getText().toString();
@@ -55,17 +115,18 @@ public class PatientSignUp extends AppCompatActivity {
         editText = (EditText) findViewById(R.id.patientPassword);
         String password = editText.getText().toString();
 
-        editText = (EditText) findViewById(R.id.prevDoctorsList);
-        String[] prevDocsArray = editText.getText().toString().split(",");
-
-        ArrayList<String> prevDocsList = new ArrayList<String>();
-        for (String doc:prevDocsArray) {
-            prevDocsList.add(doc);
-        }
 
         User p1;
         try {
-            p1 = new Patient(firstName, lastName, email, spinner.getSelectedItem().toString(), dob, prevDocsList, password);
+
+            p1 = new Patient(
+                    firstName,
+                    lastName,
+                    email,
+                    spinner.getSelectedItem().toString(),
+                    dob,
+                    prevDoctors,
+                    password);
         } catch (InputMismatchException ex) {
             errorText.setText(ex.getMessage());
             return;
@@ -80,7 +141,6 @@ public class PatientSignUp extends AppCompatActivity {
                 } else {
                     ref2.child("Patient").child(p1.getEmail()).setValue(p1);
                     ref2.child("ID").child(p1.getEmail()).setValue(p1.getPassword() + ", Patient");
-                    FirebaseWrapper.setUpHashMaps();
 
                     errorText.setText("");
                     Intent intent = new Intent(PatientSignUp.this, SignUpSuccess.class);

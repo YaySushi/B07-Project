@@ -42,6 +42,7 @@ public class FirebaseWrapper {
                     T t = child.getValue(typeClass);
                     list.put(child.getKey(),t);
                 }
+                printHashMap(list);
             }
 
             @Override
@@ -53,7 +54,7 @@ public class FirebaseWrapper {
     public static <T extends Object> void printHashMap(HashMap<String,T> map){
         for (String key: map.keySet()) {
             String value = map.get(key).toString();
-            Log.i(key , value);
+            Log.i("Firebase", key + ": " + value);
         }
     }
     public static void updateDatabase(){

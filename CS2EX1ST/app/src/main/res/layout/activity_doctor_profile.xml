@@ -225,6 +225,7 @@
             android:layout_marginBottom="20dp"
             android:onClick="doctorLogOut"
             android:text="@string/log_out"
+            app:backgroundTint="@color/teal_200"
             app:layout_constraintBottom_toTopOf="@+id/button20"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"

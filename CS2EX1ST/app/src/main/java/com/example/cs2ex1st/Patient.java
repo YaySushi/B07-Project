@@ -15,6 +15,9 @@ public class Patient extends User implements Serializable {
                    String password)
     {
         super(firstname,lastname,email, gender, password);
+        if(prevDoctors.size() == 0){
+            throw new InputMismatchException("Please choose at least 1 previously seen doctor");
+        }
         this.DOB = DOB;
         this.previousDoctors = prevDoctors;
     }
@@ -63,15 +66,7 @@ public class Patient extends User implements Serializable {
     }
     public boolean book_appointment(Appointment app)
     {
-        boolean can_reserve=true;
-//        for(Appointment a:prior_appointments)
-//        {
-//            if(a.DoctorGet()==app.DoctorGet())
-//            {
-//                can_reserve=true;
-//                break;
-//            }
-//        }
+        boolean can_reserve= previousDoctors.contains(app.DoctorGet().getEmail());
         if(can_reserve && !app.isBooked())
         {
             app.setBooked(true);

@@ -1,5 +1,8 @@
 package com.example.cs2ex1st;
 
+import android.app.AlertDialog;
+import android.app.Dialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -46,6 +49,7 @@ public class DoctorProfile extends AppCompatActivity {
     public void deleteProfile(View view) {
 
         // TODO delete profile
+        
         Doctor d = (Doctor)LoggedInUser.getUser();
         for(Patient p:FirebaseWrapper.getPatientList())
         {

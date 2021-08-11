@@ -34,7 +34,7 @@
     <string name="doc_patient">My Patients</string>
     <string name="return_to_home">Return</string>
     <string name="prev_doctors">Enter your previously visited doctors:</string>
-    <string name="hint_prev_docs">Bob Ross,Jane Doe,John Doe</string>
+    <string name="hint_prev_docs">Tap to select Doctors</string>
     <string-array name="gender">
         <item>Choose...</item>
         <item>Male</item>
