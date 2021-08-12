@@ -40,6 +40,14 @@ public class Patient extends User implements Serializable {
     {
         ArrayList<Appointment> past_to_remove=new ArrayList<Appointment>();
         ArrayList<Appointment> future_to_remove=new ArrayList<Appointment>();
+        ArrayList<String> past_doctors_to_remove = new ArrayList<String>();
+        for(String docKey : this.previousDoctors) {
+            if(docKey.equals(doc.getEmail().replace('.', '*'))) {
+                past_doctors_to_remove.add(docKey);
+            }
+        }
+        for(String docKey : past_doctors_to_remove) this.previousDoctors.remove(docKey);
+
         for(Appointment p:prior_appointments)
         {
             if(p.DoctorGet()==doc)
