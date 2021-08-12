@@ -35,7 +35,7 @@ public class Doctor extends User implements Serializable {
         int curDay = today.get(Calendar.DATE);
         int curMonth = today.get(Calendar.MONTH);
         int curYear = today.get(Calendar.YEAR);
-        lastDayUpdated = curDay + "/" + curMonth + "/" + curYear;
+        lastDayUpdated = curDay + "/" + (curMonth+1) + "/" + curYear;
         for(int hour = STARTING_HOUR; hour < ENDING_HOUR; hour++){
             tomorrow.set(curYear, curMonth, curDay+1);
             Appointment appt = new Appointment(
@@ -53,7 +53,7 @@ public class Doctor extends User implements Serializable {
 
         // if the current day has passed refresh the available appointments
         Calendar today = Calendar.getInstance();
-        String curDay = today.get(Calendar.DATE) + "/" + today.get(Calendar.MONTH) + "/" + today.get(Calendar.YEAR);
+        String curDay = today.get(Calendar.DATE) + "/" + (today.get(Calendar.MONTH)+1) + "/" + today.get(Calendar.YEAR);
         if(!lastDayUpdated.equals(curDay)){
             addFreeAppointments();
         }
