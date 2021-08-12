@@ -87,9 +87,9 @@ public class BookingRecyclerAdapter
                         Patient user = (Patient)LoggedInUser.getUser();
 
                         if(user.book_appointment(selectedAppointment)){
-                            Toast.makeText(context, "Appointment Sucessfully Booked", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(context.getApplicationContext(), "Appointment Sucessfully Booked", Toast.LENGTH_SHORT).show();
                             user.addToPreviousDoctors(cur.getEmail().replace('.', '*'));
-                            FirebaseWrapper.updateDatabase();
+                            //FirebaseWrapper.updateDatabase();
                         }
                         else{
                             Toast.makeText(context, "Failed to book an appointment", Toast.LENGTH_SHORT).show();

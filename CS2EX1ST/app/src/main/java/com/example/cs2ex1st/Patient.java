@@ -70,7 +70,7 @@ public class Patient extends User implements Serializable {
         {
             reserved_appointments.remove(p);
         }
-        FirebaseWrapper.updateDatabase();
+
     }
     public boolean book_appointment(Appointment app)
     {
@@ -84,9 +84,11 @@ public class Patient extends User implements Serializable {
             //patients.add(this);
             //app.DoctorGet().setFuturePatients(patients);
             this.addAppointment(reserved_appointments,app);
-            //FirebaseWrapper.addDoctorToDatabase(app.DoctorGet());
-            //FirebaseWrapper.addPatientToDatabase(app.PatientGet());
-            FirebaseWrapper.updateDatabase();
+            Doctor d = app.DoctorGet();
+            Patient p = app.PatientGet();
+            FirebaseWrapper.updateDatabaseDoctor(d);
+            FirebaseWrapper.updateDatabasePatient(p);
+            //FirebaseWrapper.updateDatabase();
             return true;
         }
 

@@ -26,7 +26,9 @@ public class BookApptActivity extends AppCompatActivity {
         setTitle("Select a Doctor to see times");
         Patient p = (Patient) LoggedInUser.getUser();
         for(String email: p.getPreviousDoctors()){
-            allAvailableDoctors.add(FirebaseWrapper.getDoctorWithKey(email));
+            if(FirebaseWrapper.getIdList().contains(email)){
+                allAvailableDoctors.add(FirebaseWrapper.getDoctorWithKey(email));
+            }
         }
         displayDoctors = new ArrayList<Doctor>();
 

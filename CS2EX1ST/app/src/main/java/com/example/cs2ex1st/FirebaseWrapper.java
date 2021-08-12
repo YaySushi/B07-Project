@@ -63,14 +63,14 @@ public class FirebaseWrapper {
     public static void updateDatabase(){
         DatabaseReference ref = FirebaseDatabase.getInstance().getReference();
 
-        for(String key: doctors.keySet()){
-            ref.child(DOCTOR_KEY).child(key).setValue(doctors.get(key));
+        for(Doctor d: getDoctorList()){
+            ref.child(DOCTOR_KEY).child(d.getEmail()).setValue(d);
         }
-        for(String key: patients.keySet()){
-            ref.child(PATIENT_KEY).child(key).setValue(patients.get(key));
+        for(Patient p: getPatientList()){
+            ref.child(PATIENT_KEY).child(p.getEmail()).setValue(p);
         }
-        for(String key: emails.keySet()){
-            ref.child(ID_KEY).child(key).setValue(emails.get(key));
+        for(String id: getIdList()){
+            ref.child(ID_KEY).child(id).setValue(getEmails().get(id));
         }
     }
     public static void addPatientToDatabase(Patient addMe){
@@ -91,6 +91,14 @@ public class FirebaseWrapper {
         ref = FirebaseDatabase.getInstance().getReference(ID_KEY);
         ref.child(key).setValue(addMe.getPassword() + ", Doctor");
     }
+    public static void updateDatabaseDoctor(Doctor doctor){
+        DatabaseReference ref = FirebaseDatabase.getInstance().getReference(DOCTOR_KEY);
+        ref.child(doctor.getEmail()).setValue(doctor);
+    }
+    public static void updateDatabasePatient(Patient patient){
+        DatabaseReference ref = FirebaseDatabase.getInstance().getReference(PATIENT_KEY);
+        ref.child(patient.getEmail()).setValue(patient);
+    }
     public static void deleteDoctorFromDatabase(Doctor doctor){
         DatabaseReference ref = FirebaseDatabase.getInstance().getReference();
         ref.child(DOCTOR_KEY).child(doctor.email).removeValue();
@@ -105,7 +113,7 @@ public class FirebaseWrapper {
     public static ArrayList<String> getIdList(){
         return new ArrayList<String>(emails.keySet());
     }
-
+    public static ArrayList<String> getPassList(){ return new ArrayList<String>(emails.values()); }
     public static HashMap<String, Doctor> getDoctors() {
         return doctors;
     }
